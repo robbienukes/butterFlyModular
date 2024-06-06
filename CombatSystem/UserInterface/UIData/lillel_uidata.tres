@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BattlerUIData" load_steps=3 format=3 uid="uid://byqbsnlvolq3l"]
+
+[ext_resource type="Script" path="res://CombatSystem/UserInterface/BattlerUIData.gd" id="1_62ptm"]
+[ext_resource type="Texture2D" uid="uid://b4ea5nu630fbk" path="res://images/lellel.png" id="2_agv6q"]
+
+[resource]
+script = ExtResource("1_62ptm")
+display_name = "Lillel"
+texture = ExtResource("2_agv6q")

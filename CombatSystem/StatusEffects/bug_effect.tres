@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusEffectData" load_steps=2 format=3 uid="uid://cm4d50kpalnta"]
+
+[ext_resource type="Script" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="1_r23rr"]
+
+[resource]
+script = ExtResource("1_r23rr")
+effect = "bug"
+duration_seconds = 20.0
+effect_power = 0
+effect_rate = 0.0
+is_ticking = true
+ticking_interval = 4.0
+ticking_damage = 3

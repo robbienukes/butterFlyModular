@@ -1,0 +1,170 @@
+[gd_scene load_steps=12 format=3 uid="uid://cxhbrf4khkhg2"]
+
+[ext_resource type="Theme" uid="uid://cgqpa7qyt55cm" path="res://CombatSystem/UserInterface/theme/combat_ui_theme.tres" id="1_ebwrj"]
+[ext_resource type="Texture2D" uid="uid://ubwxiesdra34" path="res://CombatSystem/UserInterface/UIBattlerHUD/battler_hud_background.png" id="2_y573p"]
+[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUD.gd" id="3_nvcgt"]
+[ext_resource type="PackedScene" uid="uid://bemebl4cdvkcb" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIValueCounter.tscn" id="4_elheg"]
+
+[sub_resource type="Animation" id="Animation_pk3jg"]
+resource_name = "damage"
+length = 0.2
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00427227, 0.0333237, 0.0777553, 0.129877, 0.198233),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(0.0117647, 0.537255, 1, 0.823529), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4g5at"]
+resource_name = "danger"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:tint_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.811765, 0, 0.811765, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j8lnp"]
+_data = {
+"damage": SubResource("Animation_pk3jg"),
+"danger": SubResource("Animation_4g5at")
+}
+
+[sub_resource type="Animation" id="Animation_33ewv"]
+resource_name = "_setup"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8u74o"]
+resource_name = "deselect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-25, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.985539),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7t8t1"]
+resource_name = "select"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-25, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0709197, 0.213614, 0.9404),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.278431, 1, 1, 1), Color(0.831373, 0, 0.415686, 1), Color(0.278431, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wjp7i"]
+_data = {
+"_setup": SubResource("Animation_33ewv"),
+"deselect": SubResource("Animation_8u74o"),
+"select": SubResource("Animation_7t8t1")
+}
+
+[node name="UIBattlerHUD" type="TextureRect"]
+offset_left = -25.0
+offset_right = 409.0
+offset_bottom = 152.0
+theme = ExtResource("1_ebwrj")
+texture = ExtResource("2_y573p")
+script = ExtResource("3_nvcgt")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 44.0
+offset_bottom = 25.0
+text = "Bran"
+
+[node name="HealthCounter" parent="." instance=ExtResource("4_elheg")]
+modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 48.0
+offset_bottom = 47.0
+
+[node name="CounterPlayer" type="AnimationPlayer" parent="HealthCounter"]
+libraries = {
+"": SubResource("AnimationLibrary_j8lnp")
+}
+
+[node name="EnergyCounter" parent="." instance=ExtResource("4_elheg")]
+modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 71.0
+type = 1
+
+[node name="CounterPlayer" type="AnimationPlayer" parent="EnergyCounter"]
+libraries = {
+"": SubResource("AnimationLibrary_j8lnp")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wjp7i")
+}

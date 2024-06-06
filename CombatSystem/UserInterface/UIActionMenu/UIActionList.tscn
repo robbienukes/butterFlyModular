@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcwaqo2butd8r"]
+
+[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIActionMenu/UIActionList.gd" id="1_4qo5w"]
+[ext_resource type="PackedScene" uid="uid://cgmd3gidf05e5" path="res://CombatSystem/UserInterface/UIActionMenu/UIMenuSelectArrow.tscn" id="1_adonm"]
+
+[node name="UIActionList" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_4qo5w")
+
+[node name="UIMenuSelectArrow" parent="." instance=ExtResource("1_adonm")]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnqhe2fqprb54"]
+
+[ext_resource type="Script" path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.gd" id="1_1ptqr"]
+[ext_resource type="Texture2D" uid="uid://xbt6hgjvcgcx" path="res://CombatSystem/UserInterface/UITurnBar/turn_bar_bg (2).png" id="2_bdq34"]
+
+[sub_resource type="Animation" id="Animation_hvq5q"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hxxgf"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ljjh1"]
+resource_name = "setup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xltnk"]
+_data = {
+"fade_in": SubResource("Animation_hvq5q"),
+"fade_out": SubResource("Animation_hxxgf"),
+"setup": SubResource("Animation_ljjh1")
+}
+
+[node name="UITurnBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ptqr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xltnk")
+}
+autoplay = "fade_in"
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -465.5
+offset_top = 64.0
+offset_right = 465.5
+offset_bottom = 83.0
+grow_horizontal = 2
+texture = ExtResource("2_bdq34")
+expand_mode = 5

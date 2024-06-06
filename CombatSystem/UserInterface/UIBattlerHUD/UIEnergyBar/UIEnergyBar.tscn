@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ssjjdjenlgir"]
+
+[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEnergyBar/UIEnergyBar.gd" id="1_3j6fp"]
+
+[node name="UIEnergyBar" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3j6fp")

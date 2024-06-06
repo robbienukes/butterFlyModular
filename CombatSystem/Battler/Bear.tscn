@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cigryv5lgu51f"]
+
+[ext_resource type="Script" path="res://CombatSystem/Battler/Stats/Battler.gd" id="1_nirl0"]
+[ext_resource type="PackedScene" uid="uid://b4bjan5evidju" path="res://CombatSystem/Battler/BattlerAnim.tscn" id="2_r3mf8"]
+
+[node name="Bear" type="Node2D"]
+script = ExtResource("1_nirl0")
+
+[node name="BattlerAnim" parent="." instance=ExtResource("2_r3mf8")]
+
+[editable path="BattlerAnim"]

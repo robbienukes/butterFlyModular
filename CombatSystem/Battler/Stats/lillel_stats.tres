@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BattlerStats" load_steps=2 format=3 uid="uid://b4un5imx3o60a"]
+
+[ext_resource type="Script" path="res://CombatSystem/Battler/BattlerStats.gd" id="1_yd7xr"]
+
+[resource]
+script = ExtResource("1_yd7xr")
+max_health = 1000
+max_energy = 6
+base_attack = 10.0
+base_defense = 10.0
+base_speed = 3.0
+base_hit_chance = 100.0
+base_evasion = 0.0
+weaknesses = []
+affinity = 0
+upgradeable_stats = ["max_health", "max_energy", "attack", "defense", "speed", "hit_chance", "evasion"]

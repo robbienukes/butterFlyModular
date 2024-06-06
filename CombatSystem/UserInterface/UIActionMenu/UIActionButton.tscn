@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://rficl4340pry"]
+
+[ext_resource type="Theme" uid="uid://cgqpa7qyt55cm" path="res://CombatSystem/UserInterface/theme/combat_ui_theme.tres" id="1_cqs57"]
+[ext_resource type="Texture2D" uid="uid://hkp8svhi7b43" path="res://CombatSystem/UserInterface/UIActionMenu/images/menu_action_bg.png" id="1_xitqt"]
+[ext_resource type="Texture2D" uid="uid://t2v35jwdn54l" path="res://CombatSystem/UserInterface/UIActionMenu/images/menu_action_bg_pressed.png" id="2_6hdvn"]
+[ext_resource type="Texture2D" uid="uid://bc2ryjpo0hblw" path="res://CombatSystem/UserInterface/UIActionMenu/images/menu_action_bg_disabled.png" id="3_60gs3"]
+[ext_resource type="Texture2D" uid="uid://3kf7bvapqocy" path="res://CombatSystem/UserInterface/UIActionMenu/images/menu_action_bg_focused.png" id="4_gtn86"]
+[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIActionMenu/UIActionButton.gd" id="6_idsft"]
+
+[node name="UIActionButtons" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_cqs57")
+texture_normal = ExtResource("1_xitqt")
+texture_pressed = ExtResource("2_6hdvn")
+texture_disabled = ExtResource("3_60gs3")
+texture_focused = ExtResource("4_gtn86")
+script = ExtResource("6_idsft")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 13.0
+offset_right = -12.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "ActionButton"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

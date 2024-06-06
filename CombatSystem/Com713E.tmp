@@ -1,0 +1,87 @@
+[gd_scene load_steps=20 format=3 uid="uid://b2wkyh6lyaieg"]
+
+[ext_resource type="Script" path="res://CombatSystem/CombatDemo.gd" id="1_n02qs"]
+[ext_resource type="Script" path="res://CombatSystem/ActiveTurnQueue.gd" id="2_8fkr6"]
+[ext_resource type="PackedScene" uid="uid://bhbvl0momu8do" path="res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.tscn" id="3_prxlg"]
+[ext_resource type="PackedScene" uid="uid://bet1e21nea6yj" path="res://CombatSystem/UserInterface/UIActionMenu/UISelectBattlerArrow.tscn" id="4_ttjlo"]
+[ext_resource type="PackedScene" uid="uid://cigryv5lgu51f" path="res://CombatSystem/Battler/Bear.tscn" id="5_txlw3"]
+[ext_resource type="Resource" uid="uid://cmq84t3vy12b0" path="res://CombatSystem/Battler/Stats/new_resource.tres" id="6_vyv7q"]
+[ext_resource type="Resource" uid="uid://bfgwix3xebcb3" path="res://CombatSystem/Battler/Actions/Attacks/types/BasicAttack.tres" id="7_vqa86"]
+[ext_resource type="Resource" uid="uid://cjal3nlmm2l8j" path="res://CombatSystem/UserInterface/UIData/Bear.tres" id="8_f4hxu"]
+[ext_resource type="Texture2D" uid="uid://dmv5ikh7e1xrt" path="res://images/goblinBoy.png" id="9_7f4kp"]
+[ext_resource type="Script" path="res://CombatSystem/StatusEffects/StatusEffectContainer.gd" id="9_pvy3a"]
+[ext_resource type="PackedScene" uid="uid://cxu77t4vmiu3k" path="res://CombatSystem/Battler/Bug.tscn" id="10_oaxbu"]
+[ext_resource type="Resource" uid="uid://du8h0q67cbawt" path="res://CombatSystem/Battler/Stats/enemy_stats.tres" id="11_q1qks"]
+[ext_resource type="PackedScene" uid="uid://jafbkkkgepkg" path="res://CombatSystem/Battler/AI/AggressiveBattlerAI.tscn" id="12_vfcxm"]
+[ext_resource type="Resource" uid="uid://bxt86pcyykbqd" path="res://CombatSystem/UserInterface/UIData/Bug.tres" id="13_pyjif"]
+[ext_resource type="PackedScene" uid="uid://bnqhe2fqprb54" path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.tscn" id="14_ns07h"]
+[ext_resource type="Script" path="res://CombatSystem/UI.gd" id="14_rahtc"]
+[ext_resource type="Texture2D" uid="uid://bqrlm4ixxp1b" path="res://images/eyeBlood.png" id="15_hpdll"]
+[ext_resource type="PackedScene" uid="uid://jje61ll7wm7o" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUDList.tscn" id="15_tudh0"]
+[ext_resource type="PackedScene" uid="uid://o2qq51stcr1v" path="res://CombatSystem/UserInterface/UIDamageLabelBuilder.tscn" id="19_hjhto"]
+
+[node name="CombatDemo" type="Node2D"]
+script = ExtResource("1_n02qs")
+
+[node name="ActiveTurnQueue" type="Node2D" parent="."]
+script = ExtResource("2_8fkr6")
+UIActionMenuScene = ExtResource("3_prxlg")
+SelectArrow = ExtResource("4_ttjlo")
+
+[node name="Bran" parent="ActiveTurnQueue" instance=ExtResource("5_txlw3")]
+position = Vector2(877, 537)
+rotation = 6.28319
+scale = Vector2(0.323365, 0.323365)
+stats = ExtResource("6_vyv7q")
+actions = [ExtResource("7_vqa86")]
+is_party_member = true
+ui_data = ExtResource("8_f4hxu")
+
+[node name="Squirrel" parent="ActiveTurnQueue/Bran/BattlerAnim/Pivot" index="2"]
+position = Vector2(126.999, -114.001)
+texture = ExtResource("9_7f4kp")
+
+[node name="FrontAnchor" parent="ActiveTurnQueue/Bran/BattlerAnim" index="1"]
+position = Vector2(463.583, -396.995)
+
+[node name="TopAnchor" parent="ActiveTurnQueue/Bran/BattlerAnim" index="2"]
+position = Vector2(59.4783, -694.618)
+
+[node name="StatusEffectContainer" type="Node" parent="ActiveTurnQueue/Bran"]
+script = ExtResource("9_pvy3a")
+
+[node name="Eye" parent="ActiveTurnQueue" instance=ExtResource("10_oaxbu")]
+position = Vector2(206, 645)
+scale = Vector2(1.24848, 1.24848)
+stats = ExtResource("11_q1qks")
+ai_scene = ExtResource("12_vfcxm")
+actions = [ExtResource("7_vqa86")]
+ui_data = ExtResource("13_pyjif")
+
+[node name="Squirrel" parent="ActiveTurnQueue/Eye/BattlerAnim/Pivot" index="2"]
+texture = ExtResource("15_hpdll")
+
+[node name="FrontAnchor" parent="ActiveTurnQueue/Eye/BattlerAnim" index="1"]
+position = Vector2(-56.195, -186.486)
+
+[node name="TopAnchor" parent="ActiveTurnQueue/Eye/BattlerAnim" index="2"]
+position = Vector2(-19.6312, -236.844)
+
+[node name="StatusEffectContainer" type="Node" parent="ActiveTurnQueue/Eye"]
+script = ExtResource("9_pvy3a")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("14_rahtc")
+
+[node name="UITurnBar" parent="UI" instance=ExtResource("14_ns07h")]
+
+[node name="UIBattlerHUDList" parent="UI" instance=ExtResource("15_tudh0")]
+
+[node name="UIDamageLabelBuilder" parent="UI" instance=ExtResource("19_hjhto")]
+
+[connection signal="combat_ended" from="." to="UI" method="_on_combat_demo_combat_ended"]
+
+[editable path="ActiveTurnQueue/Bran"]
+[editable path="ActiveTurnQueue/Bran/BattlerAnim"]
+[editable path="ActiveTurnQueue/Eye"]
+[editable path="ActiveTurnQueue/Eye/BattlerAnim"]

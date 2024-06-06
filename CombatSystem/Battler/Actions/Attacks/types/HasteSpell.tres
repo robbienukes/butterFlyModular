@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AttackActionData" load_steps=3 format=3 uid="uid://bft5jnapi8yvw"]
+
+[ext_resource type="Script" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_k21jp"]
+[ext_resource type="Resource" uid="uid://e0g7fomskngg" path="res://CombatSystem/StatusEffects/haste_effect.tres" id="2_r4xfx"]
+
+[resource]
+script = ExtResource("1_k21jp")
+damage_multiplier = 0.0
+hit_chance = 100.0
+status_effect = ExtResource("2_r4xfx")
+label = "Haste"
+energy_cost = 0
+element = 0
+is_targeting_self = false
+is_targeting_all = false
+readiness_saved = 0.0

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttackActionData" load_steps=2 format=3 uid="uid://bfgwix3xebcb3"]
+
+[ext_resource type="Script" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_gk3nc"]
+
+[resource]
+script = ExtResource("1_gk3nc")
+damage_multiplier = 0.5
+hit_chance = 100.0
+label = "Attack"
+energy_cost = 0
+element = 0
+is_targeting_self = false
+is_targeting_all = false
+readiness_saved = 0.0
