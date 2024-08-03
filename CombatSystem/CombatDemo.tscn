@@ -1,35 +1,25 @@
-[gd_scene load_steps=31 format=3 uid="uid://b2wkyh6lyaieg"]
+[gd_scene load_steps=21 format=3 uid="uid://b2wkyh6lyaieg"]
 
 [ext_resource type="Script" path="res://CombatSystem/CombatDemo.gd" id="1_n02qs"]
 [ext_resource type="Script" path="res://CombatSystem/ActiveTurnQueue.gd" id="2_8fkr6"]
 [ext_resource type="Texture2D" uid="uid://bsj6mhitmrkh6" path="res://images/pixel_art_underground_cavern_w2.jpeg" id="2_bbp7b"]
 [ext_resource type="PackedScene" uid="uid://bhbvl0momu8do" path="res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.tscn" id="3_prxlg"]
 [ext_resource type="PackedScene" uid="uid://bet1e21nea6yj" path="res://CombatSystem/UserInterface/UIActionMenu/UISelectBattlerArrow.tscn" id="4_ttjlo"]
-[ext_resource type="PackedScene" uid="uid://cigryv5lgu51f" path="res://CombatSystem/Battler/Bear.tscn" id="5_txlw3"]
+[ext_resource type="PackedScene" uid="uid://cigryv5lgu51f" path="res://CombatSystem/Battler/Entities/Party/Bran.tscn" id="5_txlw3"]
 [ext_resource type="Resource" uid="uid://bfgwix3xebcb3" path="res://CombatSystem/Battler/Actions/Attacks/types/BasicAttack.tres" id="7_vqa86"]
-[ext_resource type="Resource" uid="uid://cjal3nlmm2l8j" path="res://CombatSystem/UserInterface/UIData/bran_uidata.tres" id="8_f4hxu"]
-[ext_resource type="Texture2D" uid="uid://dmv5ikh7e1xrt" path="res://images/goblinBoy.png" id="9_7f4kp"]
 [ext_resource type="Resource" uid="uid://bft5jnapi8yvw" path="res://CombatSystem/Battler/Actions/Attacks/types/HasteSpell.tres" id="9_7t01j"]
 [ext_resource type="Script" path="res://CombatSystem/StatusEffects/StatusEffectContainer.gd" id="9_pvy3a"]
 [ext_resource type="Resource" uid="uid://bmfvivxcyk5k2" path="res://CombatSystem/Battler/Actions/Attacks/types/SlowSpell.tres" id="9_segbj"]
-[ext_resource type="PackedScene" uid="uid://cxu77t4vmiu3k" path="res://CombatSystem/Battler/Bug.tscn" id="10_oaxbu"]
-[ext_resource type="Resource" uid="uid://du8h0q67cbawt" path="res://CombatSystem/Battler/Stats/fireDog_stats.tres" id="11_q1qks"]
+[ext_resource type="PackedScene" uid="uid://cxu77t4vmiu3k" path="res://CombatSystem/Battler/Entities/Enemies/Bug.tscn" id="10_oaxbu"]
 [ext_resource type="PackedScene" uid="uid://jafbkkkgepkg" path="res://CombatSystem/Battler/AI/AggressiveBattlerAI.tscn" id="12_vfcxm"]
 [ext_resource type="Resource" uid="uid://bxt86pcyykbqd" path="res://CombatSystem/UserInterface/UIData/bloodEye_uiData.tres" id="13_pyjif"]
 [ext_resource type="PackedScene" uid="uid://bnqhe2fqprb54" path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.tscn" id="14_ns07h"]
 [ext_resource type="Script" path="res://CombatSystem/UI.gd" id="14_rahtc"]
 [ext_resource type="Resource" uid="uid://cu8pedsjdfj63" path="res://CombatSystem/Battler/Stats/bloodEye_stats.tres" id="14_ysyvb"]
-[ext_resource type="Texture2D" uid="uid://bqrlm4ixxp1b" path="res://images/eyeBlood.png" id="15_hpdll"]
 [ext_resource type="PackedScene" uid="uid://jje61ll7wm7o" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUDList.tscn" id="15_tudh0"]
-[ext_resource type="PackedScene" uid="uid://dy0lih315penc" path="res://CombatSystem/Battler/Firedog.tscn" id="18_nn4oe"]
-[ext_resource type="Resource" uid="uid://b4un5imx3o60a" path="res://CombatSystem/Battler/Stats/lillel_stats.tres" id="19_1p7wr"]
-[ext_resource type="Resource" uid="uid://403t1j846nmn" path="res://CombatSystem/UserInterface/UIData/fireDog_uidata.tres" id="19_awd6j"]
+[ext_resource type="PackedScene" uid="uid://dy0lih315penc" path="res://CombatSystem/Battler/Entities/Enemies/Firedog.tscn" id="18_nn4oe"]
 [ext_resource type="PackedScene" uid="uid://o2qq51stcr1v" path="res://CombatSystem/UserInterface/UIDamageLabelBuilder.tscn" id="19_hjhto"]
-[ext_resource type="Texture2D" uid="uid://ddbc55b2n67wj" path="res://images/fireDog.png" id="20_t50nu"]
-[ext_resource type="PackedScene" uid="uid://b3oan7k8p87ac" path="res://CombatSystem/Battler/Lillel.tscn" id="21_4flw8"]
-[ext_resource type="Resource" uid="uid://coj37442evhu6" path="res://CombatSystem/Battler/Stats/bran_stats.tres" id="22_t7m3t"]
-[ext_resource type="Texture2D" uid="uid://b4ea5nu630fbk" path="res://images/lellel.png" id="23_p10ap"]
-[ext_resource type="Resource" uid="uid://byqbsnlvolq3l" path="res://CombatSystem/UserInterface/UIData/lillel_uidata.tres" id="23_sbair"]
+[ext_resource type="PackedScene" uid="uid://b3oan7k8p87ac" path="res://CombatSystem/Battler/Entities/Party/Lillel.tscn" id="21_4flw8"]
 
 [node name="CombatDemo" type="Node2D"]
 position = Vector2(1, 0)
@@ -49,10 +39,7 @@ SelectArrow = ExtResource("4_ttjlo")
 position = Vector2(909, 392)
 rotation = 6.28319
 scale = Vector2(0.323365, 0.323365)
-stats = ExtResource("22_t7m3t")
 actions = [ExtResource("7_vqa86"), ExtResource("9_segbj"), ExtResource("9_7t01j")]
-is_party_member = true
-ui_data = ExtResource("8_f4hxu")
 
 [node name="BattlerAnim" parent="ActiveTurnQueue/Bran" index="0"]
 position = Vector2(21.6475, 15.4623)
@@ -60,18 +47,13 @@ position = Vector2(21.6475, 15.4623)
 [node name="Pivot" parent="ActiveTurnQueue/Bran/BattlerAnim" index="0"]
 position = Vector2(34.0172, 15.4622)
 
-[node name="Squirrel" parent="ActiveTurnQueue/Bran/BattlerAnim/Pivot" index="2"]
-position = Vector2(346.36, 482.425)
-scale = Vector2(0.630917, 0.630917)
-texture = ExtResource("9_7f4kp")
-
 [node name="FrontAnchor" parent="ActiveTurnQueue/Bran/BattlerAnim" index="1"]
 position = Vector2(587.573, 361.818)
 
 [node name="TopAnchor" parent="ActiveTurnQueue/Bran/BattlerAnim" index="2"]
 position = Vector2(315.433, 77.3106)
 
-[node name="StatusEffectContainer" type="Node" parent="ActiveTurnQueue/Bran"]
+[node name="StatusEffectContainer2" type="Node" parent="ActiveTurnQueue/Bran"]
 script = ExtResource("9_pvy3a")
 
 [node name="Eye" parent="ActiveTurnQueue" instance=ExtResource("10_oaxbu")]
@@ -89,11 +71,6 @@ position = Vector2(4.80585, 6.40779)
 [node name="Pivot" parent="ActiveTurnQueue/Eye/BattlerAnim" index="0"]
 position = Vector2(4.00487, 6.40779)
 
-[node name="Squirrel" parent="ActiveTurnQueue/Eye/BattlerAnim/Pivot" index="2"]
-position = Vector2(4.00488, -0.800964)
-texture = ExtResource("15_hpdll")
-offset = Vector2(42.8643, 43.6903)
-
 [node name="FrontAnchor" parent="ActiveTurnQueue/Eye/BattlerAnim" index="1"]
 position = Vector2(-10.4127, 46.4565)
 
@@ -105,21 +82,13 @@ script = ExtResource("9_pvy3a")
 
 [node name="Lillel" parent="ActiveTurnQueue" instance=ExtResource("21_4flw8")]
 position = Vector2(901, 67)
-stats = ExtResource("19_1p7wr")
 actions = [ExtResource("7_vqa86")]
-is_party_member = true
-ui_data = ExtResource("23_sbair")
 
 [node name="BattlerAnim" parent="ActiveTurnQueue/Lillel" index="0"]
 position = Vector2(8, 5)
 
 [node name="Pivot" parent="ActiveTurnQueue/Lillel/BattlerAnim" index="0"]
 position = Vector2(6, 1)
-
-[node name="Squirrel" parent="ActiveTurnQueue/Lillel/BattlerAnim/Pivot" index="2"]
-position = Vector2(104, 188)
-scale = Vector2(0.257553, 0.257553)
-texture = ExtResource("23_p10ap")
 
 [node name="FrontAnchor" parent="ActiveTurnQueue/Lillel/BattlerAnim" index="1"]
 position = Vector2(-10, 201)
@@ -129,10 +98,6 @@ position = Vector2(87, 31)
 
 [node name="Firedog" parent="ActiveTurnQueue" instance=ExtResource("18_nn4oe")]
 position = Vector2(161, 178)
-stats = ExtResource("11_q1qks")
-ai_scene = ExtResource("12_vfcxm")
-actions = [ExtResource("7_vqa86")]
-ui_data = ExtResource("19_awd6j")
 metadata/_edit_group_ = true
 
 [node name="BattlerAnim" parent="ActiveTurnQueue/Firedog" index="0"]
@@ -140,11 +105,6 @@ position = Vector2(5, 1)
 
 [node name="Pivot" parent="ActiveTurnQueue/Firedog/BattlerAnim" index="0"]
 position = Vector2(0, 7)
-
-[node name="Squirrel" parent="ActiveTurnQueue/Firedog/BattlerAnim/Pivot" index="2"]
-position = Vector2(-1, -2)
-texture = ExtResource("20_t50nu")
-offset = Vector2(102, 73)
 
 [node name="FrontAnchor" parent="ActiveTurnQueue/Firedog/BattlerAnim" index="1"]
 position = Vector2(177, 86)

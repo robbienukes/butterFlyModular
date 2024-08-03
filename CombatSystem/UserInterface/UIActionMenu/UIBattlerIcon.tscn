@@ -25,4 +25,5 @@ offset_right = -206.196
 offset_bottom = -50.0612
 grow_horizontal = 2
 grow_vertical = 2
+expand_mode = 5
 stretch_mode = 5

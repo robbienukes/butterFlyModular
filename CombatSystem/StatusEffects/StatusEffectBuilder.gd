@@ -12,6 +12,7 @@ const StatusEffects := {
 	"haste": preload("res://CombatSystem/StatusEffects/StatusEffectHaste.gd"),
 	"slow": preload("res://CombatSystem/StatusEffects/StatusEffectSlow.gd"),
 	"bug": preload("res://CombatSystem/StatusEffects/StatusEffectBug.gd"),
+	"reflect": preload("res://CombatSystem/StatusEffects/StatusEffectReflect.gd"),
 }
 
 

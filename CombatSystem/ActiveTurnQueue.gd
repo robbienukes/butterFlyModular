@@ -3,6 +3,7 @@ class_name ActiveTurnQueue
 extends Node
 
 signal player_turn_finished
+signal ui_action_menu_reference_received(reference)
 
 var is_active := true: set = set_is_active
 var time_scale := 1.0: set = set_time_scale
@@ -11,25 +12,29 @@ var _party_members := []
 var _opponents := []
 var _is_player_playing := false
 var _queue_player := []
+var battlers := []
 
-@export var UIActionMenuScene: PackedScene
+# Directly reference the UIActionMenu node using the path
+@export var UIActionMenuScene : PackedScene
 
 @export var SelectArrow: PackedScene
 
-@onready var battlers := get_children()
-
-
-func _ready() -> void:
+func init(battler_array) -> void:
+	battlers = battler_array
 	player_turn_finished.connect(_on_player_turn_finished)
+	print("player turn finished connected")
 	for battler in battlers:
+		print("battler number", battler)
 		battler.setup(battlers)
 		battler.ready_to_act.connect(_on_Battler_ready_to_act.bind(battler))
+		print("ready to act connected for ", battler)
 		if battler.is_party_member:
 			_party_members.append(battler)
 		else:
 			_opponents.append(battler)
+		
 
-func set_is_active(value: bool) -> void:
+func set_is_active(value: bool,  ) -> void:
 	is_active = value
 	for battler in battlers:
 		battler.is_active = is_active
@@ -42,6 +47,7 @@ func set_time_scale(value: float) -> void:
 func _play_turn(battler: Battler) -> void:
 	var action_data: ActionData
 	var targets := []
+	print(battler," Turn starting")
 
 	battler.stats.energy += 1
 	battler.is_selected = true
@@ -58,15 +64,15 @@ func _play_turn(battler: Battler) -> void:
 	# Debug: Print potential targets
 	print("Potential targets for battler ", battler.name, ": ", potential_targets)
 
-
-
 	if battler.is_player_controlled():
 		battler.is_selected = true
 		set_time_scale(0.05)
+		print("time scale is ", time_scale)
 		_is_player_playing = true
 
 		var is_selection_complete := false
 		while not is_selection_complete:
+			print("Awaiting async for player ", battler)
 			action_data = await _player_select_action_async(battler)
 			if action_data.is_targeting_self:
 				targets = [battler]
@@ -88,12 +94,19 @@ func _play_turn(battler: Battler) -> void:
 	if battler.is_player_controlled():
 		player_turn_finished.emit()
 
-
-
 func _player_select_action_async(battler: Battler) -> ActionData:
 	# Every time the player has to select an action in the turn loop, we instantiate the menu.
 	var action_menu: UIActionMenu = UIActionMenuScene.instantiate()
-	add_child(action_menu)
+	print("Action menu instantiated")
+	
+	var target_node = get_parent().get_node("UI")
+	
+	if target_node:
+		target_node.add_child(action_menu)
+	else:
+		print("target node not found adding to parent instead")
+		add_child(action_menu)
+
 	# Calling its `open` method makes it appear and populates it with action buttons.
 	action_menu.open(battler)
 	# We then wait for the player to select an action in the menu and to return it.
@@ -116,6 +129,7 @@ func _player_select_targets_async(_action: ActionData, opponents: Array) -> Arra
 
 
 func _on_Battler_ready_to_act(battler: Battler) -> void:
+	print("Ready to act call successful")
 	if battler.is_player_controlled() and _is_player_playing:
 		_queue_player.append(battler)
 	else:

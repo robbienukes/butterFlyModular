@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusEffectData" load_steps=2 format=3 uid="uid://cw3gk64ro3xy0"]
+
+[ext_resource type="Script" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="1_b7iit"]
+
+[resource]
+script = ExtResource("1_b7iit")
+effect = "reflect"
+duration_seconds = 100.0
+effect_power = 20
+effect_rate = 0.5
+is_ticking = false
+ticking_interval = 4.0
+ticking_damage = 3

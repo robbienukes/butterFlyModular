@@ -194,7 +194,7 @@ libraries = {
 "": SubResource("AnimationLibrary_xkidb")
 }
 
-[node name="Squirrel" type="Sprite2D" parent="Pivot"]
+[node name="Sprite" type="Sprite2D" parent="Pivot"]
 position = Vector2(3, 3)
 texture = ExtResource("1_t0jnq")
 offset = Vector2(-10, -195)

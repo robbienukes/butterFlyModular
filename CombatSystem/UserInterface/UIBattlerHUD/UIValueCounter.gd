@@ -74,7 +74,7 @@ func set_target_value(amount: float) -> void:
 	_tween.play()
 
 
-func _on_Tween_tween_completed(object: Object, key: NodePath) -> void:
+func _on_Tween_tween_completed() -> void:
 	# There again, when the tween completes, we need to check for the counter's
 	# type.
 	if value < 0.2 * max_value and type == Type.HEALTH:

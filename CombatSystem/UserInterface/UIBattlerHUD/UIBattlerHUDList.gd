@@ -8,8 +8,9 @@ const UIBattlerHUD: PackedScene = preload("UIBattlerHUD.tscn")
 
 
 # Creates a battler HUD for each battler in the party.
-func setup(battlers: Array) -> void:
-	for battler in battlers:
+func setup(battlers_array) -> void:
+	print("Setting up UIBattlerHUDList with battlers:", battlers_array)
+	for battler in battlers_array:
 		var battler_hud: UIBattlerHUD = UIBattlerHUD.instantiate()
 		add_child(battler_hud)
 		battler_hud.setup(battler)

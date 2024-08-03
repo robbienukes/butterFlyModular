@@ -4,13 +4,13 @@
 
 [resource]
 script = ExtResource("1_yd7xr")
-max_health = 1000
+max_health = 100
 max_energy = 6
 base_attack = 10.0
 base_defense = 10.0
-base_speed = 3.0
+base_speed = 2.0
 base_hit_chance = 100.0
-base_evasion = 0.0
+base_evasion = 20.0
 weaknesses = []
 affinity = 0
 upgradeable_stats = ["max_health", "max_energy", "attack", "defense", "speed", "hit_chance", "evasion"]

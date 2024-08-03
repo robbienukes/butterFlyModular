@@ -55,7 +55,7 @@ func set_duration_seconds(value: float) -> void:
 	duration_seconds = value
 	_time_left = duration_seconds
 	
-	# Our status effects are nodes and they get into effect when added inside the battler's
+# Our status effects are nodes and they get into effect when added inside the battler's
 # `StatusEffectContainer` node.
 # `_start()` is a virtual method we'll override in derived classes.
 func _ready() -> void:

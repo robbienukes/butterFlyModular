@@ -16,7 +16,8 @@ class_name Battler
 
 @onready var battler_anim: BattlerAnim = $BattlerAnim
 
-@onready var _status_effect_container: StatusEffectContainer = $StatusEffectContainer
+# Create status effect container
+var _status_effect_container := StatusEffectContainer.new()
 
 # The turn queue will change this property when another battler is acting.
 var time_scale := 1.0:
@@ -37,6 +38,7 @@ var is_selectable: bool = true:
 	
 var _ai_instance: BattlerAI = null
 
+# Create status effect container
 	
 signal ready_to_act(battler)
 signal readiness_changed(new_value)
@@ -47,8 +49,6 @@ signal action_finished
 signal animation_finished(anim_name)
 
 @onready var animation_player: AnimationPlayer = $BattlerAnim/Pivot/AnimationPlayer
-
-
 
 # Allows the AI brain to get a reference to all battlers on the field.
 func setup(battlers: Array) -> void:
@@ -69,9 +69,10 @@ func get_ai() -> Node:
 	return _ai_instance
 
 func _process(delta: float) -> void:
+	var speed_stat := stats.get_stat("speed")
 	# Increments the `_readiness`. Note stats.speed isn't defined yet.
 	# You can also write this self._readiness += ...
-	_set_readiness(_readiness + stats.speed * delta * time_scale)
+	_set_readiness(_readiness + speed_stat  * delta * time_scale)
 
 
 # We will later need to propagate the time scale to status effects, which is why we use a
@@ -79,7 +80,6 @@ func _process(delta: float) -> void:
 func set_time_scale(value) -> void:
 	time_scale = value
 	_status_effect_container.time_scale = time_scale
-
 
 
 # Setter for the `_readiness` variable. Emits signals when the value changes and when the battler
@@ -120,19 +120,22 @@ func set_is_selectable(value) -> void:
 		
 		# Returns `true` if the battler is controlled by the player.
 func is_player_controlled() -> bool:
-	return ai_scene == null
+	print("battler: ", get_parent(), " ai_scene", self.ai_scene)
+	return self.ai_scene == null
 	
 	# We connect to the stats' `health_depleted` signal to react to the health reaching `0`.
 func _ready() -> void:
 	assert(stats is BattlerStats)
 	stats = stats.duplicate()
 	stats.initialize()
-	stats.health_depleted.connect(_on_BattlerStats_health_depleted)
 	stats.stat_changed.connect(_on_stat_changed)
+	stats.health_depleted.connect(_on_BattlerStats_health_depleted)
+	add_child(_status_effect_container)
 
 
 func _on_stat_changed(stat: String, old_value: float, new_value: float) -> void:
-	print(self, "%s changed to %f" % [stat, new_value])
+	print("%s changed from %f to %f" % [stat, old_value, new_value])
+
 	
 	
 func _on_BattlerStats_health_depleted() -> void:
@@ -156,6 +159,17 @@ func take_hit(hit: Hit) -> void:
 			if is_instance_valid(hit.effect):
 				print("Preparing to apply effect: %s" % [hit.effect])
 				_apply_status_effect(hit.effect)
+				# Check for ReflectStatus on the target
+				if _status_effect_container.has_node("StatusEffectReflect"):
+					print("Reflecting effect: %s" % [hit.effect])
+					# Apply the effect back to the attacker
+					if hit.effect != null:
+						hit.effect._target = self # swap the target to attacker
+						hit.effect._target = self  # Swap the target to the attacker
+						hit.effect._start()
+						hit.effect._apply()
+						hit.effect._expire()
+						print("Effect reflected to %s" % [name])
 			else:
 				print("Effect is invalid and cannot be applied.")
 		else:

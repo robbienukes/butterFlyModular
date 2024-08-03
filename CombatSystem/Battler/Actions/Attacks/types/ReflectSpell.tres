@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AttackActionData" load_steps=3 format=3 uid="uid://b777wj35tu3tr"]
+
+[ext_resource type="Script" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_w07sp"]
+[ext_resource type="Resource" uid="uid://cw3gk64ro3xy0" path="res://CombatSystem/StatusEffects/reflect_effect.tres" id="2_77pbx"]
+
+[resource]
+script = ExtResource("1_w07sp")
+damage_multiplier = 1.0
+hit_chance = 100.0
+status_effect = ExtResource("2_77pbx")
+label = "Reflect"
+energy_cost = 0
+element = 0
+is_targeting_self = false
+is_targeting_all = false
+readiness_saved = 0.0

@@ -36,7 +36,6 @@ func _init() -> void:
 func initialize() -> void:
 	_update_all()
 
-
 # Get the final value of a stat, with all modifiers applied to it.
 func get_stat(stat_name := "") -> float:
 	assert(stat_name in _stats_list)
@@ -48,14 +47,16 @@ func add_modifier(stat_name: String, modifier: float) -> int:
 	assert(stat_name in _stats_list)
 	_modifiers[stat_name].append(modifier)
 	_update(stat_name)
-	return len(_modifiers)
+	print("Added modifier:", modifier, "to stat:", stat_name, "New value:", _cache[stat_name])
+	return len(_modifiers[stat_name]) - 1
 
 
-# Removes a modifier from the stat corresponding to `stat_name`.
 func remove_modifier(stat_name: String, id: int) -> void:
 	assert(stat_name in _stats_list)
-	_modifiers[stat_name].erase(id)
-	_update(stat_name)
+	if id >= 0 and id < len(_modifiers[stat_name]):
+		_modifiers[stat_name].erase(id)
+		_update(stat_name)
+		print("Removed modifier at index:", id, "from stat:", stat_name, "New value:", _cache[stat_name])
 
 
 # Removes the last modifier applied the stat corresponding to `stat_name`.
@@ -63,6 +64,7 @@ func pop_modifier(stat_name: String) -> void:
 	assert(stat_name in _stats_list)
 	_modifiers[stat_name].pop_back()
 	_update(stat_name)
+	print("Popped last modifier from stat:", stat_name, "New value:", _cache[stat_name])
 
 
 # Remove all modifiers and recalculate stats.
@@ -70,6 +72,7 @@ func reset() -> void:
 	for stat in _modifiers.keys():
 		_modifiers[stat] = []
 	_update_all()
+	print("Reset all modifiers")
 
 
 # Calculates the final value of a single stat, its based value with all modifiers applied.
@@ -80,12 +83,13 @@ func _update(stat: String = "") -> void:
 		value += modifier
 	_cache[stat] = value
 	emit_signal("stat_changed", stat, value_start, value)
-
+	print("Updated stat:", stat, "from:", value_start, "to:", value)
 
 # Recalculates every stat from the base stat, with modifiers.
 func _update_all() -> void:
 	for stat in upgradeable_stats:
 		_update(stat)
+		print("Updated all stats")
 
 
 # Returns a list of stat properties as strings.

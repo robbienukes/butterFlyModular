@@ -6,10 +6,11 @@ signal action_selected
 
 # We preload our UIActionList scene to instantiate it from the code.
 # The file UIActionList.tscn must be in the same directory for this to work.
-const UIActionList := preload("res://CombatSystem/UserInterface/UIActionMenu/UIActionList.tscn")
+const UIActionList := preload("UIActionList.tscn")
 
 
 func _ready() -> void:
+	print("Action Menu Exists")
 	hide()
 
 
