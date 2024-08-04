@@ -1,10 +1,30 @@
+class_name StatusEffectReflect
 extends StatusEffect
 
-class_name ReflectStatus
 
-# Override the start method to initialize the reflect status effect
+
+func _init(target, data: StatusEffectData) -> void:
+	super._init(target, data)
+	id = "reflect"
+
 func _start() -> void:
-	print("ReflectStatus applied to %s" % [_target.name])
+	# Locate the nearest BattlerAnim node in the scene tree from the current node
+	var current_node = self
+	
+	# get the parent node
+	var parent_node = current_node.get_parent()
+	if parent_node: 
+		# get the aprent of the parent
+		var grandparent_node = parent_node.get_parent()
+		
+		if grandparent_node.name == "BattlerAnim":
+			grandparent_node.play("reflect")
+		
+		else:
+			print("Player not found")
+	else:
+		print("No parent")	
+			
 
 # Override the apply method to reflect the status effect back to the attacker
 func _apply() -> void:

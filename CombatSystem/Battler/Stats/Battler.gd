@@ -73,7 +73,7 @@ func _process(delta: float) -> void:
 	# Increments the `_readiness`. Note stats.speed isn't defined yet.
 	# You can also write this self._readiness += ...
 	_set_readiness(_readiness + speed_stat  * delta * time_scale)
-
+	
 
 # We will later need to propagate the time scale to status effects, which is why we use a
 # setter function.

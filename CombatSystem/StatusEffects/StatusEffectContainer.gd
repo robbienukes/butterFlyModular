@@ -11,7 +11,7 @@ const MAX_STACKS := 5
 const STACKING_EFFECTS := ["bug"]
 # List of effects that cannot be stacked. When a new effect of this kind is applied, it replaces or
 # refreshes the previous one.
-const NON_STACKING_EFFECTS := ["haste", "slow"]
+const NON_STACKING_EFFECTS := ["haste", "slow", "reflect"]
 
 # The two properties below work the same way as with the `ActiveTurnQueue`.
 # The setters assign the value to child nodes.
