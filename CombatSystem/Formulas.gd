@@ -2,16 +2,28 @@ class_name Formulas
 extends Node
 
 # Returns the product of the attacker's attack and the action's multiplier.
-static func calculate_potential_damage(action_data, attacker) -> float:
-	return attacker.stats.attack * action_data.damage_multiplier
+static func calculate_potential_physical_damage(action_data, attacker) -> float:
+	return attacker.stats.physical_attack * action_data.damage_multiplier
+
+
+# Returns the product of the attacker's attack and the action's multiplier.
+static func calculate_potential_magical_damage(action_data, attacker) -> float:
+	return attacker.stats.magical_attack * action_data.damage_multiplier
+
 
 # The base damage is "attacker.attack * action.multiplier - defender.defense".
 # The function multiplies it by a weakness multiplier, calculated by
 # `_calculate_weakness_multiplier` below. Finally, we ensure the value is an
 # integer in the [1, 999] range.
-static func calculate_base_damage(action_data, attacker, defender) -> int:
-	var damage: float = calculate_potential_damage(action_data, attacker)
-	damage -= defender.stats.defense
+static func calculate_base_physical_damage(action_data, attacker, defender) -> int:
+	var damage: float = calculate_potential_physical_damage(action_data, attacker)
+	damage -= defender.stats.physical_defense
+	damage *= _calculate_weakness_multiplier(action_data, defender)
+	return int(clamp(damage, 1.0, 999.0))
+	
+static func calculate_base_magical_damage(action_data, attacker, defender) -> int:
+	var damage: float = calculate_potential_magical_damage(action_data, attacker)
+	damage -= defender.stats.magical_defense
 	damage *= _calculate_weakness_multiplier(action_data, defender)
 	return int(clamp(damage, 1.0, 999.0))
 

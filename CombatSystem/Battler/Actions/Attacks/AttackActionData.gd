@@ -13,7 +13,9 @@ extends ActionData
 
 # Returns the total damage for the action, factoring in damage dealt by a status effect.
 func calculate_potential_damage_for(battler) -> int:
-	var total_damage: int = int(Formulas.calculate_potential_damage(self, battler))
+	var total_physical_damage: int = int(Formulas.calculate_potential_physical_damage(self, battler))
+	var total_magical_damage: int = int(Formulas.calculate_potential_magical_damage(self, battler))
+	var total_damage:= total_physical_damage + total_magical_damage
 	# Adding the effect's damage if applicable.
 	if status_effect:
 		total_damage += status_effect.calculate_total_damage()

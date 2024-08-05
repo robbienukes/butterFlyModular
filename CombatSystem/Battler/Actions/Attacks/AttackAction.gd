@@ -17,14 +17,20 @@ func _init(data: AttackActionData, actor, targets: Array) -> void:
 
 # Returns the damage dealt by this action. We will update this function
 # when we implement status effects.
-func calculate_potential_damage_for(target) -> int:
-	return Formulas.calculate_base_damage(_data, _actor, target)
+func calculate_potential_physical_damage_for(target) -> int:
+	return Formulas.calculate_base_physical_damage(_data, _actor, target)
+
+func calculate_potential_magical_damage_for(target) -> int:
+	return Formulas.calculate_base_magical_damage(_data, _actor, target)
 	
+
 func apply_async() -> bool:
 	var anim = _actor.battler_anim
 	for target in _targets:
 		var hit_chance = Formulas.calculate_hit_chance(_data, _actor, target)
-		var damage = calculate_potential_damage_for(target)
+		var physical_damage = calculate_potential_physical_damage_for(target)
+		var magical_damage = calculate_potential_magical_damage_for(target)
+		var damage = physical_damage + magical_damage
 		# We use the `StatusEffectBuilder` to instantiate the right effect.
 		var status: StatusEffect = StatusEffectBuilder.create_status_effect(
 			target, _data.status_effect

@@ -10,7 +10,7 @@ extends Resource
 
 signal stat_changed(stat, old_value, new_value)
 
-@export var upgradeable_stats = ["max_health", "max_energy", "attack", "defense", "speed", "hit_chance", "evasion"]
+@export var upgradeable_stats = ["max_health", "max_energy", "physical_attack", "magical_attack", "physical_defense", "magical_defense", "speed", "hit_chance", "evasion"]
 
 
 # Stores a cached array of property names that are stats as strings, that we use to find and

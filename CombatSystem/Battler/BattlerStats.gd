@@ -10,8 +10,10 @@ signal energy_changed(old_value, new_value)
 @export var max_health := 100
 @export var max_energy := 6
 
-@export var base_attack := 10.0: set = set_base_attack
-@export var base_defense := 10.0: set = set_base_defense
+@export var base_physical_attack := 10.0: set = set_base_physical_attack
+@export var base_physical_defense := 10.0: set = set_base_physical_defense
+@export var base_magical_attack := 10.0: set = set_base_magical_attack
+@export var base_magical_defense := 10.0: set = set_base_magical_defense
 @export var base_speed := 70.0: set = set_base_speed
 @export var base_hit_chance := 100.0: set = set_base_hit_chance
 @export var base_evasion := 0.0: set = set_base_evasion
@@ -23,8 +25,10 @@ signal energy_changed(old_value, new_value)
 var health := max_health: set = set_health
 var energy := 0: set = set_energy
 
-var attack := base_attack
-var defense := base_defense
+var physical_attack := base_physical_attack
+var magical_attack := base_magical_attack
+var physical_defense := base_physical_defense
+var magical_defense := base_magical_defense
 var speed := base_speed
 var hit_chance := base_hit_chance
 var evasion := base_evasion
@@ -61,11 +65,17 @@ func get_max_health() -> float:
 func get_max_energy() -> float:
 	return get_stat("max_energy")
 
-func get_base_attack() -> float:
-	return get_stat("attack")
+func get_base_physical_attack() -> float:
+	return get_stat("physical_attack")
+	
+func get_base_magical_attack() -> float:
+	return get_stat("magical_attack")
 
-func get_base_defense() -> float:
-	return get_stat("defense")
+func get_base_physical_defense() -> float:
+	return get_stat("physical_defense")
+	
+func get_base_magical_defense() -> float:
+	return get_stat("magical_defense")
 
 func get_base_speed() -> float:
 	return get_stat("speed")
@@ -76,20 +86,27 @@ func get_base_hit_chance() -> float:
 func get_base_evasion() -> float:
 	return get_stat("evasion")
 
-func set_base_attack(value: float) -> void:
-	base_attack = value
-	_update("attack")
+func set_base_physical_attack(value: float) -> void:
+	base_physical_attack = value
+	_update("physical_attack")
+	
+func set_base_magical_attack(value: float) -> void:
+	base_magical_attack = value
+	_update("magical_attack")
 
 
-func set_base_defense(value: float) -> void:
-	base_defense = value
-	_update("defense")
+func set_base_physical_defense(value: float) -> void:
+	base_physical_defense = value
+	_update("physical_defense")
+	
+func set_base_magical_defense(value: float) -> void:
+	base_magical_defense = value
+	_update("magical_defense")
 
 
 func set_base_speed(value: float) -> void:
 	base_speed = value
 	_update("speed")
-
 
 func set_base_hit_chance(value: float) -> void:
 	base_hit_chance = value

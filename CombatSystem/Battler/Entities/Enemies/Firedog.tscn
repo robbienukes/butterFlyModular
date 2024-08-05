@@ -17,7 +17,7 @@ ui_data = ExtResource("4_ujrgm")
 
 [node name="BattlerAnim" parent="." instance=ExtResource("2_3f0v8")]
 
-[node name="Sprite" parent="BattlerAnim/Pivot" index="2"]
+[node name="Sprite" parent="BattlerAnim/Pivot" index="3"]
 position = Vector2(0, 1)
 texture = ExtResource("6_l1urh")
 offset = Vector2(-3, -52)
