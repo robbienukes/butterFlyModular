@@ -28,7 +28,8 @@ func setup(battler: Battler) -> void:
 		var can_use_action: bool = battler.stats.energy >= action.energy_cost
 		# Instantiates a button and calls its `setup()` function.
 		var action_button = UIActionButton.instantiate()
-		print("Action button ", action, "created")
+		# debug
+		# print("Action button ", action, "created")
 		add_child(action_button)
 		action_button.setup(action, can_use_action)
 		# Here, we start using binds with the signal callbacks. For each button,

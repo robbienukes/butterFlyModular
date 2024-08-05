@@ -23,7 +23,6 @@ func _init() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	# When the user presses enter or escape, we emit the "target_selected" signal.
 	# Debug: Check if input is detected
-	print("Input event detected: ", event)
 	if event.is_action_pressed("ui_accept"):
 		emit_signal("target_selected", [_target_current])
 	elif event.is_action_pressed("ui_cancel"):
@@ -45,7 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		direction = Vector2.DOWN
 		
 	# Debug: Check which direction is being pressed
-	print("Direction pressed: ", direction)
+	#print("Direction pressed: ", direction)
 
 	# If the direction is not Vector2.ZERO, we try to find the closest target in that direction.
 	# See `_find_closest_target()` below for more information.

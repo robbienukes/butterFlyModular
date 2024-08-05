@@ -19,6 +19,8 @@ func init(battlers_array):
 	print("Battlers array received:", battlers)
 	# Call the setup function after initializing the battlers array
 	setup_combat()
+	# For testing
+	var test_combatModule_init = true
 
 
 # Function to set up the combat

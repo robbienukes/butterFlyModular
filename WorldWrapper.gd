@@ -10,6 +10,9 @@ const FIREDOG = preload("res://CombatSystem/Battler/Entities/Enemies/Firedog.tsc
 # Define your array of battlers
 var battlers_array = [BRAN, LILLEL, FIREDOG]
 
+# TEST - Worls State exists
+var world_state = "EXISTS"
+
 func _ready():
 	# Load the CombatModule scene
 	var combat_module_scene = load(COMBAT_MODULE_PATH)
@@ -19,5 +22,6 @@ func _ready():
 	add_child(combat_module_instance)
 	# Pass the battlers array to the CombatModule script
 	combat_module_instance.init(battlers_array)
+	
 	
 

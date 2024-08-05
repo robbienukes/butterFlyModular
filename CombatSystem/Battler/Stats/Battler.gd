@@ -90,7 +90,7 @@ func _set_readiness(value: float) -> void:
 
 	if _readiness >= 100.0:
 		ready_to_act.emit()
-		print("ready to act")
+		#print("ready to act")
 		# When the battler is ready to act, we pause the process loop. Doing so prevents _process from triggering another call to this function.
 		set_process(false)
 		
@@ -134,7 +134,8 @@ func _ready() -> void:
 
 
 func _on_stat_changed(stat: String, old_value: float, new_value: float) -> void:
-	print("%s changed from %f to %f" % [stat, old_value, new_value])
+	#print("%s changed from %f to %f" % [stat, old_value, new_value])
+	pass
 
 	
 	
@@ -159,17 +160,6 @@ func take_hit(hit: Hit) -> void:
 			if is_instance_valid(hit.effect):
 				print("Preparing to apply effect: %s" % [hit.effect])
 				_apply_status_effect(hit.effect)
-				# Check for ReflectStatus on the target
-				if _status_effect_container.has_node("StatusEffectReflect"):
-					print("Reflecting effect: %s" % [hit.effect])
-					# Apply the effect back to the attacker
-					if hit.effect != null:
-						hit.effect._target = self # swap the target to attacker
-						hit.effect._target = self  # Swap the target to the attacker
-						hit.effect._start()
-						hit.effect._apply()
-						hit.effect._expire()
-						print("Effect reflected to %s" % [name])
 			else:
 				print("Effect is invalid and cannot be applied.")
 		else:

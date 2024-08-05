@@ -64,7 +64,7 @@ func pop_modifier(stat_name: String) -> void:
 	assert(stat_name in _stats_list)
 	_modifiers[stat_name].pop_back()
 	_update(stat_name)
-	print("Popped last modifier from stat:", stat_name, "New value:", _cache[stat_name])
+	#print("Popped last modifier from stat:", stat_name, "New value:", _cache[stat_name])
 
 
 # Remove all modifiers and recalculate stats.
@@ -83,13 +83,13 @@ func _update(stat: String = "") -> void:
 		value += modifier
 	_cache[stat] = value
 	emit_signal("stat_changed", stat, value_start, value)
-	print("Updated stat:", stat, "from:", value_start, "to:", value)
+	#print("Updated stat:", stat, "from:", value_start, "to:", value)
 
 # Recalculates every stat from the base stat, with modifiers.
 func _update_all() -> void:
 	for stat in upgradeable_stats:
 		_update(stat)
-		print("Updated all stats")
+		#print("Updated all stats")
 
 
 # Returns a list of stat properties as strings.
