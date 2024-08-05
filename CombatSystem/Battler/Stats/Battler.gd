@@ -70,8 +70,7 @@ func get_ai() -> Node:
 
 func _process(delta: float) -> void:
 	var speed_stat := stats.get_stat("speed")
-	# Increments the `_readiness`. Note stats.speed isn't defined yet.
-	# You can also write this self._readiness += ...
+	# Increments the `_readiness`. 
 	_set_readiness(_readiness + speed_stat  * delta * time_scale)
 	
 
@@ -101,7 +100,6 @@ func set_is_active(value) -> void:
 	_status_effect_container.is_active = value
 
 	
-	
 func set_is_selected(value) -> void:
 	# This defensive check helps us ensure we don't attempt to change `is_selected` if the battler isn't selectable.
 	if value:
@@ -118,12 +116,12 @@ func set_is_selectable(value) -> void:
 	if not is_selectable:
 		set_is_selected(false)
 		
-		# Returns `true` if the battler is controlled by the player.
+# Returns `true` if the battler is controlled by the player.
 func is_player_controlled() -> bool:
 	print("battler: ", get_parent(), " ai_scene", self.ai_scene)
 	return self.ai_scene == null
 	
-	# We connect to the stats' `health_depleted` signal to react to the health reaching `0`.
+# We connect to the stats' `health_depleted` signal to react to the health reaching `0`.
 func _ready() -> void:
 	assert(stats is BattlerStats)
 	stats = stats.duplicate()

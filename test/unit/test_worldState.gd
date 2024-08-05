@@ -4,10 +4,8 @@ var world_wrapper = load("res://CombatSystem/WorldWrapper.tscn")
 var _world_wrapper = null;
 
 func before_each():
-		# Load the CombatModule scene
-	# Instantiate the CombatModule scene
 	_world_wrapper = world_wrapper.instantiate()
-	# Add it as a child of WorldWrapper
+	get_tree().root.add_child(_world_wrapper)
 	
 func after_each():
 	_world_wrapper.free()	
@@ -15,5 +13,8 @@ func after_each():
 func test_worldState():
 	assert_eq(_world_wrapper.world_state, "EXISTS", "World State Exists")
 
-func test_attack_made():
-	assert_eq(_world_wrapper.world_state, "EXISTS", "World State Exists")
+func test_bran_readiness():
+	var bran = _world_wrapper.get_node("CombatModule/ActiveTurnQueue/BRAN")
+	assert_not_null(bran, "Bran should be instantiated and accessible")
+	bran._set_readiness(100)
+	assert_eq(bran._readiness, 100, "Bran's readiness should be 100")
