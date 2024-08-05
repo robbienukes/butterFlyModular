@@ -13,9 +13,12 @@ enum CombatResult { DEFEAT, VICTORY }
 
 var battlers := []
 
+var names := []
+
 # Function to initialize the CombatModule with the battlers array
-func init(battlers_array):
+func init(battlers_array, battler_names):
 	battlers = battlers_array
+	names = battler_names
 	print("Battlers array received:", battlers)
 	# Call the setup function after initializing the battlers array
 	setup_combat()
@@ -32,6 +35,7 @@ func setup_combat() -> void:
 		var packed_scene = battlers[i]
 		if packed_scene is PackedScene:
 			var battler_instance = packed_scene.instantiate()
+			battler_instance.name = names[i]
 			if battler_instance:
 				print("Battler instantiated:", battler_instance)
 				active_turn_queue.add_child(battler_instance)

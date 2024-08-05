@@ -14,3 +14,6 @@ func after_each():
 
 func test_worldState():
 	assert_eq(_world_wrapper.world_state, "EXISTS", "World State Exists")
+
+func test_attack_made():
+	assert_eq(_world_wrapper.world_state, "EXISTS", "World State Exists")

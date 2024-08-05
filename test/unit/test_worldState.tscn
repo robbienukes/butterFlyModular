@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://k3p0ywl6urdk"]
-
-[ext_resource type="Script" path="res://test/unit/test_worldState.gd" id="1_hjogb"]
-
-[node name="GUT" type="Node"]
-script = ExtResource("1_hjogb")
