@@ -10,7 +10,6 @@ func _init(target, data) -> void:
 	id = "bug"
 	damage = data.ticking_damage
 	# We set `_can_stack` to `true` so this effect can stack up to five times.
-	# We'll see how in the next lesson.
 	_can_stack = true
 
 

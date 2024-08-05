@@ -42,6 +42,7 @@ func add(effect: StatusEffect) -> void:
 	
 	# The status effects are nodes so all we need to do is add it as a child of the container.
 	add_child(effect)
+	effect.name = effect.id
 
 # Removes all stacks of an effect of a given type.
 func remove_type(id: String) -> void:

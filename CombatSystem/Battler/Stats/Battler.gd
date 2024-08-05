@@ -129,6 +129,8 @@ func _ready() -> void:
 	stats.stat_changed.connect(_on_stat_changed)
 	stats.health_depleted.connect(_on_BattlerStats_health_depleted)
 	add_child(_status_effect_container)
+	_status_effect_container.name = "_status_effect_container"
+
 
 
 func _on_stat_changed(stat: String, old_value: float, new_value: float) -> void:

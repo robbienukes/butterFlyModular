@@ -18,3 +18,8 @@ func test_bran_readiness():
 	assert_not_null(bran, "Bran should be instantiated and accessible")
 	bran._set_readiness(100)
 	assert_eq(bran._readiness, 100, "Bran's readiness should be 100")
+
+func test_bran_action():
+	var bran = _world_wrapper.get_node("CombatModule/ActiveTurnQueue/BRAN")
+	bran._set_readiness(100)
+	assert_eq(bran._readiness, 100, "Bran's readiness should be 100")
