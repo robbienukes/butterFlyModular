@@ -29,6 +29,8 @@ func add(effect: StatusEffect) -> void:
 	# Ensure the effect is not already a child of another node
 	if effect.get_parent() != null:
 		effect.get_parent().remove_child(effect)
+		
+	effect.name = effect.id
 	
 	# If we already have active effects, we may have to replace one.
 	# If it can stack, we replace the one with the smallest time left.
@@ -42,7 +44,6 @@ func add(effect: StatusEffect) -> void:
 	
 	# The status effects are nodes so all we need to do is add it as a child of the container.
 	add_child(effect)
-	effect.name = effect.id
 
 # Removes all stacks of an effect of a given type.
 func remove_type(id: String) -> void:

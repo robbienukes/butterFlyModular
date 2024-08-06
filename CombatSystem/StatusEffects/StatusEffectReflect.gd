@@ -2,10 +2,10 @@ class_name StatusEffectReflect
 extends StatusEffect
 
 
-
 func _init(target, data: StatusEffectData) -> void:
 	super._init(target, data)
 	id = "reflect"
+	_can_stack = false
 
 func _start() -> void:
 	# Locate the nearest BattlerAnim node in the scene tree from the current node
@@ -19,6 +19,8 @@ func _start() -> void:
 		
 		if grandparent_node.name == "BattlerAnim":
 			grandparent_node.play("reflect")
+			# Testing
+			var test_reflect_anim = true;
 		
 		else:
 			print("Player not found")
