@@ -26,4 +26,6 @@ static func create_status_effect(target, data):
 	# You can store a reference to a class in a variable!
 	var effect_class = StatusEffects[data.effect]
 	var effect: StatusEffect = effect_class.new(target, data)
+	if target and effect:
+		target._status_effect_container.add_child(effect)
 	return effect
