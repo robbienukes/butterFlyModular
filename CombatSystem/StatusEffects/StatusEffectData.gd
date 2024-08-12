@@ -18,6 +18,9 @@ extends Resource
 # Damage inflicted by the effect every tick.
 @export var ticking_damage : int = 3
 
+# Flag to determine if the effect was just applied
+@export var effect_just_applied : bool = true
+
 
 # Returns the total theoretical damage the effect will inflict over time. For ticking effects.
 func calculate_total_damage() -> int:

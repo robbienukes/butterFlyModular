@@ -11,3 +11,4 @@ effect_rate = 0.0
 is_ticking = false
 ticking_interval = 0.0
 ticking_damage = 0
+effect_just_applied = true

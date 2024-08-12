@@ -19,6 +19,9 @@ class_name Battler
 # Create status effect container
 var _status_effect_container := StatusEffectContainer.new()
 
+# store last incoming action
+var last_incoming_action: Action = null
+
 # The turn queue will change this property when another battler is acting.
 var time_scale := 1.0:
 	set = set_time_scale
@@ -45,6 +48,7 @@ signal readiness_changed(new_value)
 signal selection_toggled(value)
 signal damage_taken(amount)
 signal hit_missed
+signal hit_taken(hit)
 signal action_finished
 signal animation_finished(anim_name)
 
@@ -150,10 +154,15 @@ func _on_BattlerStats_health_depleted() -> void:
 
 
 # Applies a hit object to the battler, dealing damage or status effects.
-func take_hit(hit: Hit) -> void:
+func take_hit(hit: Hit, action: Action) -> void:
+	# Store the action that caused the hit
+	#receive_action(action)
+	hit_taken.emit(hit, action)
+	
 	# We encapsulated the hit chance in the hit. The hit object tells us if
 	# we should take damage.
 	if hit.does_hit():
+		print("Applying damage:", hit.damage, "to", name)
 		_take_damage(hit.damage)
 		damage_taken.emit(hit.damage)
 		if hit.effect:
@@ -183,11 +192,14 @@ func _apply_status_effect(effect: StatusEffect) -> void:
 # Applies damage to the battler's stats.
 # Later, it should also trigger a damage animation.
 func _take_damage(amount: int) -> void:
+	print(name, "took", amount, "damage")
+
 	stats.health -= amount
-	print("%s took %s damage" % [name, amount])
+	print("New health for", name, ":", stats.health)
 
 	if stats.health > 0:
 		battler_anim.play("damage")
+		
 	
 	
 
@@ -217,4 +229,8 @@ func act(action) -> void:
 
 func is_fallen() -> bool:
 	return stats.health == 0
+	
+func receive_action(action: Action) -> void:
+	last_incoming_action = action
+	
 	

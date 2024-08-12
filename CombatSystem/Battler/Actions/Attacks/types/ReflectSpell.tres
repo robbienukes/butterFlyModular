@@ -9,6 +9,7 @@ damage_multiplier = 0.0
 hit_chance = 100.0
 status_effect = ExtResource("2_77pbx")
 label = "Reflect"
+action_type = 0
 energy_cost = 0
 element = 0
 is_targeting_self = false

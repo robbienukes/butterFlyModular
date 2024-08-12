@@ -22,12 +22,12 @@ var battlers := []
 func init(battler_array) -> void:
 	battlers = battler_array
 	player_turn_finished.connect(_on_player_turn_finished)
-	print("player turn finished connected")
+	# print("player turn finished connected")
 	for battler in battlers:
-		print("battler number", battler)
+		# print("battler number", battler)
 		battler.setup(battlers)
 		battler.ready_to_act.connect(_on_Battler_ready_to_act.bind(battler))
-		print("ready to act connected for ", battler)
+		# print("ready to act connected for ", battler)
 		if battler.is_party_member:
 			_party_members.append(battler)
 		else:
@@ -129,7 +129,7 @@ func _player_select_targets_async(_action: ActionData, opponents: Array) -> Arra
 
 
 func _on_Battler_ready_to_act(battler: Battler) -> void:
-	print("Ready to act call successful")
+	#print("Ready to act call successful")
 	if battler.is_player_controlled() and _is_player_playing:
 		_queue_player.append(battler)
 	else:

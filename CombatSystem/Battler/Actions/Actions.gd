@@ -1,6 +1,4 @@
 class_name Action
-# Reference is the default type you extend in Godot, even if you omit this line.
-# Godot allocates and frees instances of a Reference from memory for you.
 extends Node
 
 # Emitted when the action finished playing.
@@ -9,6 +7,7 @@ signal finished
 var _data: ActionData
 var _actor
 var _targets := []
+var is_reflected: bool = false # tracks if the action has been reflected
 
 
 # The constructor allows you to create actions from code like so:
@@ -37,3 +36,11 @@ func get_readiness_saved() -> float:
 # will use in the energy bar.
 func get_energy_cost() -> int:
 	return _data.energy_cost
+	
+	# Add this method to the Action class if it doesn't exist
+func set_targets(new_targets: Array) -> void:
+	_targets = new_targets
+
+# Inside your Action class
+func set_actor(new_actor) -> void:
+	_actor = new_actor

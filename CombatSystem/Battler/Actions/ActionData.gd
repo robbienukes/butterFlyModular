@@ -5,12 +5,16 @@ extends Resource
 # Having it in the file allows us to use it as an export hint and to have a
 # drop-down menu in the inspector. See `element` below.
 enum Elements { NONE, CODE, DESIGN, ART, BUG }
+enum ActionTypes { PHYSICAL, MAGICAL, ITEM, CONDITION }
+
 
 # The following two properties are for the user interface.
 # We will use them to represent the action in menus.
 @export var icon: Texture
 @export var label := "Base combat action"
 
+# Set explicit action type
+@export var action_type := ActionTypes.PHYSICAL
 # Amount of energy the action costs to perform.
 @export var energy_cost := 0
 # Elemental type of the action. We'll use it later to add bonus damage if
