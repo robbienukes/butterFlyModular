@@ -32,6 +32,10 @@ func _find_battler_node() -> Node:
 	return grandparent_node
 	
 func on_hit_taken(hit: Hit, action: Action) -> void:
+	if action.is_reflected:
+		print("Action already reflected, skipping to prevent infinite recursion.")
+		return
+	
 	print("Hit taken by battler:", hit)
 	print("Action that caused the hit:", action)
 	# Add your custom logic here
@@ -68,6 +72,10 @@ func _process(delta: float) -> void:
 		return
 
 func _reflect_action(action: Action) -> void:
+	if action.is_reflected:
+		print("Action already reflected, skipping to prevent infinite recursion.")
+		return
+	
 	var battler_node = _find_battler_node()
 	print("This is the battler node ",battler_node)
 	if battler_node == null:

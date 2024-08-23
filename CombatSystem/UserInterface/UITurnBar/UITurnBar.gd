@@ -8,8 +8,30 @@ extends Control
 # instead of using an `export var`.
 const BattlerIcon := preload("res://CombatSystem/UserInterface/UIActionMenu/UIBattlerIcon.tscn")
 
-@onready var _background: TextureRect = $Background
+#@onready var _background: TextureRect = $Background
 @onready var _anim_player: AnimationPlayer = $AnimationPlayer
+
+@onready var _line: ColorRect = $ColorRect
+
+func _ready() -> void:
+	# If _line is null, it means $ColorRect wasn't found, so create it programmatically.
+	if _line == null:
+		_line = ColorRect.new()
+		add_child(_line)
+
+	# Set the ColorRect properties
+	_line.color = Color.WHITE
+
+	# Set the size and position manually
+	#_line.anchor_left = 0   # Resetting anchors to avoid confusion
+	#_line.anchor_right = 0
+	#_line.anchor_top = 0
+	#_line.anchor_bottom = 0
+
+	_line.size = Vector2(800, 50)  # Set the width to 80% of the screen width manually
+	_line.position = Vector2(150, 100)      # Set position to 10% from the top, adjust as necessary
+
+	#print("Line position: ", _line.position, ", Line size: ", _line.size)
 
 
 # To initialize the turn bar, we pass all the battlers we want to display.
@@ -29,23 +51,23 @@ func setup(battlers: Array) -> void:
 		# Once again, we bind the icon to the callback for each battler, so we don't have to worry
 		# about which battler corresponds to which icon later.
 		battler.connect("readiness_changed", Callable(self, "_on_Battler_readiness_changed").bind(icon))
-		_background.add_child(icon)
-
+		_line.add_child(icon)
+		
 func create_icon(type: int, texture: Texture) -> UIBattlerIcon:
 	var icon: UIBattlerIcon = BattlerIcon.instantiate()
 	icon.icon = texture
 	icon.type = type
-	
-	# Calculate the global position range
-	var background_global_position = _background.global_position
-	var background_size = _background.size
-	
-	var leftmost_point = background_global_position.x
-	var rightmost_point = background_global_position.x + background_size.x
-	
+
+	# Calculate the position range based on the line's size and position
+	var leftmost_point = _line.position.x
+	var rightmost_point = _line.position.x + _line.size.x
+
 	icon.position_range = Vector2(leftmost_point, rightmost_point)
-	
+
+	#print("left point ", leftmost_point, " right point: ", rightmost_point)
+
 	return icon
+
 
 
 

@@ -79,7 +79,7 @@ func setup_combat() -> void:
 	
 	ui_turn_bar.setup(active_turn_queue.get_children())
 	ui_battler_hud_list.setup(in_party)
-	
+
 	for battler_instance in active_turn_queue.get_children():
 		battler_instance.stats.health_depleted.connect(_on_BattlerStats_health_depleted.bind(battler_instance))
 	

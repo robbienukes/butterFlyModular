@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3oan7k8p87ac"]
+[gd_scene load_steps=9 format=3 uid="uid://b3oan7k8p87ac"]
 
 [ext_resource type="Script" path="res://CombatSystem/Battler/Stats/Battler.gd" id="1_7bntg"]
 [ext_resource type="Resource" uid="uid://b4un5imx3o60a" path="res://CombatSystem/Battler/Stats/lillel_stats.tres" id="2_8tysl"]
@@ -7,11 +7,12 @@
 [ext_resource type="Resource" uid="uid://byqbsnlvolq3l" path="res://CombatSystem/UserInterface/UIData/lillel_uidata.tres" id="3_eqk7l"]
 [ext_resource type="Resource" uid="uid://bfgwix3xebcb3" path="res://CombatSystem/Battler/Actions/Attacks/types/BasicAttack.tres" id="3_sk26j"]
 [ext_resource type="Resource" uid="uid://b777wj35tu3tr" path="res://CombatSystem/Battler/Actions/Attacks/types/ReflectSpell.tres" id="4_pfsoy"]
+[ext_resource type="Resource" uid="uid://dlk3ojx57jllw" path="res://CombatSystem/Battler/Actions/Attacks/types/KnockbackSpell.tres" id="5_eyim8"]
 
 [node name="Battler" type="Node2D"]
 script = ExtResource("1_7bntg")
 stats = ExtResource("2_8tysl")
-actions = [ExtResource("3_sk26j"), ExtResource("4_pfsoy")]
+actions = [ExtResource("3_sk26j"), ExtResource("4_pfsoy"), ExtResource("5_eyim8")]
 is_party_member = true
 ui_data = ExtResource("3_eqk7l")
 

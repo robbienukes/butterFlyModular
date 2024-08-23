@@ -4,6 +4,11 @@
 class_name StatusEffectContainer
 extends Node
 
+# signals for adding and removing ststaus effects
+signal status_effect_added(effect: StatusEffect)
+signal status_effect_removed(effect: StatusEffect)
+
+
 # Maximum number of instances of one type of status effect that can be applied to one battler at a
 # time.
 const MAX_STACKS := 5
@@ -44,6 +49,10 @@ func add(effect: StatusEffect) -> void:
 	
 	# The status effects are nodes so all we need to do is add it as a child of the container.
 	add_child(effect)
+	
+	# emit signal after adding it
+	emit_signal("status_effect_added", effect)
+	print("status effect added ", effect)
 
 # Removes all stacks of an effect of a given type.
 func remove_type(id: String) -> void:
@@ -95,3 +104,6 @@ func _remove_effect_expiring_the_soonest(id: String) -> void:
 			to_remove = effect
 			smallest_time = time_left
 	to_remove.expire()
+	
+	# emit signal after removing effect
+	emit_signal("status_effect_removed", to_remove)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="KnockbackStatusEffectData" load_steps=2 format=3 uid="uid://byfxy04ihvtrm"]
+
+[ext_resource type="Script" path="res://KnockbackStatusEffectData.gd" id="1_x66dc"]
+
+[resource]
+script = ExtResource("1_x66dc")
+knockback_amount = 25
+effect = "knockback"
+duration_seconds = 20.0
+effect_power = 20
+effect_rate = 0.5
+is_ticking = false
+ticking_interval = 4.0
+ticking_damage = 3
+effect_just_applied = true

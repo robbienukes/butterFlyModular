@@ -4,8 +4,11 @@ extends TextureRect
 
 @onready var _health_counter := $HealthCounter
 @onready var _energy_counter := $EnergyCounter
+@onready var _effect_bar := $UIEffectBar
 @onready var _label := $Label
 @onready var _anim_player: AnimationPlayer = $AnimationPlayer
+
+# Store a reference to the front anchor node
 
 
 # Initializes the health and energy bars using the battler's stats.
@@ -13,12 +16,14 @@ func setup(battler: Battler) -> void:
 	battler.selection_toggled.connect(_on_Battler_selection_toggled)
 
 	_label.text = battler.ui_data.display_name
-
+	
 	var stats: BattlerStats = battler.stats
 	# I had to change the order of the parameters here to match
 	# `UIValueCounter.setup()`.
 	_health_counter.setup(stats.health, stats.max_health)
 	_energy_counter.setup(stats.energy, stats.max_energy)
+	
+	_effect_bar.setup(battler)
 
 	stats.health_changed.connect(_on_BattlerStats_health_changed)
 	stats.energy_changed.connect(_on_BattlerStats_energy_changed)

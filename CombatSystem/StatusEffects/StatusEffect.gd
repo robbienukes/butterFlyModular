@@ -23,6 +23,9 @@ var is_active := true:
 # Text string to reference the effect and instantiate it. See `StatusEffectBuilder`.
 var id := "base_effect"
 
+# icon
+var _icon : Texture 
+
 # Time left in seconds until the effect expires.
 var _time_left: float = -INF
 # Time left in the current tick, if the effect is ticking.
@@ -44,6 +47,7 @@ func _init(target, data) -> void:
 	is_ticking = data.is_ticking
 	ticking_interval = data.ticking_interval
 	_ticking_clock = ticking_interval
+	_icon = data.icon
 
 
 func set_is_active(value) -> void:
@@ -114,4 +118,8 @@ func _apply() -> void:
 # Cleans up and removes the status effect from the battler.
 # The default behavior is to free the node.
 func _expire() -> void:
+	
+	if get_parent():
+		get_parent().emit_signal("status_effect_removed", self)
+	
 	queue_free()

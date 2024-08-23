@@ -134,6 +134,22 @@ func _ready() -> void:
 	stats.health_depleted.connect(_on_BattlerStats_health_depleted)
 	add_child(_status_effect_container)
 	_status_effect_container.name = "_status_effect_container"
+	_status_effect_container.status_effect_added.connect(_on_status_effect_added)
+	_status_effect_container.status_effect_removed.connect(_on_status_effect_removed)
+
+func add_status_effect(effect: StatusEffect) -> void:
+	_status_effect_container.add(effect)
+
+func remove_status_effect(effect: StatusEffect) -> void:
+	_status_effect_container.remove_type(effect.id)
+
+func _on_status_effect_added(effect: StatusEffect) -> void:
+	# Additional logic if needed
+	pass
+
+func _on_status_effect_removed(effect: StatusEffect) -> void:
+	# Additional logic if needed
+	pass
 
 
 

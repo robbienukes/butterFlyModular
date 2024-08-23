@@ -13,6 +13,7 @@ const StatusEffects := {
 	"slow": preload("res://CombatSystem/StatusEffects/StatusEffectSlow.gd"),
 	"bug": preload("res://CombatSystem/StatusEffects/StatusEffectBug.gd"),
 	"reflect": preload("res://CombatSystem/StatusEffects/StatusEffectReflect.gd"),
+	"knockback": preload("res://CombatSystem/StatusEffects/StatusEffectKnockback.gd")
 }
 
 

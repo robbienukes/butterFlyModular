@@ -11,9 +11,9 @@ enum Types { ALLY, PLAYER, ENEMY }
 
 # This constant maps members of the Types enum to a texture.
 const TYPES := {
-	Types.ALLY: preload("res://CombatSystem/UserInterface/UITurnBar/portrait_bg_ally.png"),
-	Types.PLAYER: preload("res://CombatSystem/UserInterface/UITurnBar/portrait_bg_player.png"),
-	Types.ENEMY: preload("res://CombatSystem/UserInterface/UITurnBar/portrait_bg_enemy.png"),
+	Types.ALLY: preload("res://CombatSystem/UserInterface/UITurnBar/dragon_icon.png"),
+	Types.PLAYER: preload("res://CombatSystem/UserInterface/UITurnBar/dragon_icon.png"),
+	Types.ENEMY: preload("res://CombatSystem/UserInterface/UITurnBar/dragon_icon_enemy.png"),
 }
 
 # The following two properties allow you to update the icon and the background.
@@ -33,7 +33,7 @@ var position_range := Vector2.ZERO
 func snap(ratio: float) -> void:
 	var new_x = lerp(position_range.x, position_range.y, ratio)
 	# LOL no idea why
-	position.x = new_x - 200
+	position.x = new_x - 250
 	
 
 

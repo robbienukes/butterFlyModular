@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://cgqpa7qyt55cm"]
 
-[ext_resource type="FontFile" path="res://CombatSystem/UserInterface/theme/fonts/text_large.tres" id="1"]
+[ext_resource type="FontFile" uid="uid://cag1ti0g7tmco" path="res://CombatSystem/UserInterface/theme/fonts/text_large.tres" id="1"]
 
 [sub_resource type="StyleBoxFlat" id="1"]
 bg_color = Color(0.109804, 0.12549, 0.180392, 0.501961)

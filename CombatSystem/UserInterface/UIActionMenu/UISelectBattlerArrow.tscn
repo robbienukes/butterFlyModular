@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bet1e21nea6yj"]
 
 [ext_resource type="Script" path="res://CombatSystem/UserInterface/UIActionMenu/UISelectBattlerArrow.gd" id="1_scmwh"]
-[ext_resource type="Texture2D" uid="uid://cgn1bybsi7087" path="res://CombatSystem/UserInterface/UIActionMenu/images/menu_selection_arrow.png" id="2_76ate"]
+[ext_resource type="Texture2D" uid="uid://v42ubvlr4env" path="res://images/rpgUI/20240713dragonMapFrame.png" id="2_1qhn8"]
 
 [sub_resource type="Animation" id="Animation_x8ipo"]
 resource_name = "wiggle"
@@ -30,7 +30,7 @@ script = ExtResource("1_scmwh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1)
-texture = ExtResource("2_76ate")
+texture = ExtResource("2_1qhn8")
 offset = Vector2(-67, -1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

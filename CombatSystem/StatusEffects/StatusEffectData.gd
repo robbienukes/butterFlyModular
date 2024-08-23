@@ -11,6 +11,9 @@ extends Resource
 # Rate of the effect, if, for instance, it is percentage-based.
 @export var effect_rate := 0.5
 
+# icon 
+@export var icon: Texture
+
 # If `true`, the effect applies once every `ticking_interval`
 @export var is_ticking : bool = false
 # Duration between ticks in seconds.

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxhbrf4khkhg2"]
+[gd_scene load_steps=13 format=3 uid="uid://cxhbrf4khkhg2"]
 
 [ext_resource type="Theme" uid="uid://cgqpa7qyt55cm" path="res://CombatSystem/UserInterface/theme/combat_ui_theme.tres" id="1_ebwrj"]
-[ext_resource type="Texture2D" uid="uid://ubwxiesdra34" path="res://CombatSystem/UserInterface/UIBattlerHUD/battler_hud_background.png" id="2_y573p"]
+[ext_resource type="Texture2D" uid="uid://x87qxh2xpddw" path="res://images/rpgUI/20240707dragon9SlicesA.png" id="2_nt11s"]
 [ext_resource type="Script" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUD.gd" id="3_nvcgt"]
 [ext_resource type="PackedScene" uid="uid://bemebl4cdvkcb" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIValueCounter.tscn" id="4_elheg"]
+[ext_resource type="PackedScene" uid="uid://cm6ljkniepjmt" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEffectBar.tscn" id="4_vjagd"]
 
 [sub_resource type="Animation" id="Animation_pk3jg"]
 resource_name = "damage"
@@ -47,44 +48,32 @@ _data = {
 [sub_resource type="Animation" id="Animation_33ewv"]
 resource_name = "_setup"
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_8u74o"]
 resource_name = "deselect"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Label:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-25, 0), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.985539),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.196078)]
 }
 
 [sub_resource type="Animation" id="Animation_7t8t1"]
@@ -92,26 +81,26 @@ resource_name = "select"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Label:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(0.25, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-25, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.0709197, 0.213614, 0.9404),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0.278431, 1, 1, 1), Color(0.831373, 0, 0.415686, 1), Color(0.278431, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.196078), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wjp7i"]
@@ -123,27 +112,40 @@ _data = {
 
 [node name="UIBattlerHUD" type="TextureRect"]
 offset_left = -25.0
-offset_right = 409.0
-offset_bottom = 152.0
+offset_right = 257.0
+offset_bottom = 144.0
 theme = ExtResource("1_ebwrj")
-texture = ExtResource("2_y573p")
+texture = ExtResource("2_nt11s")
 script = ExtResource("3_nvcgt")
 
-[node name="Label" type="Label" parent="."]
+[node name="UIEffectBar" parent="." instance=ExtResource("4_vjagd")]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 2.0
-offset_right = 44.0
-offset_bottom = 25.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 34.0
+offset_top = 95.0
+offset_right = 34.0
+offset_bottom = 95.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(0.278431, 1, 1, 1)
+layout_mode = 0
+offset_left = 27.0
+offset_top = 23.0
+offset_right = 67.0
+offset_bottom = 46.0
 text = "Bran"
 
 [node name="HealthCounter" parent="." instance=ExtResource("4_elheg")]
 modulate = Color(1, 1, 1, 1)
 layout_mode = 0
-offset_left = 8.0
-offset_top = 24.0
-offset_right = 48.0
-offset_bottom = 47.0
+offset_left = 29.0
+offset_top = 48.0
+offset_right = 69.0
+offset_bottom = 71.0
 
 [node name="CounterPlayer" type="AnimationPlayer" parent="HealthCounter"]
 libraries = {
@@ -153,10 +155,10 @@ libraries = {
 [node name="EnergyCounter" parent="." instance=ExtResource("4_elheg")]
 modulate = Color(1, 1, 1, 1)
 layout_mode = 0
-offset_left = 8.0
-offset_top = 48.0
-offset_right = 48.0
-offset_bottom = 71.0
+offset_left = 27.0
+offset_top = 66.0
+offset_right = 67.0
+offset_bottom = 89.0
 type = 1
 
 [node name="CounterPlayer" type="AnimationPlayer" parent="EnergyCounter"]

@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="StatusEffectData" load_steps=2 format=3 uid="uid://e0g7fomskngg"]
+[gd_resource type="Resource" script_class="StatusEffectData" load_steps=3 format=3 uid="uid://e0g7fomskngg"]
 
+[ext_resource type="Texture2D" uid="uid://dnu88imogih3" path="res://images/effectIcons/haste-1.png.png" id="1_o808p"]
 [ext_resource type="Script" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="1_selrq"]
 
 [resource]
@@ -8,6 +9,7 @@ effect = "haste"
 duration_seconds = 100.0
 effect_power = 20
 effect_rate = 0.0
+icon = ExtResource("1_o808p")
 is_ticking = false
 ticking_interval = 0.0
 ticking_damage = 0
