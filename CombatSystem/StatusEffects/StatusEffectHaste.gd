@@ -10,6 +10,7 @@ func _init(target, data: StatusEffectData) -> void:
 	super._init(target, data)
 	id = "haste"
 	speed_bonus = data.effect_power
+	_can_stack = true
 
 
 func _start() -> void:

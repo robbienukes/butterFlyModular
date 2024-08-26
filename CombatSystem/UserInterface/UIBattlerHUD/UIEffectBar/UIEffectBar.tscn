@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cm6ljkniepjmt"]
 
-[ext_resource type="Script" path="res://UIEffectBar.gd" id="1_2m67x"]
+[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEffectBar/UIEffectBar.gd" id="1_bhf1h"]
 
 [node name="UIEffectBar" type="HBoxContainer"]
 anchors_preset = 15
@@ -8,4 +8,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2m67x")
+script = ExtResource("1_bhf1h")

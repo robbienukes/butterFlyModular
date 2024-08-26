@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 # Preload the effect point
-const UIEffectPoint: PackedScene = preload("res://CombatSystem/UserInterface/UIBattlerHUD/UIEffectPoint.tscn")
+const UIEffectPoint: PackedScene = preload("res://CombatSystem/UserInterface/UIBattlerHUD/UIEffectBar/UIEffectPoint.tscn")
 
 var effect_points := {}  # Dictionary to store effect points and their counts
 
@@ -19,19 +19,26 @@ func clear_effect_points() -> void:
 	for effect_data in effect_points.values():
 		remove_child(effect_data["node"])
 	effect_points.clear()
-
+	
 func add_effect_point(effect: StatusEffect) -> void:
-	var effect_id = effect.get_class()  # Use class name as a unique identifier for the effect
+	var effect_id = effect.id  # Use a unique identifier for the effect
 
 	if effect_id in effect_points:
 		# Effect already exists, just increment the count and update the label
-		effect_points[effect_id]["count"] += 1
-		_update_effect_label(effect_id)
+		if effect.can_stack():
+			effect_points[effect_id]["count"] += 1
+			_update_effect_label(effect_id)
 	else:
 		# Create a new effect point
 		var effect_point: TextureRect = UIEffectPoint.instantiate()
-		effect_point.texture = effect._icon  # Assuming `StatusEffect` has an `icon` property
 		
+		# Access the 'Fill' node safely
+		var fill: TextureRect = effect_point.get_node("Fill")
+		if fill:
+			fill.texture = effect._icon  # Assuming `StatusEffect` has an `icon` property
+		else:
+			print("Error: 'Fill' node not found in effect point")
+
 		# Store the effect point and initialize the count
 		effect_points[effect_id] = {"node": effect_point, "count": 1}
 		add_child(effect_point)
@@ -62,6 +69,7 @@ func _update_effect_label(effect_id: String) -> void:
 	if label == null:
 		print("Label node not found within effect_point!")
 		return
+		
 	
 	if count > 1:
 		label.text = str(count)

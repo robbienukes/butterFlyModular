@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://x87qxh2xpddw" path="res://images/rpgUI/20240707dragon9SlicesA.png" id="2_nt11s"]
 [ext_resource type="Script" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUD.gd" id="3_nvcgt"]
 [ext_resource type="PackedScene" uid="uid://bemebl4cdvkcb" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIValueCounter.tscn" id="4_elheg"]
-[ext_resource type="PackedScene" uid="uid://cm6ljkniepjmt" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEffectBar.tscn" id="4_vjagd"]
+[ext_resource type="PackedScene" uid="uid://cm6ljkniepjmt" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEffectBar/UIEffectBar.tscn" id="4_kujds"]
 
 [sub_resource type="Animation" id="Animation_pk3jg"]
 resource_name = "damage"
@@ -118,15 +118,16 @@ theme = ExtResource("1_ebwrj")
 texture = ExtResource("2_nt11s")
 script = ExtResource("3_nvcgt")
 
-[node name="UIEffectBar" parent="." instance=ExtResource("4_vjagd")]
+[node name="UIEffectBar" parent="." instance=ExtResource("4_kujds")]
+layout_direction = 2
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 34.0
-offset_top = 95.0
-offset_right = 34.0
-offset_bottom = 95.0
+offset_left = 29.0
+offset_top = 85.0
+offset_right = 247.0
+offset_bottom = 119.0
 grow_horizontal = 1
 grow_vertical = 1
 

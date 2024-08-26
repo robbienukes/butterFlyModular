@@ -1,7 +1,8 @@
 extends TextureRect
 
-@onready var _fill: TextureRect = $Fill
+
 @onready var _label: Label = $Label
+@onready var _fill: TextureRect = $Fill
 
 # This function will be used to update the label
 func set_count(count: int) -> void:

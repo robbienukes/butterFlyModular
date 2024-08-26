@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b10osfhs20u75"]
+
+[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEffectBar/UIEffectPoint.gd" id="1_bxktx"]
+
+[node name="UIEffectPoint" type="TextureRect"]
+custom_minimum_size = Vector2(10, 0)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = -1152.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+script = ExtResource("1_bxktx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Fill" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 3
