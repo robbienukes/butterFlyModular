@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BattlerUIData" load_steps=3 format=3 uid="uid://bxt86pcyykbqd"]
 
 [ext_resource type="Script" path="res://CombatSystem/UserInterface/BattlerUIData.gd" id="1_45o05"]
-[ext_resource type="Texture2D" uid="uid://bqrlm4ixxp1b" path="res://images/eyeBlood.png" id="2_rttw3"]
+[ext_resource type="Texture2D" uid="uid://bqrlm4ixxp1b" path="res://images/battlers/enemies/eyeBlood.png" id="2_rttw3"]
 
 [resource]
 script = ExtResource("1_45o05")

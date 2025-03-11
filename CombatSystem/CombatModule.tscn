@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://db5iijk4pwt8i"]
 
 [ext_resource type="Script" path="res://CombatSystem/CombatDemo.gd" id="1_cjtat"]
-[ext_resource type="Texture2D" uid="uid://bsj6mhitmrkh6" path="res://images/pixel_art_underground_cavern_w2.jpeg" id="2_mufei"]
+[ext_resource type="Texture2D" uid="uid://bsj6mhitmrkh6" path="res://images/backgrounds/pixel_art_underground_cavern_w2.jpeg" id="2_mufei"]
 [ext_resource type="Script" path="res://CombatSystem/ActiveTurnQueue.gd" id="3_s76mb"]
 [ext_resource type="PackedScene" uid="uid://bhbvl0momu8do" path="res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.tscn" id="4_0p8yc"]
 [ext_resource type="PackedScene" uid="uid://bet1e21nea6yj" path="res://CombatSystem/UserInterface/UIActionMenu/UISelectBattlerArrow.tscn" id="5_syhmi"]

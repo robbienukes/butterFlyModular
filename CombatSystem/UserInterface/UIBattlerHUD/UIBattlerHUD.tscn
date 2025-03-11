@@ -110,12 +110,17 @@ _data = {
 "select": SubResource("Animation_7t8t1")
 }
 
-[node name="UIBattlerHUD" type="TextureRect"]
+[node name="UIBattlerHUD" type="NinePatchRect"]
 offset_left = -25.0
 offset_right = 257.0
-offset_bottom = 144.0
+offset_bottom = 113.0
+size_flags_vertical = 3
 theme = ExtResource("1_ebwrj")
 texture = ExtResource("2_nt11s")
+patch_margin_left = 42
+patch_margin_top = 20
+patch_margin_right = 38
+patch_margin_bottom = 13
 script = ExtResource("3_nvcgt")
 
 [node name="UIEffectBar" parent="." instance=ExtResource("4_kujds")]

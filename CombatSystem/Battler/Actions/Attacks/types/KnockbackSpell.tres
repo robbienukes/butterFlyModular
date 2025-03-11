@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AttackActionData" load_steps=5 format=3 uid="uid://dlk3ojx57jllw"]
 
-[ext_resource type="Texture2D" uid="uid://d22vkc6iawa6q" path="res://images/effectIcons/stakes-fence.png" id="1_hcbtk"]
+[ext_resource type="Texture2D" uid="uid://d22vkc6iawa6q" path="res://images/effectIcons/rawIcons/stakes-fence.png" id="1_hcbtk"]
 [ext_resource type="Script" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_wsx2i"]
 [ext_resource type="Script" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="2_3ckm1"]
 

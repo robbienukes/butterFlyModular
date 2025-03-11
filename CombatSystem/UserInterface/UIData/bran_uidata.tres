@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BattlerUIData" load_steps=3 format=3 uid="uid://cjal3nlmm2l8j"]
 
 [ext_resource type="Script" path="res://CombatSystem/UserInterface/BattlerUIData.gd" id="1_ey2lc"]
-[ext_resource type="Texture2D" uid="uid://dmv5ikh7e1xrt" path="res://images/goblinBoy.png" id="2_y0ro8"]
+[ext_resource type="Texture2D" uid="uid://dmv5ikh7e1xrt" path="res://images/battlers/party/goblinBoy.png" id="2_y0ro8"]
 
 [resource]
 script = ExtResource("1_ey2lc")

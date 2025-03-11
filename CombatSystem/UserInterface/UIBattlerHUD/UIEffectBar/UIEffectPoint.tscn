@@ -1,9 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://b10osfhs20u75"]
+[gd_scene load_steps=5 format=3 uid="uid://b10osfhs20u75"]
 
 [ext_resource type="Script" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEffectBar/UIEffectPoint.gd" id="1_bxktx"]
 
+[sub_resource type="Animation" id="Animation_5the3"]
+resource_name = "_setup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fill:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5etgv"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fill:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r10o2"]
+_data = {
+"_setup": SubResource("Animation_5the3"),
+"fade_in": SubResource("Animation_5etgv")
+}
+
 [node name="UIEffectPoint" type="TextureRect"]
-custom_minimum_size = Vector2(10, 0)
+custom_minimum_size = Vector2(50, 0)
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -11,7 +47,8 @@ anchor_bottom = 0.5
 offset_right = -1152.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 0
+stretch_mode = 4
 script = ExtResource("1_bxktx")
 
 [node name="Label" type="Label" parent="."]
@@ -20,7 +57,14 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Fill" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 expand_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r10o2")
+}
+autoplay = "fade_in"

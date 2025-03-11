@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://CombatSystem/Battler/Stats/Battler.gd" id="1_7bntg"]
 [ext_resource type="Resource" uid="uid://b4un5imx3o60a" path="res://CombatSystem/Battler/Stats/lillel_stats.tres" id="2_8tysl"]
 [ext_resource type="PackedScene" uid="uid://b4bjan5evidju" path="res://CombatSystem/Battler/BattlerAnim.tscn" id="2_ywa7a"]
-[ext_resource type="Texture2D" uid="uid://b4ea5nu630fbk" path="res://images/lellel.png" id="3_2chbi"]
+[ext_resource type="Texture2D" uid="uid://b4ea5nu630fbk" path="res://images/battlers/party/lellel.png" id="3_2chbi"]
 [ext_resource type="Resource" uid="uid://byqbsnlvolq3l" path="res://CombatSystem/UserInterface/UIData/lillel_uidata.tres" id="3_eqk7l"]
 [ext_resource type="Resource" uid="uid://bfgwix3xebcb3" path="res://CombatSystem/Battler/Actions/Attacks/types/BasicAttack.tres" id="3_sk26j"]
 [ext_resource type="Resource" uid="uid://b777wj35tu3tr" path="res://CombatSystem/Battler/Actions/Attacks/types/ReflectSpell.tres" id="4_pfsoy"]

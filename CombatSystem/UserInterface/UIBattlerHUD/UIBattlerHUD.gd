@@ -1,6 +1,6 @@
 # Displays a party member's name, health, and energy.
 class_name UIBattlerHUD
-extends TextureRect
+extends NinePatchRect
 
 @onready var _health_counter := $HealthCounter
 @onready var _energy_counter := $EnergyCounter

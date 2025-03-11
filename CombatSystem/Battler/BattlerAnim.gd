@@ -20,7 +20,6 @@ var _position_start := Vector2.ZERO
 
 @onready var anim_player: AnimationPlayer = $Pivot/AnimationPlayer
 @onready var anim_player_damage: AnimationPlayer = $Pivot/AnimationPlayerDamage
-@onready var anim_player_reflect: AnimationPlayer = $Pivot/AnimationPlayerReflect
 @onready var _anchor_front: Marker2D = $FrontAnchor
 @onready var _anchor_top: Marker2D = $TopAnchor
 
@@ -41,9 +40,6 @@ func play(anim_name: String) -> void:
 		anim_player_damage.play(anim_name)
 		# Seeking back to 0 restarts the animation if it is already playing.
 		anim_player_damage.seek(0.0)
-	if anim_name == "reflect":
-		anim_player_reflect.play(anim_name)
-		anim_player_reflect.seek(0.0)
 	else:
 		anim_player.play(anim_name)
 

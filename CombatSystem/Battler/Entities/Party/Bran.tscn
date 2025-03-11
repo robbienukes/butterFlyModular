@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://CombatSystem/Battler/Stats/Battler.gd" id="1_nirl0"]
 [ext_resource type="PackedScene" uid="uid://b4bjan5evidju" path="res://CombatSystem/Battler/BattlerAnim.tscn" id="2_r3mf8"]
 [ext_resource type="Resource" uid="uid://coj37442evhu6" path="res://CombatSystem/Battler/Stats/bran_stats.tres" id="2_yh7cc"]
-[ext_resource type="Texture2D" uid="uid://dmv5ikh7e1xrt" path="res://images/goblinBoy.png" id="3_k1tbf"]
+[ext_resource type="Texture2D" uid="uid://dmv5ikh7e1xrt" path="res://images/battlers/party/goblinBoy.png" id="3_k1tbf"]
 [ext_resource type="Resource" uid="uid://bfgwix3xebcb3" path="res://CombatSystem/Battler/Actions/Attacks/types/BasicAttack.tres" id="3_wfw2b"]
 [ext_resource type="Resource" uid="uid://bft5jnapi8yvw" path="res://CombatSystem/Battler/Actions/Attacks/types/HasteSpell.tres" id="4_nqh7h"]
 [ext_resource type="Resource" uid="uid://bmfvivxcyk5k2" path="res://CombatSystem/Battler/Actions/Attacks/types/SlowSpell.tres" id="5_xhh7b"]

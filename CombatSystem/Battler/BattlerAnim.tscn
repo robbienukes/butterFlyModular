@@ -33,7 +33,6 @@ script = ExtResource("1_nbmbl")
 direction = 0
 
 [node name="Pivot" type="Marker2D" parent="."]
-modulate = Color(0.282353, 1, 1, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot"]
 libraries = {
@@ -45,12 +44,6 @@ autoplay = "_setup"
 libraries = {
 "": SubResource("AnimationLibrary_xkidb")
 }
-
-[node name="AnimationPlayerReflect" type="AnimationPlayer" parent="Pivot"]
-libraries = {
-"": SubResource("AnimationLibrary_xkidb")
-}
-autoplay = "_setup"
 
 [node name="Sprite" type="Sprite2D" parent="Pivot"]
 position = Vector2(3, 3)

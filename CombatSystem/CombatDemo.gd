@@ -78,7 +78,7 @@ func setup_combat() -> void:
 			not_in_party_battler.position = initial_position_not_in_party + position_offset * k
 	
 	ui_turn_bar.setup(active_turn_queue.get_children())
-	ui_battler_hud_list.setup(in_party)
+	ui_battler_hud_list.setup(in_party, initial_position_party, position_offset)
 
 	for battler_instance in active_turn_queue.get_children():
 		battler_instance.stats.health_depleted.connect(_on_BattlerStats_health_depleted.bind(battler_instance))

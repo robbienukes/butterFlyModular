@@ -8,12 +8,13 @@ const UIBattlerHUD: PackedScene = preload("UIBattlerHUD.tscn")
 
 
 # Creates a battler HUD for each battler in the party.
-func setup(battlers_array) -> void:
+func setup(battlers_array,  initial_position_party, position_offset) -> void:
 	print("Setting up UIBattlerHUDList with battlers:", battlers_array)
 	for battler in battlers_array:
 		var battler_hud: UIBattlerHUD = UIBattlerHUD.instantiate()
 		add_child(battler_hud)
 		battler_hud.setup(battler)
+	
 
 
 # The two functions below respectively play the fade in and fade out animations.

@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://dy0lih315penc"]
+
+[ext_resource type="Script" path="res://CombatSystem/Battler/Stats/Battler.gd" id="1_6tyvx"]
+[ext_resource type="Resource" uid="uid://du8h0q67cbawt" path="res://CombatSystem/Battler/Stats/fireDog_stats.tres" id="2_akj75"]
+[ext_resource type="PackedScene" uid="uid://jafbkkkgepkg" path="res://CombatSystem/Battler/AI/AggressiveBattlerAI.tscn" id="3_shsb5"]
+[ext_resource type="Resource" uid="uid://bfgwix3xebcb3" path="res://CombatSystem/Battler/Actions/Attacks/types/BasicAttack.tres" id="4_g6qtd"]
+[ext_resource type="Resource" uid="uid://403t1j846nmn" path="res://CombatSystem/UserInterface/UIData/fireDog_uidata.tres" id="5_jo8ro"]
+[ext_resource type="PackedScene" uid="uid://b4bjan5evidju" path="res://CombatSystem/Battler/BattlerAnim.tscn" id="6_anfjf"]
+[ext_resource type="Texture2D" uid="uid://ddbc55b2n67wj" path="res://images/battlers/enemies/fireDog.png" id="7_x8va6"]
+
+[node name="Battler" type="Node2D"]
+script = ExtResource("1_6tyvx")
+stats = ExtResource("2_akj75")
+ai_scene = ExtResource("3_shsb5")
+actions = [ExtResource("4_g6qtd")]
+ui_data = ExtResource("5_jo8ro")
+
+[node name="BattlerAnim" parent="." instance=ExtResource("6_anfjf")]
+
+[node name="Sprite" parent="BattlerAnim/Pivot" index="2"]
+position = Vector2(0, 1)
+texture = ExtResource("7_x8va6")
+offset = Vector2(-3, -52)
+
+[node name="FrontAnchor" parent="BattlerAnim" index="1"]
+position = Vector2(65, -55)
+
+[node name="TopAnchor" parent="BattlerAnim" index="2"]
+position = Vector2(2, -99)
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+
+[editable path="BattlerAnim"]
