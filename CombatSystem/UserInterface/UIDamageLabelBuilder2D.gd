@@ -14,13 +14,20 @@ func setup(battlers: Array) -> void:
 		battler.hit_missed.connect(_on_Battler_hit_missed.bind(battler))
 
 
-# When a battler takes damage, we instantiate a damage label.
 func _on_Battler_damage_taken(amount: int, target: Battler) -> void:
 	var label: UIDamageLabel = damage_label_scene.instantiate()
-	# The setup() function takes care of changing the color, setting the text and placing it.
-	label.setup(UIDamageLabel.Types.DAMAGE, target.battler_anim.get_top_anchor_global_position(), amount)
-	# Adding the label as a child causes the animation to start.
+
+	# 🟢 Determine label type by checking amount sign
+	var label_type = UIDamageLabel.Types.DAMAGE
+	if amount < 0:
+		label_type = UIDamageLabel.Types.HEAL
+	
+	print("💥 Showing damage label for", target.name, "amount:", amount)
+
+	# ✅ Pass in correct type
+	label.setup(label_type, target.battler_anim.get_top_anchor_global_position(), amount)
 	add_child(label)
+
 
 
 func _on_Battler_hit_missed(target: Battler) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cigryv5lgu51f"]
+[gd_scene load_steps=11 format=3 uid="uid://cigryv5lgu51f"]
 
 [ext_resource type="Script" path="res://CombatSystem/Battler/Stats/Battler.gd" id="1_nirl0"]
 [ext_resource type="PackedScene" uid="uid://b4bjan5evidju" path="res://CombatSystem/Battler/BattlerAnim.tscn" id="2_r3mf8"]
@@ -7,18 +7,20 @@
 [ext_resource type="Resource" uid="uid://bfgwix3xebcb3" path="res://CombatSystem/Battler/Actions/Attacks/types/BasicAttack.tres" id="3_wfw2b"]
 [ext_resource type="Resource" uid="uid://bft5jnapi8yvw" path="res://CombatSystem/Battler/Actions/Attacks/types/HasteSpell.tres" id="4_nqh7h"]
 [ext_resource type="Resource" uid="uid://bmfvivxcyk5k2" path="res://CombatSystem/Battler/Actions/Attacks/types/SlowSpell.tres" id="5_xhh7b"]
+[ext_resource type="Resource" uid="uid://dnucntjehyl32" path="res://CombatSystem/Battler/Actions/Healing/HealingSpell.tres" id="6_60v8y"]
 [ext_resource type="Resource" uid="uid://cjal3nlmm2l8j" path="res://CombatSystem/UserInterface/UIData/bran_uidata.tres" id="6_g43ps"]
+[ext_resource type="Resource" uid="uid://c5xxsv1t4sthi" path="res://CombatSystem/Battler/Actions/revolver_action_data.tres" id="7_ffbu6"]
 
 [node name="Battler" type="Node2D"]
 script = ExtResource("1_nirl0")
 stats = ExtResource("2_yh7cc")
-actions = [ExtResource("3_wfw2b"), ExtResource("4_nqh7h"), ExtResource("5_xhh7b")]
+actions = [ExtResource("3_wfw2b"), ExtResource("4_nqh7h"), ExtResource("5_xhh7b"), ExtResource("6_60v8y"), ExtResource("7_ffbu6")]
 is_party_member = true
 ui_data = ExtResource("6_g43ps")
 
 [node name="BattlerAnim" parent="." instance=ExtResource("2_r3mf8")]
 
-[node name="Sprite" parent="BattlerAnim/Pivot" index="3"]
+[node name="Sprite" parent="BattlerAnim/Pivot" index="2"]
 position = Vector2(8, -2.86102e-06)
 scale = Vector2(0.204249, 0.204249)
 texture = ExtResource("3_k1tbf")

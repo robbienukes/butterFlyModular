@@ -35,5 +35,6 @@ func close() -> void:
 
 
 func _on_UIActionsList_action_selected(action: ActionData) -> void:
+	print("✅ Action selected:", action)
 	action_selected.emit(action)
 	close()

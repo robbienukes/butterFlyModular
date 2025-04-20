@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AttackActionData" load_steps=2 format=3 uid="uid://dnucntjehyl32"]
+
+[ext_resource type="Script" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_vmy5c"]
+
+[resource]
+script = ExtResource("1_vmy5c")
+damage_multiplier = 1.0
+hit_chance = 100.0
+label = "Heal"
+is_heal = true
+action_type = 0
+energy_cost = 2
+element = 0
+is_targeting_self = true
+is_targeting_all = false
+readiness_saved = 0.0
+power = 30

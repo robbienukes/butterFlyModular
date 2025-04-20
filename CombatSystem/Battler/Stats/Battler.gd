@@ -171,6 +171,7 @@ func _on_BattlerStats_health_depleted() -> void:
 
 # Applies a hit object to the battler, dealing damage or status effects.
 func take_hit(hit: Hit, action: Action) -> void:
+	print("🔻 take_hit() called. Hit damage:", hit.damage, "Target:", name)
 	# Store the action that caused the hit
 	#receive_action(action)
 	hit_taken.emit(hit, action)
@@ -178,7 +179,7 @@ func take_hit(hit: Hit, action: Action) -> void:
 	# We encapsulated the hit chance in the hit. The hit object tells us if
 	# we should take damage.
 	if hit.does_hit():
-		print("Applying damage:", hit.damage, "to", name)
+		print("✔️ Hit landed. Applying damage:", hit.damage)
 		_take_damage(hit.damage)
 		damage_taken.emit(hit.damage)
 		if hit.effect:
@@ -208,13 +209,20 @@ func _apply_status_effect(effect: StatusEffect) -> void:
 # Applies damage to the battler's stats.
 # Later, it should also trigger a damage animation.
 func _take_damage(amount: int) -> void:
-	print(name, "took", amount, "damage")
+	print("Incoming amount to _take_damage:", amount)
+	print("📉", name, "HP before:", stats.health, "Taking:", amount)
+	if amount < 0:
+		var heal_amount = abs(amount)
+		stats.health = min(stats.health + heal_amount, stats.max_health)
+		print(name, "healed", heal_amount, "HP")
+		battler_anim.play("heal")
+	else:
+		stats.health -= amount
+		print(name, "took", amount, "damage")
+		if stats.health > 0:
+			battler_anim.play("damage")
 
-	stats.health -= amount
 	print("New health for", name, ":", stats.health)
-
-	if stats.health > 0:
-		battler_anim.play("damage")
 		
 	
 	

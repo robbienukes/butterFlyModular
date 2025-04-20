@@ -2,6 +2,7 @@
 class_name AttackActionData
 extends ActionData
 
+
 # Multiplier applied to the calculated attack damage.
 @export var damage_multiplier := 1.0
 # Hit chance rating for this attack. Works as a rate: a value of 90 means the
@@ -10,6 +11,8 @@ extends ActionData
 
 # Status effect applied by the attack, of type `StatusEffectData`.
 @export var status_effect: Resource
+
+@export var does_damage := true
 
 # Returns the total damage for the action, factoring in damage dealt by a status effect.
 func calculate_potential_damage_for(battler) -> int:

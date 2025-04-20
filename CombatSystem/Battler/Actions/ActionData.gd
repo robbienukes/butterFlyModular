@@ -12,6 +12,8 @@ enum ActionTypes { PHYSICAL, MAGICAL, ITEM, CONDITION }
 # We will use them to represent the action in menus.
 @export var icon: Texture
 @export var label := "Base combat action"
+@export var is_heal: bool = false
+
 
 # Set explicit action type
 @export var action_type := ActionTypes.PHYSICAL
@@ -28,6 +30,8 @@ enum ActionTypes { PHYSICAL, MAGICAL, ITEM, CONDITION }
 # The amount of readiness left to the battler after acting.
 # You can use it to design weak attacks that allow you to take turn fast.
 @export var readiness_saved := 0.0
+
+@export var power: int
 
 
 # Returns `true` if the `battler` has enough energy to use the action.

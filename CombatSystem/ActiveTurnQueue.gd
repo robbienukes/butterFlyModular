@@ -74,6 +74,10 @@ func _play_turn(battler: Battler) -> void:
 		while not is_selection_complete:
 			print("Awaiting async for player ", battler)
 			action_data = await _player_select_action_async(battler)
+			if action_data == null:
+				push_error("Player did not select a valid action.")
+				continue
+			
 			if action_data.is_targeting_self:
 				targets = [battler]
 			else:
@@ -85,8 +89,11 @@ func _play_turn(battler: Battler) -> void:
 	else:
 		action_data = battler.actions[0]
 		targets = [potential_targets[0]]
-
-	var action = AttackAction.new(action_data, battler, targets)
+	
+	var action: Action = _create_action_from_data(action_data, battler, targets)
+	
+	add_child(action)
+	#var action = AttackAction.new(action_data, battler, targets)
 	battler.act(action)
 	
 	await battler.action_finished
@@ -141,3 +148,21 @@ func _on_player_turn_finished() -> void:
 		_is_player_playing = false
 	else:
 		_play_turn(_queue_player.pop_front())
+		
+func _create_action_from_data(action_data: ActionData, battler: Battler, targets: Array) -> Action:
+	print("🔍 Received action_data:", action_data)
+	print("🔍 action_data.get_class():", action_data.get_class())
+	if action_data.label == "Revolver Shot":
+		if action_data is AttackActionData:
+			print("🧪 Creating RevolverAction with:", action_data)
+			return RevolverAction.new(action_data, battler, targets)
+		else:
+			push_error("❌ action_data for Revolver Shot is not an AttackActionData: " + str(action_data))
+			return null
+	else:
+		if action_data is AttackActionData:
+			print("🧪 Creating AttackAction with:", action_data)
+			return AttackAction.new(action_data, battler, targets)
+		else:
+			push_error("❌ action_data for standard action is not an AttackActionData: " + str(action_data))
+			return null

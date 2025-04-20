@@ -1,6 +1,7 @@
+class_name UIActionButton
 extends TextureButton
 
-
+var action_data: ActionData
 # We store references to the nodes we access in the class, as usual.
 @onready var _icon_node: TextureRect = $HBoxContainer/Icon
 @onready var _label_node: Label = $HBoxContainer/Label
@@ -20,6 +21,7 @@ func setup(action: ActionData, can_be_used: bool) -> void:
 	# The button has no notion of the battler's energy and the action's cost.
 	# We will tell it if the player can use the action or not. If not, the button should be disabled.
 	disabled = not can_be_used
+	action_data = action
 
 
 # When pressing the button, we release its focus. Doing so prevents the player from

@@ -6,8 +6,7 @@ const COMBAT_MODULE_PATH = "res://CombatSystem/CombatModule.tscn"
 const BATTLE_ENTITIES = {
 	"BRAN": preload("res://CombatSystem/Battler/Entities/Party/Bran.tscn"),
 	"LILLEL": preload("res://CombatSystem/Battler/Entities/Party/Lillel.tscn"),
-	"FIREDOG": preload("res://CombatSystem/Battler/Entities/Enemies/Firedog.tscn"),
-	"FIREDOG2": preload("res://CombatSystem/Battler/Entities/Enemies/Firedog.tscn")
+	"FIREDOG": preload("res://CombatSystem/Battler/Entities/Enemies/Firedog.tscn")
 }
 
 var world_state = "EXISTS"

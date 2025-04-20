@@ -19,6 +19,8 @@ var _color: Color: set = _set_color
 # the animation.
 var _amount := 0
 
+var _type:= Types.DAMAGE
+
 @onready var _label: Label = $Label
 
 
@@ -28,6 +30,7 @@ func setup(type: int, start_global_position: Vector2, amount: int) -> void:
 	# We start by updating the node's `global_position` and `_amount`
 	global_position = start_global_position
 	_amount = amount
+	_type = type
 
 	# Then, we assign it a color based on the `type`.
 	match type:
@@ -38,7 +41,12 @@ func setup(type: int, start_global_position: Vector2, amount: int) -> void:
 
 
 func _ready() -> void:
-	_label.text = str(_amount)
+	match _type:
+		Types.DAMAGE:
+			_label.text = "-%d" % abs(_amount)
+		Types.HEAL:
+			_label.text = "+%d" % abs(_amount)
+		
 	_animate()
 
 

@@ -26,6 +26,7 @@ var _position_start := Vector2.ZERO
 
 func _ready() -> void:
 	_position_start = position
+	anim_player.animation_finished.connect(_on_AnimationPlayer_animation_finished)
 	
 func get_front_anchor_global_position() -> Vector2:
 	return _anchor_front.global_position
@@ -33,15 +34,16 @@ func get_front_anchor_global_position() -> Vector2:
 func get_top_anchor_global_position() -> Vector2:
 	return _anchor_top.global_position
 	
-	# Functions that wraps around the animation players' `play()` function, delegating the work to the
-# `AnimationPlayerDamage` node when necessary.
 func play(anim_name: String) -> void:
 	if anim_name == "damage":
 		anim_player_damage.play(anim_name)
-		# Seeking back to 0 restarts the animation if it is already playing.
 		anim_player_damage.seek(0.0)
+	elif anim_name == "heal":
+		anim_player.play(anim_name)
+		anim_player.seek(0.0)
 	else:
 		anim_player.play(anim_name)
+
 
 
 # Wraps around `AnimationPlayer.is_playing()`
@@ -72,6 +74,7 @@ func move_back() -> void:
 		self, 'position', _position_start, 0.3).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN_OUT)
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	print("Animation finished:", anim_name)
 	emit_signal("animation_finished", anim_name)
 
 # Set the direction and update the scale.x to flip the node
