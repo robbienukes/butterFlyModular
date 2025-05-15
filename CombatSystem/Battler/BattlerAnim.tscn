@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4bjan5evidju"]
+[gd_scene load_steps=12 format=3 uid="uid://b4bjan5evidju"]
 
 [ext_resource type="Script" path="res://CombatSystem/Battler/BattlerAnim.gd" id="1_nbmbl"]
 [ext_resource type="Texture2D" uid="uid://cmcqejvjm0hyi" path="res://CombatSystem/Battler/Animation/bear.png" id="1_t0jnq"]
 [ext_resource type="AnimationLibrary" uid="uid://bxw5cs3mvt8xf" path="res://CombatSystem/Battler/Animation/battlerAnims.res" id="2_2ppt6"]
 [ext_resource type="Animation" uid="uid://cdeshcg8so2po" path="res://CombatSystem/Battler/Animation/reflect.res" id="3_gvrpj"]
 [ext_resource type="Animation" uid="uid://3w5dpkyivklg" path="res://CombatSystem/Battler/Animation/_setup.res" id="4_0plxs"]
+[ext_resource type="Shader" path="res://CombatSystem/Battler/Actions/Attacks/types/2dlightning.gdshader" id="6_bsdgv"]
+[ext_resource type="Texture2D" uid="uid://u14ri1opcgqn" path="res://images/rpgUI/20240707dragon9SlicesB.png" id="7_qborm"]
 
 [sub_resource type="Animation" id="Animation_su3ie"]
 resource_name = "damage"
@@ -21,18 +23,38 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 0.176471, 1, 1), Color(0, 0.615686, 0.615686, 1), Color(1, 0.0588235, 0.121569, 1), Color(1, 1, 1, 1), Color(1, 0.137255, 1, 0.345098), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_qaj5o"]
+resource_name = "heal"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xkidb"]
 _data = {
 "_setup": ExtResource("4_0plxs"),
 "damage": SubResource("Animation_su3ie"),
+"heal": SubResource("Animation_qaj5o"),
 "reflect": ExtResource("3_gvrpj")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_boy3u"]
+shader = ExtResource("6_bsdgv")
+shader_parameter/effect_color = Vector3(0.2, 0.3, 0.8)
+shader_parameter/octave_count = 10
+shader_parameter/amp_start = 0.5
+shader_parameter/amp_coeff = 0.5
+shader_parameter/freq_coeff = 2.0
+shader_parameter/speed = 0.5
+shader_parameter/direction = Vector2(0, 1)
+shader_parameter/thickness = 1.0
 
 [node name="BattlerAnim" type="Marker2D"]
 script = ExtResource("1_nbmbl")
 direction = 0
 
 [node name="Pivot" type="Marker2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Pivot"]
+position = Vector2(3, 3)
+texture = ExtResource("1_t0jnq")
+offset = Vector2(-10, -195)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot"]
 libraries = {
@@ -45,10 +67,14 @@ libraries = {
 "": SubResource("AnimationLibrary_xkidb")
 }
 
-[node name="Sprite" type="Sprite2D" parent="Pivot"]
-position = Vector2(3, 3)
-texture = ExtResource("1_t0jnq")
-offset = Vector2(-10, -195)
+[node name="LightningEffect" type="Sprite2D" parent="Pivot"]
+modulate = Color(1, 1, 1, 0)
+z_index = 100
+material = SubResource("ShaderMaterial_boy3u")
+position = Vector2(-11, -199)
+rotation = 3.14159
+scale = Vector2(5.61703, 5.11213)
+texture = ExtResource("7_qborm")
 
 [node name="FrontAnchor" type="Marker2D" parent="."]
 position = Vector2(226, -226)

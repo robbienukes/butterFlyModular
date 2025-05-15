@@ -14,6 +14,13 @@ extends ActionData
 
 @export var does_damage := true
 
+@export var hit_sound: AudioStream
+@export var hit_confirm_sound: AudioStream
+@export var miss_sound: AudioStream
+
+
+
+
 # Returns the total damage for the action, factoring in damage dealt by a status effect.
 func calculate_potential_damage_for(battler) -> int:
 	var total_physical_damage: int = int(Formulas.calculate_potential_physical_damage(self, battler))

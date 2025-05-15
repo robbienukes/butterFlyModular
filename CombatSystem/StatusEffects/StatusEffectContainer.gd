@@ -88,6 +88,20 @@ func _has_maximum_stacks_of(id: String) -> bool:
 			count += 1
 	return count == MAX_STACKS
 
+func has(id: String) -> bool:
+	for effect in get_children():
+		if effect.id == id:
+			return true
+	return false
+
+
+func get_active_effects() -> Array:
+	var effects := []
+	for child in get_children():
+		if child is StatusEffect:
+			effects.append(child)
+	return effects
+
 
 # Finds and expires the effect of a given type expiring the soonest.
 func _remove_effect_expiring_the_soonest(id: String) -> void:

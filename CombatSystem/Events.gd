@@ -8,3 +8,5 @@ extends Node
 signal combat_action_hovered(display_name, energy_cost)
 # Emitted during a player's turn, when they chose an action and validated their target.
 signal player_target_selection_done
+
+signal reaction_triggered(defender, status_id, element_str, sound_path)

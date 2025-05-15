@@ -1,6 +1,10 @@
 class_name Formulas
 extends Node
 
+const Reactions = preload("res://CombatSystem/Battler/Reactions.gd")
+
+
+
 # Returns the product of the attacker's attack and the action's multiplier.
 static func calculate_potential_physical_damage(action_data, attacker) -> float:
 	return attacker.stats.physical_attack * action_data.damage_multiplier
@@ -25,8 +29,20 @@ static func calculate_base_magical_damage(action_data, attacker, defender) -> in
 	var damage: float = calculate_potential_magical_damage(action_data, attacker)
 	damage -= defender.stats.magical_defense
 	damage *= _calculate_weakness_multiplier(action_data, defender)
-	return int(clamp(damage, 1.0, 999.0))
+	
+	var reaction_map = ReactionData.get_reactions()
 
+	var element_str = ActionData.Elements.keys()[action_data.element].to_lower()
+	for status in defender.get_status_effects():
+		var status_id = status.get_status_id()
+		if reaction_map.has(status_id) and reaction_map[status_id].has(element_str):
+			var reaction = reaction_map[status_id][element_str]
+			damage *= reaction.multiplier
+			Events.emit_signal("reaction_triggered", defender, status_id, element_str, reaction.sound)
+			if status.has_method("on_reacted_to"):
+				status.on_reacted_to(element_str)
+	
+	return int(clamp(damage, 1.0, 999.0))
 # Calculates a multiplier based on the action and the defender's elements.
 static func _calculate_weakness_multiplier(action_data, defender) -> float:
 	var multiplier: float = 1.0

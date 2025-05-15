@@ -18,10 +18,14 @@ enum Direction { LEFT, RIGHT }
 # We store the node's start position to reset it using the `Tween` node.
 var _position_start := Vector2.ZERO
 
+var block_damage_animation := false
+
+
 @onready var anim_player: AnimationPlayer = $Pivot/AnimationPlayer
 @onready var anim_player_damage: AnimationPlayer = $Pivot/AnimationPlayerDamage
 @onready var _anchor_front: Marker2D = $FrontAnchor
 @onready var _anchor_top: Marker2D = $TopAnchor
+
 
 
 func _ready() -> void:
@@ -36,15 +40,14 @@ func get_top_anchor_global_position() -> Vector2:
 	
 func play(anim_name: String) -> void:
 	if anim_name == "damage":
+		if block_damage_animation:
+			print("⚡ Suppressing 'damage' animation due to lightning")
+			return
 		anim_player_damage.play(anim_name)
 		anim_player_damage.seek(0.0)
-	elif anim_name == "heal":
+	elif anim_player.has_animation(anim_name):
 		anim_player.play(anim_name)
 		anim_player.seek(0.0)
-	else:
-		anim_player.play(anim_name)
-
-
 
 # Wraps around `AnimationPlayer.is_playing()`
 func is_playing() -> bool:
@@ -80,3 +83,6 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 # Set the direction and update the scale.x to flip the node
 func set_direction(value: int) -> void:
 	scale.x = 1.0 if value == Direction.RIGHT else -1.0
+
+func has_animation(name: String) -> bool:
+	return anim_player.has_animation(name)

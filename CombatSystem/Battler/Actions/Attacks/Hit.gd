@@ -12,6 +12,8 @@ var effect: StatusEffect
 
 var actor: Battler
 
+var show_label := false
+
 func _init(_damage: int, _hit_chance := 100.0, _effect: StatusEffect = null, _actor = Battler) -> void:
 	damage = _damage
 	hit_chance = _hit_chance

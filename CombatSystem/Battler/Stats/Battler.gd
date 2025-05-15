@@ -16,6 +16,8 @@ class_name Battler
 
 @onready var battler_anim: BattlerAnim = $BattlerAnim
 
+
+
 # Create status effect container
 var _status_effect_container := StatusEffectContainer.new()
 
@@ -85,6 +87,10 @@ func set_time_scale(value) -> void:
 	_status_effect_container.time_scale = time_scale
 
 
+func get_status_effects() -> Array:
+	return _status_effect_container.get_active_effects()
+
+
 # Setter for the `_readiness` variable. Emits signals when the value changes and when the battler
 # is ready to act.
 func _set_readiness(value: float) -> void:
@@ -136,7 +142,20 @@ func _ready() -> void:
 	_status_effect_container.name = "_status_effect_container"
 	_status_effect_container.status_effect_added.connect(_on_status_effect_added)
 	_status_effect_container.status_effect_removed.connect(_on_status_effect_removed)
+	var reactions = Reactions.new()
+	reactions.name = "Reactions"
+	reactions.setup(self)
+	add_child(reactions)
+	
+func react_to(element: String) -> void:
+	var reactions_node = get_node_or_null("Reactions")
+	if reactions_node:
+		reactions_node.on_reacted_to(element)
+	else:
+		push_warning("⚠️ Reactions node not found on %s" % name)
 
+
+	
 func add_status_effect(effect: StatusEffect) -> void:
 	_status_effect_container.add(effect)
 
@@ -168,6 +187,8 @@ func _on_BattlerStats_health_depleted() -> void:
 		set_is_selectable(false)
 		battler_anim.queue_animation("die")
 
+func get_battler_anim() -> BattlerAnim:
+	return battler_anim
 
 # Applies a hit object to the battler, dealing damage or status effects.
 func take_hit(hit: Hit, action: Action) -> void:
@@ -176,11 +197,27 @@ func take_hit(hit: Hit, action: Action) -> void:
 	#receive_action(action)
 	hit_taken.emit(hit, action)
 	
+	if action.is_reflected:
+		print("Original hit blocked due to reflection.")
+		return
+	print("battler_anim instance id:", battler_anim.get_instance_id())
+	print("block_damage_animation?", battler_anim.block_damage_animation)
+
+	
 	# We encapsulated the hit chance in the hit. The hit object tells us if
 	# we should take damage.
 	if hit.does_hit():
 		print("✔️ Hit landed. Applying damage:", hit.damage)
-		_take_damage(hit.damage)
+		
+		# Only apply damage and show label if its non-zero
+		if hit.damage != 0:
+			_take_damage(hit.damage)
+			damage_taken.emit(hit.damage)
+			print("💥 Showing damage label for %s amount: %d" % [name, hit.damage])
+		else:
+			print("🟡 No damage dealt — skipping damage label")
+
+		
 		damage_taken.emit(hit.damage)
 		if hit.effect:
 			if is_instance_valid(hit.effect):
@@ -205,6 +242,13 @@ func _apply_status_effect(effect: StatusEffect) -> void:
 	_status_effect_container.add(effect)
 	print("Applying effect %s to %s" % [effect.id, name])
 
+func has_status_effect(effect_id: String) -> bool:
+	if _status_effect_container:
+		for effect in _status_effect_container.get_children():
+			if effect.id == effect_id:
+				return true
+	return false
+
 
 # Applies damage to the battler's stats.
 # Later, it should also trigger a damage animation.
@@ -220,11 +264,19 @@ func _take_damage(amount: int) -> void:
 		stats.health -= amount
 		print(name, "took", amount, "damage")
 		if stats.health > 0:
-			battler_anim.play("damage")
+			if not battler_anim.block_damage_animation:
+				battler_anim.play("damage")
+				print("🔥 Called _take_damage — block:", battler_anim.block_damage_animation)
+
+		else:
+			print("⚡ Suppressing 'damage' animation due to lightning")
+
 
 	print("New health for", name, ":", stats.health)
 		
-	
+	# 🔥 Emit damage_taken only if it's non-zero
+	if amount != 0:
+		damage_taken.emit(amount)
 	
 
 # We can't specify the `action`'s type hint here due to cyclic dependency errors

@@ -44,3 +44,23 @@ func set_targets(new_targets: Array) -> void:
 # Inside your Action class
 func set_actor(new_actor) -> void:
 	_actor = new_actor
+	
+func play_sound(stream: AudioStream, delay := 0.0) -> void:
+	if stream == null:
+		print("⚠️ Tried to play null AudioStream.")
+		return
+
+	var player := AudioStreamPlayer.new()
+	player.stream = stream
+	player.bus = "SFX"  # Optional: ensure it's routed to correct audio bus
+
+	get_tree().current_scene.add_child(player)  # Make sure it's globally audible
+
+	if delay > 0.0:
+		await get_tree().create_timer(delay).timeout
+	
+	print("🔊 Playing sound:", stream)
+	player.play()
+	await player.finished  # Wait for playback to complete
+	player.queue_free()
+

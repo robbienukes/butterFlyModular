@@ -19,6 +19,8 @@ var _firing := false
 var _time_backup := 1.0
 
 func apply_async() -> bool:
+	if get_tree() == null:
+		push_error("🚨 RevolverAction is not in the scene tree! This will crash.")
 	print("Revolver action by", _actor.name)
 
 	# Save original time scale and slow down
@@ -53,7 +55,6 @@ func _input(event):
 	if _firing and event.is_action_pressed(input_action):
 		_fire_hit()
 
-
 func _fire_hit():
 	var target = _targets[0]
 	if not target:
@@ -66,10 +67,17 @@ func _fire_hit():
 	var hit := Hit.new(_attack_data.power, _attack_data.hit_chance, status, _actor)
 	target.take_hit(hit, self)
 
-	# 🔥 Force visuals + signal
+	# 🔊 Sound feedback
+	if hit.does_hit():
+		if _attack_data.hit_confirm_sound:
+			play_sound(_attack_data.hit_confirm_sound, 0.1)
+	else:
+		if _attack_data.miss_sound:
+			play_sound(_attack_data.miss_sound, 0.1)
+
+	# 🧠 Visual + event feedback
 	target.damage_taken.emit(_attack_data.power)
 	target.battler_anim.play("damage")
 
 	print("🎯 Hit delivered to:", target.name)
 	print("💥 Revolver damage being applied:", _attack_data.power)
-

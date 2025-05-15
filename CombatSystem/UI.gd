@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 # We preload the `UICombatResultPanel` scene.
 const UICombatResultPanel: PackedScene = preload("res://CombatSystem/UserInterface/UICombatResultPanel.tscn")

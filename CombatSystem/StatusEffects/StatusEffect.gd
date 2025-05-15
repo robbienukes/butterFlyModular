@@ -108,6 +108,9 @@ func expire() -> void:
 func _start() -> void:
 	pass
 
+func get_status_id() -> String:
+	return id
+
 
 # Applies the status effect to the battler. Used with ticking effects,
 # for example, a poison status dealing damage every two seconds.
