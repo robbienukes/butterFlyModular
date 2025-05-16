@@ -1,3 +1,4 @@
+# Menu displaying lists of actions the player can select.
 class_name UIActionMenu
 extends Control
 
@@ -10,7 +11,6 @@ const UIActionList := preload("UIActionList.tscn")
 
 
 func _ready() -> void:
-	print("Action Menu Exists")
 	hide()
 
 
@@ -35,6 +35,5 @@ func close() -> void:
 
 
 func _on_UIActionsList_action_selected(action: ActionData) -> void:
-	print("✅ Action selected:", action)
-	action_selected.emit(action)
+	emit_signal("action_selected", action)
 	close()

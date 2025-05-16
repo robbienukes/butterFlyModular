@@ -6,3 +6,5 @@ extends Resource
 @export var display_name := ""
 # An icon representing the battler. We'll use it in the turn bar in lesson 4.
 @export var texture: Texture
+
+

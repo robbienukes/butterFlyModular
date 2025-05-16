@@ -1,7 +1,6 @@
 # In-game arrow to select target battlers. Appears when the player selected an action and has to pick a target for it.
 class_name UISelectBattlerArrow
 extends Node2D
-
 # Emitted when the player presses "ui_accept" or "ui_cancel".
 signal target_selected(battler)
 

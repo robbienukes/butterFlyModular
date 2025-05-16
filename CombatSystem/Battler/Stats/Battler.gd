@@ -250,6 +250,7 @@ func has_status_effect(effect_id: String) -> bool:
 	return false
 
 
+
 # Applies damage to the battler's stats.
 # Later, it should also trigger a damage animation.
 func _take_damage(amount: int) -> void:
@@ -308,5 +309,25 @@ func is_fallen() -> bool:
 	
 func receive_action(action: Action) -> void:
 	last_incoming_action = action
-	
+
+func get_action_categories() -> Dictionary:
+	var categories: Dictionary = {}
+	for action_data in actions:
+		if action_data is ActionData:
+			var category: String = action_data.category
+			if not categories.has(category):
+				categories[category] = []
+			categories[category].append(action_data)
+	return categories
+
+
+
+
+
+
+
+
+
+
+
 	

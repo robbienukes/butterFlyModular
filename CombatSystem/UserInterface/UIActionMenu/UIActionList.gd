@@ -6,12 +6,23 @@ signal action_selected(action)
 
 # We instantiate an action button for each action on the battler. See the setup() function below.
 # The file UIActionButton.tscn must be in the same directory for this to work.
-const UIActionButton: PackedScene = preload("res://CombatSystem/UserInterface/UIActionMenu/UIActionButton.tscn")
+const UIActionButton: PackedScene = preload("UIActionButton.tscn")
 
 
 # Toggles all children buttons disabled.
 # You can use this to implement nested action lists, freezing this one while the user browses another.
-var is_disabled = false: set = set_is_disabled
+var _is_disabled: bool = false
+
+var is_disabled: bool:
+	get:
+		return _is_disabled
+	set(value):
+		_is_disabled = value
+		for button in buttons:
+			button.disabled = value
+
+
+
 # Among the node's children, there's the `UIMenuSelectArrow`, which isn't a button.
 # We use this array to access and process the buttons efficiently.
 var buttons := []
@@ -28,38 +39,25 @@ func setup(battler: Battler) -> void:
 		var can_use_action: bool = battler.stats.energy >= action.energy_cost
 		# Instantiates a button and calls its `setup()` function.
 		var action_button = UIActionButton.instantiate()
-		# debug
-		# print("Action button ", action, "created")
 		add_child(action_button)
 		action_button.setup(action, can_use_action)
 		# Here, we start using binds with the signal callbacks. For each button,
 		# we bind the current `action` to its "pressed" signal.
-		action_button.pressed.connect(
-			
-		(func _on_UIActionButton_button_pressed(action: ActionData) -> void:
-			set_is_disabled(true)
-			action_selected.emit(action)).bind(action))
+		action_button.pressed.connect(Callable(self, "_on_UIActionButton_button_pressed").bind(action))
 
 		# We rely on the focus system of Godot's UI framework to know when the player
 		# navigates between buttons.
 		# We bind the button to retrieve its position from the callback function and move the arrow to it.
-		action_button.focus_entered.connect(_on_UIActionButton_focus_entered.bind(action_button, battler.ui_data.display_name, action.energy_cost))
-		
+		action_button.focus_entered.connect(
+	Callable(self, "_on_UIActionButton_focus_entered").bind(action_button, battler.ui_data.display_name, action.energy_cost)
+)
 		buttons.append(action_button)
 
-	# This centers the arrow vertically with the first button and places it on its left.
-	_select_arrow.position = (
-		buttons[0].global_position
-		+ Vector2(0.0, buttons[0].size.y / 2.0)
-	)
+	var button_rect = buttons[0].get_global_rect()
+	_select_arrow.position = button_rect.position + Vector2(0.0, button_rect.size.y / 2.0)
 
-# When a new button gets focus, we move the arrow to it to make it look like you control the menu
-# with the arrow. But the arrow's just a visual cue.
-# As mentioned above, we have extra values we'll use later, when displaying the character's stats.
-func _on_UIActionButton_focus_entered(button: TextureButton, battler_display_name: String, energy_cost: int) -> void:
-	_select_arrow.move_to(button.global_position + Vector2(0.0, button.size.y / 2.0))
-	# Emitting an event that any node in the game can connect to is that simple, thanks to Godot's signals.
-	Events.combat_action_hovered.emit(battler_display_name, energy_cost)
+
+
 
 # The list itself being a VBoxContainer, it can't grab focus.
 # Instead of focusing the list itself, we want its first button to grab focus.
@@ -72,3 +70,14 @@ func set_is_disabled(value: bool) -> void:
 	is_disabled = value
 	for button in buttons:
 		button.disabled = is_disabled
+
+
+# When a button was pressed, it means the player selected an action, which we emit with the
+# "action_selected" signal.
+func _on_UIActionButton_button_pressed(action: ActionData) -> void:
+	set_is_disabled(true)
+	emit_signal("action_selected", action)
+	
+func _on_UIActionButton_focus_entered(button: TextureButton, battler_display_name: String, energy_cost: int) -> void:
+	var button_rect = button.get_global_rect()
+	_select_arrow.move_to(button_rect.position + Vector2(0.0, button_rect.size.y / 2.0))

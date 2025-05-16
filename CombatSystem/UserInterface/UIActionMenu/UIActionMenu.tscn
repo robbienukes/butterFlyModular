@@ -9,4 +9,10 @@ offset_left = 676.0
 offset_top = 308.0
 offset_right = 716.0
 offset_bottom = 348.0
+size_flags_vertical = 3
 script = ExtResource("1_6tysl")
+
+[node name="MainListContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

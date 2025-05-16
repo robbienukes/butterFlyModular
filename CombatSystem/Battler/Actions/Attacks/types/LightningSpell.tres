@@ -15,6 +15,7 @@ is_heal = false
 is_magical = true
 animation = "lightning"
 play_attacker_animation = false
+category = "Spells"
 action_type = 1
 energy_cost = 0
 element = 0
