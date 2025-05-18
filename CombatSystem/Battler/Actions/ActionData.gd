@@ -16,11 +16,6 @@ enum ActionTypes { PHYSICAL, MAGICAL, ITEM, CONDITION }
 @export var is_magical: bool = false
 @export var animation: String = "" # Animation name to play for this action
 @export var play_attacker_animation := true
-
-
-# Set explicit action type
-@export var category := "Attack"  # A string like "Attack", "Spells", or "Items"
-
 @export var action_type := ActionTypes.PHYSICAL
 # Amount of energy the action costs to perform.
 @export var energy_cost := 0

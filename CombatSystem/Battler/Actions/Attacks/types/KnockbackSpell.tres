@@ -27,7 +27,6 @@ is_heal = false
 is_magical = false
 animation = ""
 play_attacker_animation = true
-category = "Attack"
 action_type = 0
 energy_cost = 0
 element = 0

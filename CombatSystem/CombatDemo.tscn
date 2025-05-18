@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://CombatSystem/UI.gd" id="14_rahtc"]
 [ext_resource type="Resource" uid="uid://cu8pedsjdfj63" path="res://CombatSystem/Battler/Stats/bloodEye_stats.tres" id="14_ysyvb"]
 [ext_resource type="PackedScene" uid="uid://jje61ll7wm7o" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUDList.tscn" id="15_tudh0"]
-[ext_resource type="PackedScene" uid="uid://dy0lih315penc" path="res://CombatSystem/Battler/Entities/Enemies/Firedog (2).tscn" id="18_nn4oe"]
+[ext_resource type="PackedScene" uid="uid://dy0lih315penc" path="res://CombatSystem/Battler/Entities/Enemies/Firedog.tscn" id="18_nn4oe"]
 [ext_resource type="PackedScene" uid="uid://o2qq51stcr1v" path="res://CombatSystem/UserInterface/UIDamageLabelBuilder.tscn" id="19_hjhto"]
 [ext_resource type="PackedScene" uid="uid://b3oan7k8p87ac" path="res://CombatSystem/Battler/Entities/Party/Lillel.tscn" id="21_4flw8"]
 
@@ -116,8 +116,11 @@ position = Vector2(99, 32)
 script = ExtResource("14_rahtc")
 
 [node name="UIBattlerHUDList" parent="UI" instance=ExtResource("15_tudh0")]
-offset_left = -370.0
-offset_top = 201.0
+custom_minimum_size = Vector2(0, 400)
+offset_left = 838.0
+offset_top = 278.0
+offset_right = 1170.0
+offset_bottom = 678.0
 
 [node name="UIDamageLabelBuilder" parent="UI" instance=ExtResource("19_hjhto")]
 

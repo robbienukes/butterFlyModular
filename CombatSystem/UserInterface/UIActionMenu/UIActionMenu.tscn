@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhbvl0momu8do"]
+[gd_scene load_steps=3 format=3 uid="uid://bhbvl0momu8do"]
 
 [ext_resource type="Script" path="res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.gd" id="1_6tysl"]
+[ext_resource type="PackedScene" uid="uid://bla6ph2rwiq7w" path="res://CombatSystem/UserInterface/UIActionMenu/UIMenuSelectArrow.tscn" id="2_lkvyi"]
 
 [node name="UIActionMenu" type="Control"]
 layout_mode = 3
@@ -16,3 +17,12 @@ script = ExtResource("1_6tysl")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="RootSelectArrow" parent="." instance=ExtResource("2_lkvyi")]
+z_index = 100
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.797
+anchor_bottom = 1.713
+offset_right = -71.88
+offset_bottom = -68.52

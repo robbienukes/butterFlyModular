@@ -11,5 +11,5 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4qo5w")
 
-[node name="UIMenuSelectArrow" parent="." instance=ExtResource("2_qkacs")]
+[node name="ListSelectArrow" parent="." instance=ExtResource("2_qkacs")]
 layout_mode = 2

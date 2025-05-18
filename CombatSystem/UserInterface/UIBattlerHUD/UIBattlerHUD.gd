@@ -8,11 +8,16 @@ extends NinePatchRect
 @onready var _label := $Label
 @onready var _anim_player: AnimationPlayer = $AnimationPlayer
 
+var battler: Battler
+
+
 # Store a reference to the front anchor node
 
 
 # Initializes the health and energy bars using the battler's stats.
 func setup(battler: Battler) -> void:
+	print("🧱 UIBattlerHUD setup:", battler.name)
+
 	battler.selection_toggled.connect(_on_Battler_selection_toggled)
 
 	_label.text = battler.ui_data.display_name
@@ -27,6 +32,7 @@ func setup(battler: Battler) -> void:
 
 	stats.health_changed.connect(_on_BattlerStats_health_changed)
 	stats.energy_changed.connect(_on_BattlerStats_energy_changed)
+	modulate.a = 0.0
 
 
 func _on_BattlerStats_health_changed(_old_value: float, new_value: float) -> void:
@@ -44,3 +50,16 @@ func _on_Battler_selection_toggled(value: bool) -> void:
 		_anim_player.play("select")
 	else:
 		_anim_player.play("deselect")
+		
+func fade_in() -> void:
+	if _anim_player.has_animation("fade_in"):
+		_anim_player.play("fade_in")
+	else:
+		modulate.a = 1.0
+
+func fade_out() -> void:
+	if _anim_player.has_animation("fade_out"):
+		_anim_player.play("fade_out")
+	else:
+		modulate.a = 0.0
+	

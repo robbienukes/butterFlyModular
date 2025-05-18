@@ -32,8 +32,10 @@ script = ExtResource("27_ygcvj")
 
 [node name="UIBattlerHUDList" parent="UI" instance=ExtResource("28_rnxnk")]
 layout_mode = 1
-offset_left = -370.0
-offset_top = 201.0
+offset_left = 710.0
+offset_top = 314.0
+offset_right = 1145.0
+offset_bottom = 718.0
 
 [node name="UIDamageLabelBuilder" parent="UI" instance=ExtResource("29_g8l71")]
 

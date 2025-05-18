@@ -5,6 +5,7 @@ extends Node2D
 @onready var ui_battler_hud_list := $UI/UIBattlerHUDList
 @onready var ui_damage_label_builder := $UI/UIDamageLabelBuilder
 @onready var ui_canvas_layer := $UI
+@onready var cam := $Camera2D
 
 
 signal combat_ended(message)
@@ -78,7 +79,16 @@ func setup_combat() -> void:
 			not_in_party_battler.position = initial_position_not_in_party + position_offset * k
 	
 	ui_turn_bar.setup(active_turn_queue.get_children())
-	ui_battler_hud_list.setup(in_party, initial_position_party, position_offset)
+	print("📣 Calling HUD list setup with party:", in_party)
+	print("📦 is_party_member values:", active_turn_queue.get_children().map(func(b): return b.is_party_member))
+
+	ui_battler_hud_list.setup(in_party)
+	ui_battler_hud_list.fade_in()  # 🔥 this triggers the AnimationPlayer
+	
+	print("📡 HUD list node info:")
+	print("Visible:", ui_battler_hud_list.visible)	
+	print("Modulate:", ui_battler_hud_list.modulate)
+	print("Global position:", ui_battler_hud_list.global_position)
 
 	for battler_instance in active_turn_queue.get_children():
 		battler_instance.stats.health_depleted.connect(_on_BattlerStats_health_depleted.bind(battler_instance))
@@ -89,10 +99,22 @@ func setup_combat() -> void:
 
 # We set up the turn bar when the node is ready, which ensures all its children also are ready.
 func _ready() -> void:
-	print("CombatDemo _ready called")
-	# The setup_combat function will be called from init now
+	print("CombatModule _ready called")
+
+	if cam:
+		cam.make_current()
+		print("🎥 Activated camera:", cam.name)
+	else:
+		push_warning("❌ Camera2D is null — double-check node path.")
+
+	print("🎥 Viewport camera is now:", get_viewport().get_camera_2d())
+	print("Scene tree under CombatModule:")
+	print_tree_pretty()
+	# Continue setup
 	if battlers.size() > 0:
 		setup_combat()
+
+
 
 # Returns an array of `Battler` who are in the same team as `actor`, including `actor`.
 func get_ally_battlers_of(actor) -> Array:
