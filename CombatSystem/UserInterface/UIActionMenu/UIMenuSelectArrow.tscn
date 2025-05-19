@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bla6ph2rwiq7w"]
+
+[ext_resource type="Script" uid="uid://dvotambygq73b" path="res://CombatSystem/UserInterface/UIActionMenu/UIMenuSelectArrow.gd" id="1_kgtml"]
+[ext_resource type="Texture2D" uid="uid://v42ubvlr4env" path="res://images/rpgUI/20240713dragonMapFrame.png" id="2_l411u"]
+
+[sub_resource type="Animation" id="Animation_x8ipo"]
+resource_name = "wiggle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 0.420448),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(75, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rxep4"]
+_data = {
+&"wiggle": SubResource("Animation_x8ipo")
+}
+
+[node name="UIMenuSelectArrow" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kgtml")
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_bottom = 1.0
+texture = ExtResource("2_l411u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rxep4")
+}
+autoplay = "wiggle"

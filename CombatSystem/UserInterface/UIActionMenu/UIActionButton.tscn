@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://rficl4340pry"]
+
+[ext_resource type="Theme" uid="uid://cgqpa7qyt55cm" path="res://CombatSystem/UserInterface/theme/combat_ui_theme.tres" id="1_cqs57"]
+[ext_resource type="Texture2D" uid="uid://drqe2csg1kyoa" path="res://images/rpgUI/20240707dragonHeaderA.png" id="2_e2w2f"]
+[ext_resource type="Texture2D" uid="uid://c1g7m6lhamkou" path="res://images/rpgUI/20240707dragonHeaderB.png" id="3_3hw1t"]
+[ext_resource type="Script" uid="uid://dkom78a5hemm" path="res://CombatSystem/UserInterface/UIActionMenu/UIActionButton.gd" id="6_idsft"]
+
+[node name="UIActionButtons" type="TextureButton"]
+custom_minimum_size = Vector2(0, 32)
+offset_right = 186.0
+offset_bottom = 63.0
+scale = Vector2(1.52365, 1.52671)
+size_flags_vertical = 3
+theme = ExtResource("1_cqs57")
+texture_normal = ExtResource("2_e2w2f")
+texture_pressed = ExtResource("3_3hw1t")
+texture_disabled = ExtResource("3_3hw1t")
+texture_focused = ExtResource("3_3hw1t")
+stretch_mode = 4
+script = ExtResource("6_idsft")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0044
+offset_top = 15.0651
+offset_right = 66.0044
+offset_bottom = -4.93493
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45594, 0.45594)
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+tooltip_text = "This will do something to someone"
+theme_type_variation = &"HeaderLarge"
+text = "ActionButton"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

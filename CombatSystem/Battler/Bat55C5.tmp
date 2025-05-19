@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk4doemqcbmur"]
+
+[ext_resource type="Script" path="res://CombatSystem/Battler/Battler.gd" id="1_evk6l"]
+[ext_resource type="PackedScene" uid="uid://b4bjan5evidju" path="res://CombatSystem/Battler/BattlerAnim.tscn" id="2_ru1ok"]
+
+[node name="Battler" type="Node2D"]
+script = ExtResource("1_evk6l")
+
+[node name="BattlerAnim" parent="." instance=ExtResource("2_ru1ok")]
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

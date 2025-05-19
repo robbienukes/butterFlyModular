@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://o2qq51stcr1v"]
+
+[ext_resource type="Script" uid="uid://biil4qvfbshqy" path="res://CombatSystem/UserInterface/UIDamageLabelBuilder2D.gd" id="1_0g01w"]
+
+[node name="NodeUIDamageLabelBuilder2D" type="Node2D"]
+script = ExtResource("1_0g01w")

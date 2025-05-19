@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://sj7acj2a3tj7"]
+
+[ext_resource type="Texture2D" uid="uid://bkisy6sasy2dr" path="res://CombatSystem/UserInterface/UITurnBar/portrait_bg_player.png" id="1_2o2aw"]
+[ext_resource type="Script" uid="uid://dmgeu0fk2rw4k" path="res://CombatSystem/UserInterface/UITurnBar/UIBattlerIcon.gd" id="2_vao2r"]
+
+[node name="UIBattlerIcon" type="TextureRect"]
+offset_left = -113.0
+offset_top = -72.0
+offset_right = 734.872
+offset_bottom = 404.928
+scale = Vector2(0.263774, 0.263774)
+texture = ExtResource("1_2o2aw")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_vao2r")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 223.676
+offset_top = 56.8668
+offset_right = -206.196
+offset_bottom = -50.0612
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+stretch_mode = 5

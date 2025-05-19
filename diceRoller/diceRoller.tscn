@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://x8chvruobarw"]
+
+[ext_resource type="ArrayMesh" uid="uid://dperqjbeycbo0" path="res://images/dice3d/dice20.obj" id="2_jiwhj"]
+
+[sub_resource type="Resource" id="Resource_txxbn"]
+metadata/__load_path__ = "res://RigidBody3D.gd"
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x4r2a"]
+points = PackedVector3Array(1.16819, 8.86027, 0.307987, -0.524923, -9.80473, -10.2092, 0.494782, -9.81948, -10.2168, 0.496939, 0.407227, -16.0593, -9.40006, 3.47898, -1.00981, 5.94856, -8.11107, 0.00822648, 9.315, -1.96708, -10.1904, -5.64288, -7.77902, 0.352353, -9.39841, -3.34227, -10.219, -5.68554, 8.31418, -9.91459, 6.00345, 7.97677, -10.2631, -0.526413, 0.406279, 5.82099, 9.29623, 3.45054, -0.0255311, -0.185079, 9.99898, 0.0303385, 9.3822, -3.34761, -10.227, -9.31036, 3.44636, -0.0368006, 0.494553, -0.613911, 5.80051, -5.97055, -8.09885, -0.0015454, -1.19874, -0.609717, -15.6017, -6.0237, 7.96278, -10.2518, -9.35662, 2.10358, -0.0115798, 9.34779, 2.1084, 0.00258467, 0.498125, 10.0184, -0.98933, -9.40718, -2.3217, -10.2238, 0.490443, -0.608423, -15.9204, -0.873035, -9.88882, -8.53643, 0.496129, 0.406689, 5.83422, 5.6549, 8.31457, -9.91266, -0.863921, 1.08333, -15.6325, 9.33308, 3.46393, -1.3663, 9.3751, -3.34503, -8.8583, -9.37651, -3.33432, -8.84651)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+gravity_scale = 2.0
+freeze = true
+script = SubResource("Resource_txxbn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_jiwhj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_x4r2a")

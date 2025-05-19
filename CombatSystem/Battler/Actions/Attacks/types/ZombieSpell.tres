@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="AttackActionData" load_steps=6 format=3 uid="uid://b5stoh1mgrrvt"]
+
+[ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_d3bmk"]
+[ext_resource type="AudioStream" uid="uid://bgdnpuhebgktm" path="res://CombatSystem/Sounds/Hits/zombie-bite-96528.mp3" id="1_dbacl"]
+[ext_resource type="AudioStream" uid="uid://cmfqgxuiqfeoj" path="res://CombatSystem/Sounds/Actions/zombie-moans-29924.mp3" id="2_v5jlu"]
+[ext_resource type="Texture2D" uid="uid://583v7mrm2sbt" path="res://images/effectIcons/sizedIcons/zombie.png" id="3_v5jlu"]
+[ext_resource type="Resource" uid="uid://bbwpuynugjeaq" path="res://CombatSystem/StatusEffects/zombie_effect.tres" id="4_kv4m4"]
+
+[resource]
+script = ExtResource("1_d3bmk")
+damage_multiplier = 1.0
+hit_chance = 100.0
+status_effect = ExtResource("4_kv4m4")
+does_damage = true
+hit_sound = ExtResource("2_v5jlu")
+hit_confirm_sound = ExtResource("1_dbacl")
+icon = ExtResource("3_v5jlu")
+label = "Zombie"
+is_heal = false
+is_magical = false
+animation = ""
+play_attacker_animation = false
+action_type = 1
+energy_cost = 0
+element = 0
+is_targeting_self = false
+is_targeting_all = false
+readiness_saved = 0.0
+power = 0
+metadata/_custom_type_script = "uid://c6vgdcngc7o5k"

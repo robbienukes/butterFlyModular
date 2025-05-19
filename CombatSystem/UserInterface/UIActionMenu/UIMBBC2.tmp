@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgmd3gidf05e5"]
+
+[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIActionMenu/UIMenuSelectArrow.gd" id="1_mtj8c"]
+[ext_resource type="Texture2D" uid="uid://v42ubvlr4env" path="res://images/rpgUI/20240713dragonMapFrame.png" id="2_gqio6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mtj8c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_gqio6")

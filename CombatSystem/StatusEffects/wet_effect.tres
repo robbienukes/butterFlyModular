@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StatusEffectData" load_steps=3 format=3 uid="uid://id16hf1rlkit"]
+
+[ext_resource type="Texture2D" uid="uid://c5mb6rh1yp8ai" path="res://images/effectIcons/sizedIcons/weteffect.png" id="1_p1o6t"]
+[ext_resource type="Script" uid="uid://2xkyjr61uk04" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="2_dst1c"]
+
+[resource]
+script = ExtResource("2_dst1c")
+effect = "wet"
+duration_seconds = 100.0
+effect_power = 20
+effect_rate = 0.0
+icon = ExtResource("1_p1o6t")
+is_ticking = false
+ticking_interval = 0.0
+ticking_damage = 0
+effect_just_applied = true

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BattlerStats" load_steps=2 format=3 uid="uid://cu8pedsjdfj63"]
+
+[ext_resource type="Script" uid="uid://ct3y64t1hjn7c" path="res://CombatSystem/Battler/BattlerStats.gd" id="1_qlnee"]
+
+[resource]
+script = ExtResource("1_qlnee")
+max_health = 60
+max_energy = 3
+base_physical_attack = 10.0
+base_physical_defense = 10.0
+base_magical_attack = 10.0
+base_magical_defense = 10.0
+base_speed = 4.0
+base_hit_chance = 50.0
+base_evasion = 0.0
+weaknesses = []
+affinity = 0
+upgradeable_stats = ["max_health", "max_energy", "attack", "defense", "speed", "hit_chance", "evasion"]

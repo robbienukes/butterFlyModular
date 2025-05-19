@@ -1,0 +1,37 @@
+[gd_scene load_steps=13 format=3 uid="uid://cigryv5lgu51f"]
+
+[ext_resource type="Script" uid="uid://dsn3ejyyjvneo" path="res://CombatSystem/Battler/Stats/Battler.gd" id="1_nirl0"]
+[ext_resource type="PackedScene" uid="uid://b4bjan5evidju" path="res://CombatSystem/Battler/BattlerAnim.tscn" id="2_r3mf8"]
+[ext_resource type="Resource" uid="uid://coj37442evhu6" path="res://CombatSystem/Battler/Stats/bran_stats.tres" id="2_yh7cc"]
+[ext_resource type="Texture2D" uid="uid://dmv5ikh7e1xrt" path="res://images/battlers/party/goblinBoy.png" id="3_k1tbf"]
+[ext_resource type="Resource" uid="uid://bfgwix3xebcb3" path="res://CombatSystem/Battler/Actions/Attacks/types/BasicAttack.tres" id="3_wfw2b"]
+[ext_resource type="Resource" uid="uid://bft5jnapi8yvw" path="res://CombatSystem/Battler/Actions/Attacks/types/HasteSpell.tres" id="4_nqh7h"]
+[ext_resource type="Resource" uid="uid://bmfvivxcyk5k2" path="res://CombatSystem/Battler/Actions/Attacks/types/SlowSpell.tres" id="5_xhh7b"]
+[ext_resource type="Resource" uid="uid://dnucntjehyl32" path="res://CombatSystem/Battler/Actions/Healing/HealingSpell.tres" id="6_60v8y"]
+[ext_resource type="Resource" uid="uid://cjal3nlmm2l8j" path="res://CombatSystem/UserInterface/UIData/bran_uidata.tres" id="6_g43ps"]
+[ext_resource type="Resource" uid="uid://c5xxsv1t4sthi" path="res://CombatSystem/Battler/Actions/Attacks/types/revolver_action_data.tres" id="7_g25ba"]
+[ext_resource type="Resource" uid="uid://clayaavr4xm3d" path="res://CombatSystem/Battler/Actions/Attacks/types/WetSpell.tres" id="8_kmlep"]
+[ext_resource type="Resource" uid="uid://bh7w5onhm0ndn" path="res://CombatSystem/Battler/Actions/Attacks/types/LightningSpell.tres" id="9_dhlov"]
+
+[node name="Battler" type="Node2D"]
+script = ExtResource("1_nirl0")
+stats = ExtResource("2_yh7cc")
+actions = [ExtResource("3_wfw2b"), ExtResource("4_nqh7h"), ExtResource("5_xhh7b"), ExtResource("6_60v8y"), ExtResource("7_g25ba"), ExtResource("8_kmlep"), ExtResource("9_dhlov")]
+is_party_member = true
+ui_data = ExtResource("6_g43ps")
+
+[node name="BattlerAnim" parent="." instance=ExtResource("2_r3mf8")]
+
+[node name="Sprite" parent="BattlerAnim/Pivot" index="0"]
+position = Vector2(8, -2.86102e-06)
+scale = Vector2(0.204249, 0.204249)
+texture = ExtResource("3_k1tbf")
+offset = Vector2(-15, -399)
+
+[node name="FrontAnchor" parent="BattlerAnim" index="1"]
+position = Vector2(-80, -104)
+
+[node name="TopAnchor" parent="BattlerAnim" index="2"]
+position = Vector2(8, -176)
+
+[editable path="BattlerAnim"]

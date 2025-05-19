@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b88l166jdm7dv"]
+
+[ext_resource type="Script" uid="uid://m31us1y2pyi2" path="res://CombatSystem/UserInterface/UIActionMenu/UIActionList.gd" id="1_4qo5w"]
+[ext_resource type="PackedScene" uid="uid://bla6ph2rwiq7w" path="res://CombatSystem/UserInterface/UIActionMenu/UIMenuSelectArrow.tscn" id="2_qkacs"]
+
+[node name="UIActionList" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4qo5w")
+
+[node name="ListSelectArrow" parent="." instance=ExtResource("2_qkacs")]
+layout_mode = 2

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BattlerUIData" load_steps=3 format=3 uid="uid://403t1j846nmn"]
+
+[ext_resource type="Script" uid="uid://cwrc38j2n1ow0" path="res://CombatSystem/UserInterface/BattlerUIData.gd" id="1_ak8ti"]
+[ext_resource type="Texture2D" uid="uid://ddbc55b2n67wj" path="res://images/battlers/enemies/fireDog.png" id="2_fnycg"]
+
+[resource]
+script = ExtResource("1_ak8ti")
+display_name = "Firedog"
+texture = ExtResource("2_fnycg")

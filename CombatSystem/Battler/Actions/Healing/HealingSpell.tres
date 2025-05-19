@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="AttackActionData" load_steps=3 format=3 uid="uid://dnucntjehyl32"]
+
+[ext_resource type="AudioStream" uid="uid://d303o3likq7xo" path="res://CombatSystem/Sounds/Actions/healRPG.wav" id="1_viryv"]
+[ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_vmy5c"]
+
+[resource]
+script = ExtResource("1_vmy5c")
+damage_multiplier = 1.0
+hit_chance = 100.0
+does_damage = false
+hit_sound = ExtResource("1_viryv")
+label = "Heal"
+is_heal = true
+is_magical = false
+animation = ""
+play_attacker_animation = true
+action_type = 1
+energy_cost = 2
+element = 0
+is_targeting_self = false
+is_targeting_all = false
+readiness_saved = 0.0
+power = 30

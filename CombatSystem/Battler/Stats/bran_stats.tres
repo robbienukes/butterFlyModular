@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BattlerStats" load_steps=2 format=3 uid="uid://coj37442evhu6"]
+
+[ext_resource type="Script" uid="uid://ct3y64t1hjn7c" path="res://CombatSystem/Battler/BattlerStats.gd" id="1_x0p5p"]
+
+[resource]
+script = ExtResource("1_x0p5p")
+max_health = 100
+max_energy = 6
+base_physical_attack = 10.0
+base_physical_defense = 10.0
+base_magical_attack = 10.0
+base_magical_defense = 10.0
+base_speed = 20.0
+base_hit_chance = 100.0
+base_evasion = 20.0
+weaknesses = []
+affinity = 0
+upgradeable_stats = ["max_health", "max_energy", "physical_attack", "magical_attack", "physical_defense", "magical_defense", "speed", "hit_chance", "evasion"]

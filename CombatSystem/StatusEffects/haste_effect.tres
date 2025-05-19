@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StatusEffectData" load_steps=3 format=3 uid="uid://e0g7fomskngg"]
+
+[ext_resource type="Texture2D" uid="uid://drj5s6jwpjf0v" path="res://images/effectIcons/rawIcons/sonic-shoes.png" id="1_qv8th"]
+[ext_resource type="Script" uid="uid://2xkyjr61uk04" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="1_selrq"]
+
+[resource]
+script = ExtResource("1_selrq")
+effect = "haste"
+duration_seconds = 100.0
+effect_power = 20
+effect_rate = 0.0
+icon = ExtResource("1_qv8th")
+is_ticking = false
+ticking_interval = 0.0
+ticking_damage = 0
+effect_just_applied = true

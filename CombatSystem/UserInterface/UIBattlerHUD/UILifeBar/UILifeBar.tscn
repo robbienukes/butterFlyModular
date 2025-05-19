@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://bopdrm1bng31o"]
+
+[ext_resource type="Texture2D" uid="uid://du0fn2mcwlcls" path="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/life_bar_bg.png" id="1_vgcl8"]
+[ext_resource type="Texture2D" uid="uid://bieiddegbq1ku" path="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/life_bar_fill.png" id="2_e2cd6"]
+[ext_resource type="Script" uid="uid://d02chyrmu22tx" path="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/UILifeBar.gd" id="3_ryncu"]
+
+[sub_resource type="Animation" id="Animation_pk3jg"]
+resource_name = "damage"
+length = 0.2
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00427227, 0.0333237, 0.0777553, 0.129877, 0.198233),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(0.0117647, 0.537255, 1, 0.823529), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4g5at"]
+resource_name = "danger"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:tint_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.811765, 0, 0.811765, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j8lnp"]
+_data = {
+&"damage": SubResource("Animation_pk3jg"),
+&"danger": SubResource("Animation_4g5at")
+}
+
+[node name="UILifeBar" type="TextureProgressBar"]
+offset_right = 40.0
+offset_bottom = 40.0
+step = 0.01
+texture_under = ExtResource("1_vgcl8")
+texture_progress = ExtResource("2_e2cd6")
+script = ExtResource("3_ryncu")
+fill_rate = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j8lnp")
+}

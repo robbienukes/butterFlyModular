@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StatusEffectData" load_steps=3 format=3 uid="uid://cw3gk64ro3xy0"]
+
+[ext_resource type="Script" uid="uid://2xkyjr61uk04" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="1_b7iit"]
+[ext_resource type="Texture2D" uid="uid://c5ayengnbwej8" path="res://images/effectIcons/sizedIcons/shield-reflect.png" id="1_f6jko"]
+
+[resource]
+script = ExtResource("1_b7iit")
+effect = "reflect"
+duration_seconds = 100.0
+effect_power = 20
+effect_rate = 0.5
+icon = ExtResource("1_f6jko")
+is_ticking = false
+ticking_interval = 4.0
+ticking_damage = 3
+effect_just_applied = true

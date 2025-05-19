@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="AttackActionData" load_steps=3 format=3 uid="uid://bmfvivxcyk5k2"]
+
+[ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_wcpeu"]
+[ext_resource type="Resource" uid="uid://d2tsx1yusx561" path="res://CombatSystem/StatusEffects/slow_effect.tres" id="2_vdk6o"]
+
+[resource]
+script = ExtResource("1_wcpeu")
+damage_multiplier = 1.0
+hit_chance = 100.0
+status_effect = ExtResource("2_vdk6o")
+does_damage = false
+label = "Slow"
+is_heal = false
+is_magical = false
+animation = ""
+play_attacker_animation = true
+action_type = 1
+energy_cost = 0
+element = 0
+is_targeting_self = false
+is_targeting_all = false
+readiness_saved = 0.0
+power = 0

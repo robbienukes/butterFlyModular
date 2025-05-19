@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="AttackActionData" load_steps=4 format=3 uid="uid://bft5jnapi8yvw"]
+
+[ext_resource type="AudioStream" uid="uid://bxo7v1e2f0qre" path="res://CombatSystem/Sounds/Actions/hasteWoosh.mp3" id="1_fnsg2"]
+[ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_k21jp"]
+[ext_resource type="Resource" uid="uid://e0g7fomskngg" path="res://CombatSystem/StatusEffects/haste_effect.tres" id="2_uhm3g"]
+
+[resource]
+script = ExtResource("1_k21jp")
+damage_multiplier = 0.0
+hit_chance = 100.0
+status_effect = ExtResource("2_uhm3g")
+does_damage = false
+hit_sound = ExtResource("1_fnsg2")
+label = "Haste"
+is_heal = false
+is_magical = false
+animation = "haste"
+play_attacker_animation = true
+action_type = 1
+energy_cost = 0
+element = 0
+is_targeting_self = false
+is_targeting_all = false
+readiness_saved = 0.0
+power = 0

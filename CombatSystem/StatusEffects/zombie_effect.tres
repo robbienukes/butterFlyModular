@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="StatusEffectData" load_steps=3 format=3 uid="uid://bbwpuynugjeaq"]
+
+[ext_resource type="Script" uid="uid://2xkyjr61uk04" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="1_84qh7"]
+[ext_resource type="Texture2D" uid="uid://583v7mrm2sbt" path="res://images/effectIcons/sizedIcons/zombie.png" id="1_ucg6m"]
+
+[resource]
+script = ExtResource("1_84qh7")
+effect = "zombie"
+duration_seconds = 50.0
+effect_power = 20
+effect_rate = 0.5
+icon = ExtResource("1_ucg6m")
+is_ticking = false
+ticking_interval = 4.0
+ticking_damage = 3
+effect_just_applied = true
+metadata/_custom_type_script = "uid://2xkyjr61uk04"

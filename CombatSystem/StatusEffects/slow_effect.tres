@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StatusEffectData" load_steps=3 format=3 uid="uid://d2tsx1yusx561"]
+
+[ext_resource type="Script" uid="uid://2xkyjr61uk04" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="1_3y5r2"]
+[ext_resource type="Texture2D" uid="uid://btwnby1wpa2ac" path="res://images/effectIcons/sizedIcons/sticky-boot.png" id="1_kul1l"]
+
+[resource]
+script = ExtResource("1_3y5r2")
+effect = "slow"
+duration_seconds = 20.0
+effect_power = 20
+effect_rate = 0.5
+icon = ExtResource("1_kul1l")
+is_ticking = false
+ticking_interval = 4.0
+ticking_damage = 3
+effect_just_applied = true

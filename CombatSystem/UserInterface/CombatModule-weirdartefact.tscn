@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://db5iijk4pwt8i"]
+
+[ext_resource type="Script" uid="uid://cailyir2qr14i" path="res://CombatSystem/CombatDemo.gd" id="1_kebd3"]
+[ext_resource type="Texture2D" uid="uid://bsj6mhitmrkh6" path="res://images/backgrounds/pixel_art_underground_cavern_w2.jpeg" id="2_i5jaf"]
+[ext_resource type="Script" uid="uid://cy4fli5jbdbyq" path="res://CombatSystem/ActiveTurnQueue.gd" id="3_gk0ad"]
+[ext_resource type="PackedScene" uid="uid://bhbvl0momu8do" path="res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.tscn" id="4_3efh3"]
+[ext_resource type="PackedScene" uid="uid://bet1e21nea6yj" path="res://CombatSystem/UserInterface/UIActionMenu/UISelectBattlerArrow.tscn" id="5_n5n6j"]
+[ext_resource type="Script" uid="uid://cqtw3ntlf3ji" path="res://CombatSystem/UI.gd" id="6_lmdbl"]
+[ext_resource type="PackedScene" uid="uid://jje61ll7wm7o" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUDList.tscn" id="7_kmc22"]
+[ext_resource type="PackedScene" uid="uid://o2qq51stcr1v" path="res://CombatSystem/UserInterface/UIDamageLabelBuilder.tscn" id="8_ye8qc"]
+[ext_resource type="PackedScene" uid="uid://bnqhe2fqprb54" path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.tscn" id="9_dn2lp"]
+
+[node name="CombatModule" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_kebd3")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 347)
+scale = Vector2(1.49805, 1.49805)
+texture = ExtResource("2_i5jaf")
+
+[node name="ActiveTurnQueue" type="Node2D" parent="."]
+script = ExtResource("3_gk0ad")
+UIActionMenuScene = ExtResource("4_3efh3")
+SelectArrow = ExtResource("5_n5n6j")
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_lmdbl")
+
+[node name="UIBattlerHUDList" parent="UI" instance=ExtResource("7_kmc22")]
+offset_left = -370.0
+offset_top = 201.0
+
+[node name="UIDamageLabelBuilder" parent="UI" instance=ExtResource("8_ye8qc")]
+
+[node name="UITurnBar" parent="UI" instance=ExtResource("9_dn2lp")]
+
+[connection signal="combat_ended" from="." to="UI" method="_on_combat_demo_combat_ended"]
