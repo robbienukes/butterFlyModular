@@ -28,8 +28,6 @@ func open(battler: Battler) -> void:
 	show()
 	# Focus first category button manually here if needed
 
-
-
 # We free the menu upon closing it.
 func close() -> void:
 	hide()
@@ -85,20 +83,12 @@ func _populate_category_buttons(battler: Battler) -> void:
 			break
 
 
-
-
-
-
-
-
 func _on_category_button_pressed(category: int) -> void:
 	last_focused_button = get_viewport().gui_get_focus_owner()
 	# Disable/hide root
 	$MainListContainer.visible = false
 	$RootSelectArrow.hide()
 
-
-	
 	if active_submenu:
 		active_submenu.queue_free()
 
@@ -108,7 +98,6 @@ func _on_category_button_pressed(category: int) -> void:
 	active_submenu.back_selected.connect(_on_submenu_back)
 	active_submenu.action_selected.connect(_on_UIActionsList_action_selected)
 	active_submenu.focus()
-
 
 func _on_category_button_focused(button: TextureButton) -> void:
 	if not is_instance_valid($RootSelectArrow):
