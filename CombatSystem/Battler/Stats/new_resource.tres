@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="BattlerStats" load_steps=2 format=3 uid="uid://cmq84t3vy12b0"]
 
-[ext_resource type="Script" path="res://CombatSystem/Battler/BattlerStats.gd" id="1_ocnhv"]
+[ext_resource type="Script" uid="uid://ct3y64t1hjn7c" path="res://CombatSystem/Battler/BattlerStats.gd" id="1_ocnhv"]
 
 [resource]
 script = ExtResource("1_ocnhv")
 max_health = 1000
 max_energy = 20
-base_attack = 10.0
-base_defense = 10.0
+base_physical_attack = 10.0
+base_physical_defense = 10.0
+base_magical_attack = 10.0
+base_magical_defense = 10.0
 base_speed = 50.0
 base_hit_chance = 100.0
 base_evasion = 20.0

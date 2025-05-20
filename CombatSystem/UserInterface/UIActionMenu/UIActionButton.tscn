@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://cgqpa7qyt55cm" path="res://CombatSystem/UserInterface/theme/combat_ui_theme.tres" id="1_cqs57"]
 [ext_resource type="Texture2D" uid="uid://drqe2csg1kyoa" path="res://images/rpgUI/20240707dragonHeaderA.png" id="2_e2w2f"]
 [ext_resource type="Texture2D" uid="uid://c1g7m6lhamkou" path="res://images/rpgUI/20240707dragonHeaderB.png" id="3_3hw1t"]
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIActionMenu/UIActionButton.gd" id="6_idsft"]
+[ext_resource type="Script" uid="uid://dkom78a5hemm" path="res://CombatSystem/UserInterface/UIActionMenu/UIActionButton.gd" id="6_idsft"]
 
 [node name="UIActionButtons" type="TextureButton"]
 custom_minimum_size = Vector2(0, 32)

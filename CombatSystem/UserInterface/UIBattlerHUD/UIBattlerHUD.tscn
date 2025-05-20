@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cxhbrf4khkhg2"]
 
 [ext_resource type="Texture2D" uid="uid://x87qxh2xpddw" path="res://images/rpgUI/20240707dragon9SlicesA.png" id="2_nt11s"]
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUD.gd" id="3_nvcgt"]
+[ext_resource type="Script" uid="uid://mwnwmpf0uksp" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUD.gd" id="3_nvcgt"]
 [ext_resource type="PackedScene" uid="uid://bemebl4cdvkcb" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIValueCounter.tscn" id="4_elheg"]
 [ext_resource type="PackedScene" uid="uid://cm6ljkniepjmt" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEffectBar/UIEffectBar.tscn" id="4_kujds"]
 
@@ -42,8 +42,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j8lnp"]
 _data = {
-"damage": SubResource("Animation_pk3jg"),
-"danger": SubResource("Animation_4g5at")
+&"damage": SubResource("Animation_pk3jg"),
+&"danger": SubResource("Animation_4g5at")
 }
 
 [sub_resource type="Animation" id="Animation_33ewv"]
@@ -106,9 +106,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wjp7i"]
 _data = {
-"_setup": SubResource("Animation_33ewv"),
-"deselect": SubResource("Animation_8u74o"),
-"select": SubResource("Animation_7t8t1")
+&"_setup": SubResource("Animation_33ewv"),
+&"deselect": SubResource("Animation_8u74o"),
+&"select": SubResource("Animation_7t8t1")
 }
 
 [node name="UIBattlerHUD" type="NinePatchRect"]

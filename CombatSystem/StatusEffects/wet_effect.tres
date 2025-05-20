@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StatusEffectData" load_steps=3 format=3 uid="uid://id16hf1rlkit"]
 
 [ext_resource type="Texture2D" uid="uid://c5mb6rh1yp8ai" path="res://images/effectIcons/sizedIcons/weteffect.png" id="1_p1o6t"]
-[ext_resource type="Script" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="2_dst1c"]
+[ext_resource type="Script" uid="uid://2xkyjr61uk04" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="2_dst1c"]
 
 [resource]
 script = ExtResource("2_dst1c")

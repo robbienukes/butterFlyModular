@@ -27,12 +27,10 @@ var _type:= Types.DAMAGE
 
 # Below, `type` should be a member of the `Types` enum.
 func setup(type: int, start_global_position: Vector2, amount: int) -> void:
-	# We start by updating the node's `global_position` and `_amount`
 	global_position = start_global_position
 	_amount = amount
 	_type = type
 
-	# Then, we assign it a color based on the `type`.
 	match type:
 		Types.DAMAGE:
 			_set_color(color_damage)
@@ -46,8 +44,8 @@ func _ready() -> void:
 			_label.text = "-%d" % abs(_amount)
 		Types.HEAL:
 			_label.text = "+%d" % abs(_amount)
-		
 	_animate()
+
 
 
 func _set_color(value: Color) -> void:

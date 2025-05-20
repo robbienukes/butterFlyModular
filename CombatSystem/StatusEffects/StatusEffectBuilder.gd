@@ -14,7 +14,8 @@ const StatusEffects := {
 	"bug": preload("res://CombatSystem/StatusEffects/StatusEffectBug.gd"),
 	"reflect": preload("res://CombatSystem/StatusEffects/StatusEffectReflect.gd"),
 	"knockback": preload("res://CombatSystem/StatusEffects/StatusEffectKnockback.gd"),
-	"wet": preload("res://CombatSystem/StatusEffects/StatusEffectWet.gd")
+	"wet": preload("res://CombatSystem/StatusEffects/StatusEffectWet.gd"),
+	"zombie": preload("res://CombatSystem/StatusEffects/StatusEffectZombie.gd")
 }
 
 

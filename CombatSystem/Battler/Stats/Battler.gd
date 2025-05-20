@@ -48,7 +48,7 @@ var _ai_instance: BattlerAI = null
 signal ready_to_act(battler)
 signal readiness_changed(new_value)
 signal selection_toggled(value)
-signal damage_taken(amount)
+signal damage_taken(amount, label_type, target)  # ✅ NO DEFAULTS
 signal hit_missed
 signal hit_taken(hit)
 signal action_finished
@@ -256,11 +256,13 @@ func has_status_effect(effect_id: String) -> bool:
 func _take_damage(amount: int) -> void:
 	print("Incoming amount to _take_damage:", amount)
 	print("📉", name, "HP before:", stats.health, "Taking:", amount)
+
 	if amount < 0:
 		var heal_amount = abs(amount)
 		stats.health = min(stats.health + heal_amount, stats.max_health)
 		print(name, "healed", heal_amount, "HP")
 		battler_anim.play("heal")
+		damage_taken.emit(amount, UIDamageLabel.Types.HEAL)
 	else:
 		stats.health -= amount
 		print(name, "took", amount, "damage")
@@ -268,17 +270,11 @@ func _take_damage(amount: int) -> void:
 			if not battler_anim.block_damage_animation:
 				battler_anim.play("damage")
 				print("🔥 Called _take_damage — block:", battler_anim.block_damage_animation)
-
 		else:
 			print("⚡ Suppressing 'damage' animation due to lightning")
-
+		damage_taken.emit(amount, UIDamageLabel.Types.DAMAGE)
 
 	print("New health for", name, ":", stats.health)
-		
-	# 🔥 Emit damage_taken only if it's non-zero
-	if amount != 0:
-		damage_taken.emit(amount)
-	
 
 # We can't specify the `action`'s type hint here due to cyclic dependency errors
 # in Godot 3.2.

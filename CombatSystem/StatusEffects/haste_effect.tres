@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StatusEffectData" load_steps=3 format=3 uid="uid://e0g7fomskngg"]
 
 [ext_resource type="Texture2D" uid="uid://drj5s6jwpjf0v" path="res://images/effectIcons/rawIcons/sonic-shoes.png" id="1_qv8th"]
-[ext_resource type="Script" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="1_selrq"]
+[ext_resource type="Script" uid="uid://2xkyjr61uk04" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="1_selrq"]
 
 [resource]
 script = ExtResource("1_selrq")

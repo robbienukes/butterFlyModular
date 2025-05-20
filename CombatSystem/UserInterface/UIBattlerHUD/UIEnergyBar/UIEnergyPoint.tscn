@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0cf3illj7ye8"]
 
 [ext_resource type="Texture2D" uid="uid://dxmwtgjnetwu4" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEnergyBar/energy_point_bg.png" id="1_ubv5f"]
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEnergyBar/UIEnergyPoint.gd" id="2_nv0t2"]
+[ext_resource type="Script" uid="uid://b3lhy1helxivl" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEnergyBar/UIEnergyPoint.gd" id="2_nv0t2"]
 [ext_resource type="Texture2D" uid="uid://sodq8w171mow" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEnergyBar/energy_point_fill.png" id="2_q70ce"]
 
 [node name="UIEnergyPoint" type="TextureRect"]

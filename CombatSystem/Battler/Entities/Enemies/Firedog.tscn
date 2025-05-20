@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dy0lih315penc"]
 
-[ext_resource type="Script" path="res://CombatSystem/Battler/Stats/Battler.gd" id="1_u2cix"]
+[ext_resource type="Script" uid="uid://dsn3ejyyjvneo" path="res://CombatSystem/Battler/Stats/Battler.gd" id="1_u2cix"]
 [ext_resource type="PackedScene" uid="uid://b4bjan5evidju" path="res://CombatSystem/Battler/BattlerAnim.tscn" id="2_3f0v8"]
 [ext_resource type="Resource" uid="uid://du8h0q67cbawt" path="res://CombatSystem/Battler/Stats/fireDog_stats.tres" id="2_hhdh4"]
 [ext_resource type="PackedScene" uid="uid://jafbkkkgepkg" path="res://CombatSystem/Battler/AI/AggressiveBattlerAI.tscn" id="3_c3lmb"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://sj7acj2a3tj7"]
 
 [ext_resource type="Texture2D" uid="uid://bkisy6sasy2dr" path="res://CombatSystem/UserInterface/UITurnBar/portrait_bg_player.png" id="1_2o2aw"]
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UITurnBar/UIBattlerIcon.gd" id="2_vao2r"]
+[ext_resource type="Script" uid="uid://dmgeu0fk2rw4k" path="res://CombatSystem/UserInterface/UITurnBar/UIBattlerIcon.gd" id="2_vao2r"]
 
 [node name="UIBattlerIcon" type="TextureRect"]
 offset_left = -113.0

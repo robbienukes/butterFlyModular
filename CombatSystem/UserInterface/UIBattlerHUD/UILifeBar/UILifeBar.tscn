@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://du0fn2mcwlcls" path="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/life_bar_bg.png" id="1_vgcl8"]
 [ext_resource type="Texture2D" uid="uid://bieiddegbq1ku" path="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/life_bar_fill.png" id="2_e2cd6"]
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/UILifeBar.gd" id="3_ryncu"]
+[ext_resource type="Script" uid="uid://d02chyrmu22tx" path="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/UILifeBar.gd" id="3_ryncu"]
 
 [sub_resource type="Animation" id="Animation_pk3jg"]
 resource_name = "damage"
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j8lnp"]
 _data = {
-"damage": SubResource("Animation_pk3jg"),
-"danger": SubResource("Animation_4g5at")
+&"damage": SubResource("Animation_pk3jg"),
+&"danger": SubResource("Animation_4g5at")
 }
 
 [node name="UILifeBar" type="TextureProgressBar"]

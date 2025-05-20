@@ -121,7 +121,13 @@ func _create_action_from_data(action_data: ActionData, battler: Battler, targets
 	if action_data.label == "Revolver Shot" and action_data is AttackActionData:
 		return RevolverAction.new(action_data, battler, targets)
 	elif action_data is AttackActionData:
-		return AttackAction.new(action_data, battler, targets)
+		var attack_data := action_data as AttackActionData
+		if attack_data.action_script:
+			print("🧠 Creating custom action from script:", attack_data.action_script)
+			return attack_data.action_script.new(attack_data, battler, targets)
+		else:
+			print("📄 Using default AttackAction")
+			return AttackAction.new(attack_data, battler, targets)
 	else:
 		push_error("❌ Unknown action type or invalid data: " + str(action_data))
-		return AttackAction.new(AttackActionData.new(), battler, targets) # Fallback to avoid crash
+		return AttackAction.new(AttackActionData.new(), battler, targets) # Fallback

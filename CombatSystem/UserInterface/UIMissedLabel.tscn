@@ -58,7 +58,7 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tpn6n"]
 _data = {
-"disappear": SubResource("Animation_d4lin")
+&"disappear": SubResource("Animation_d4lin")
 }
 
 [node name="UIMissedLabel" type="Marker2D"]

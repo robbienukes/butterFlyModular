@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bemebl4cdvkcb"]
 
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIValueCounter.gd" id="1_0jkxh"]
+[ext_resource type="Script" uid="uid://bknjyjs24o7yo" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIValueCounter.gd" id="1_0jkxh"]
 
 [sub_resource type="Animation" id="Animation_pk3jg"]
 resource_name = "damage"
@@ -37,8 +37,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j8lnp"]
 _data = {
-"damage": SubResource("Animation_pk3jg"),
-"danger": SubResource("Animation_4g5at")
+&"damage": SubResource("Animation_pk3jg"),
+&"danger": SubResource("Animation_4g5at")
 }
 
 [node name="UIValueCounter" type="Label"]

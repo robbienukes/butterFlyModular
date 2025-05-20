@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://b4bjan5evidju"]
 
-[ext_resource type="Script" path="res://CombatSystem/Battler/BattlerAnim.gd" id="1_nbmbl"]
+[ext_resource type="Script" uid="uid://1cm2wtq0vioh" path="res://CombatSystem/Battler/BattlerAnim.gd" id="1_nbmbl"]
 [ext_resource type="Texture2D" uid="uid://cmcqejvjm0hyi" path="res://CombatSystem/Battler/Animation/bear.png" id="1_t0jnq"]
 [ext_resource type="AnimationLibrary" uid="uid://bxw5cs3mvt8xf" path="res://CombatSystem/Battler/Animation/battlerAnims.res" id="2_2ppt6"]
 [ext_resource type="Animation" uid="uid://cdeshcg8so2po" path="res://CombatSystem/Battler/Animation/reflect.res" id="3_gvrpj"]
 [ext_resource type="Animation" uid="uid://3w5dpkyivklg" path="res://CombatSystem/Battler/Animation/_setup.res" id="4_0plxs"]
-[ext_resource type="Shader" path="res://CombatSystem/Battler/Actions/Attacks/types/2dlightning.gdshader" id="6_bsdgv"]
+[ext_resource type="Shader" uid="uid://b3ruad43auuj" path="res://shaders/2dlightning.gdshader" id="6_bsdgv"]
 [ext_resource type="Texture2D" uid="uid://u14ri1opcgqn" path="res://images/rpgUI/20240707dragon9SlicesB.png" id="7_qborm"]
 
 [sub_resource type="Animation" id="Animation_su3ie"]
@@ -28,10 +28,10 @@ resource_name = "heal"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xkidb"]
 _data = {
-"_setup": ExtResource("4_0plxs"),
-"damage": SubResource("Animation_su3ie"),
-"heal": SubResource("Animation_qaj5o"),
-"reflect": ExtResource("3_gvrpj")
+&"_setup": ExtResource("4_0plxs"),
+&"damage": SubResource("Animation_su3ie"),
+&"heal": SubResource("Animation_qaj5o"),
+&"reflect": ExtResource("3_gvrpj")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_boy3u"]
@@ -50,6 +50,7 @@ script = ExtResource("1_nbmbl")
 direction = 0
 
 [node name="Pivot" type="Marker2D" parent="."]
+modulate = Color(0.282353, 1, 1, 1)
 
 [node name="Sprite" type="Sprite2D" parent="Pivot"]
 position = Vector2(3, 3)
@@ -58,13 +59,13 @@ offset = Vector2(-10, -195)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot"]
 libraries = {
-"": ExtResource("2_2ppt6")
+&"": ExtResource("2_2ppt6")
 }
 autoplay = "_setup"
 
 [node name="AnimationPlayerDamage" type="AnimationPlayer" parent="Pivot"]
 libraries = {
-"": SubResource("AnimationLibrary_xkidb")
+&"": SubResource("AnimationLibrary_xkidb")
 }
 
 [node name="LightningEffect" type="Sprite2D" parent="Pivot"]

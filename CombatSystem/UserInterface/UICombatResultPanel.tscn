@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cyju4wnmpy216"]
 
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UICombatResultPanel.gd" id="1_myd3d"]
+[ext_resource type="Script" uid="uid://c62c7e4gicpu6" path="res://CombatSystem/UserInterface/UICombatResultPanel.gd" id="1_myd3d"]
 [ext_resource type="Theme" uid="uid://cgqpa7qyt55cm" path="res://CombatSystem/UserInterface/theme/combat_ui_theme.tres" id="2_o6as2"]
 [ext_resource type="FontFile" path="res://CombatSystem/UserInterface/theme/fonts/text_80p.tres" id="3_obi4b"]
 
@@ -51,9 +51,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xltnk"]
 _data = {
-"fade_in": SubResource("Animation_hvq5q"),
-"fade_out": SubResource("Animation_hxxgf"),
-"setup": SubResource("Animation_ljjh1")
+&"fade_in": SubResource("Animation_hvq5q"),
+&"fade_out": SubResource("Animation_hxxgf"),
+&"setup": SubResource("Animation_ljjh1")
 }
 
 [node name="UICombatResultPanel" type="Panel"]

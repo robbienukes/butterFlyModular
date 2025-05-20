@@ -24,5 +24,3 @@ func _ready():
 	var combat_module_instance = combat_module_scene.instantiate()
 	add_child(combat_module_instance)
 	combat_module_instance.init(battlers_array, battler_names)
-
-

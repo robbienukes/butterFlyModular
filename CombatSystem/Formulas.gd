@@ -32,7 +32,7 @@ static func calculate_base_magical_damage(action_data, attacker, defender) -> in
 	
 	var reaction_map = ReactionData.get_reactions()
 
-	var element_str = ActionData.Elements.keys()[action_data.element].to_lower()
+	var element_str = Types.ELEMENT_NAMES.get(action_data.element, "none")
 	for status in defender.get_status_effects():
 		var status_id = status.get_status_id()
 		if reaction_map.has(status_id) and reaction_map[status_id].has(element_str):

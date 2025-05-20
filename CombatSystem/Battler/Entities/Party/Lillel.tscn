@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3oan7k8p87ac"]
+[gd_scene load_steps=11 format=3 uid="uid://b3oan7k8p87ac"]
 
-[ext_resource type="Script" path="res://CombatSystem/Battler/Stats/Battler.gd" id="1_7bntg"]
+[ext_resource type="Script" uid="uid://dsn3ejyyjvneo" path="res://CombatSystem/Battler/Stats/Battler.gd" id="1_7bntg"]
 [ext_resource type="Resource" uid="uid://b4un5imx3o60a" path="res://CombatSystem/Battler/Stats/lillel_stats.tres" id="2_8tysl"]
 [ext_resource type="PackedScene" uid="uid://b4bjan5evidju" path="res://CombatSystem/Battler/BattlerAnim.tscn" id="2_ywa7a"]
 [ext_resource type="Texture2D" uid="uid://b4ea5nu630fbk" path="res://images/battlers/party/lellel.png" id="3_2chbi"]
@@ -8,15 +8,20 @@
 [ext_resource type="Resource" uid="uid://bfgwix3xebcb3" path="res://CombatSystem/Battler/Actions/Attacks/types/BasicAttack.tres" id="3_sk26j"]
 [ext_resource type="Resource" uid="uid://b777wj35tu3tr" path="res://CombatSystem/Battler/Actions/Attacks/types/ReflectSpell.tres" id="4_pfsoy"]
 [ext_resource type="Resource" uid="uid://dlk3ojx57jllw" path="res://CombatSystem/Battler/Actions/Attacks/types/KnockbackSpell.tres" id="5_eyim8"]
+[ext_resource type="Resource" uid="uid://b5stoh1mgrrvt" path="res://CombatSystem/Battler/Actions/Attacks/types/ZombieSpell.tres" id="6_0ocba"]
+[ext_resource type="Resource" uid="uid://cn34gxx53iuyx" path="res://CombatSystem/Battler/Actions/Attacks/types/HolySpell.tres" id="7_sgnnr"]
 
 [node name="Battler" type="Node2D"]
 script = ExtResource("1_7bntg")
 stats = ExtResource("2_8tysl")
-actions = [ExtResource("3_sk26j"), ExtResource("4_pfsoy"), ExtResource("5_eyim8")]
+actions = [ExtResource("3_sk26j"), ExtResource("4_pfsoy"), ExtResource("5_eyim8"), ExtResource("6_0ocba"), ExtResource("7_sgnnr")]
 is_party_member = true
 ui_data = ExtResource("3_eqk7l")
 
 [node name="BattlerAnim" parent="." instance=ExtResource("2_ywa7a")]
+
+[node name="Pivot" parent="BattlerAnim" index="0"]
+modulate = Color(0.282353, 1, 1, 1)
 
 [node name="Sprite" parent="BattlerAnim/Pivot" index="0"]
 position = Vector2(0, -4.76837e-07)

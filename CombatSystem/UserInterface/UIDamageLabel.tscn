@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxwd7vbgexgi1"]
 
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIDamageLabel.gd" id="1_ciexp"]
+[ext_resource type="Script" uid="uid://b470tih1vtxn7" path="res://CombatSystem/UserInterface/UIDamageLabel.gd" id="1_ciexp"]
 [ext_resource type="FontFile" path="res://CombatSystem/UserInterface/theme/fonts/text_extralarge.tres" id="1_drgan"]
 
 [node name="UIDamageLabel" type="Marker2D"]

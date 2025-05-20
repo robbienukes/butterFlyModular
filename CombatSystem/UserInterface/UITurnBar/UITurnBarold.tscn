@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bvpmr2gqxuxcc"]
 
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.gd" id="1_7tjqg"]
+[ext_resource type="Script" uid="uid://swcfkkgfriw1" path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.gd" id="1_7tjqg"]
 
 [sub_resource type="Animation" id="Animation_hvq5q"]
 resource_name = "fade_in"
@@ -49,9 +49,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xltnk"]
 _data = {
-"fade_in": SubResource("Animation_hvq5q"),
-"fade_out": SubResource("Animation_hxxgf"),
-"setup": SubResource("Animation_ljjh1")
+&"fade_in": SubResource("Animation_hvq5q"),
+&"fade_out": SubResource("Animation_hxxgf"),
+&"setup": SubResource("Animation_ljjh1")
 }
 
 [node name="UITurnBar" type="Control"]

@@ -170,4 +170,3 @@ func _on_BattlerAnim_triggered(target, hit: Hit) -> void:
 
 	#target.take_hit(hit, self)
 	pass
-

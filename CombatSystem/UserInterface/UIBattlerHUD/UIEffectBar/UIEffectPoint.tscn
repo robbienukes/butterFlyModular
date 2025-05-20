@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b10osfhs20u75"]
 
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEffectBar/UIEffectPoint.gd" id="1_bxktx"]
+[ext_resource type="Script" uid="uid://b7h4c8cmq5hal" path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEffectBar/UIEffectPoint.gd" id="1_bxktx"]
 
 [sub_resource type="Animation" id="Animation_5the3"]
 resource_name = "_setup"
@@ -34,8 +34,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r10o2"]
 _data = {
-"_setup": SubResource("Animation_5the3"),
-"fade_in": SubResource("Animation_5etgv")
+&"_setup": SubResource("Animation_5the3"),
+&"fade_in": SubResource("Animation_5etgv")
 }
 
 [node name="UIEffectPoint" type="TextureRect"]

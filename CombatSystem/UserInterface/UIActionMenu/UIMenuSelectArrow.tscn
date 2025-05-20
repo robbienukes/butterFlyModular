@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bla6ph2rwiq7w"]
 
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIActionMenu/UIMenuSelectArrow.gd" id="1_kgtml"]
+[ext_resource type="Script" uid="uid://dvotambygq73b" path="res://CombatSystem/UserInterface/UIActionMenu/UIMenuSelectArrow.gd" id="1_kgtml"]
 [ext_resource type="Texture2D" uid="uid://v42ubvlr4env" path="res://images/rpgUI/20240713dragonMapFrame.png" id="2_l411u"]
 
 [sub_resource type="Animation" id="Animation_x8ipo"]
@@ -22,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rxep4"]
 _data = {
-"wiggle": SubResource("Animation_x8ipo")
+&"wiggle": SubResource("Animation_x8ipo")
 }
 
 [node name="UIMenuSelectArrow" type="Control"]

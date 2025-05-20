@@ -63,4 +63,3 @@ func play_sound(stream: AudioStream, delay := 0.0) -> void:
 	player.play()
 	await player.finished  # Wait for playback to complete
 	player.queue_free()
-

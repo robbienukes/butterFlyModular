@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bet1e21nea6yj"]
 
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UIActionMenu/UISelectBattlerArrow.gd" id="1_scmwh"]
+[ext_resource type="Script" uid="uid://vnjbgg7381ar" path="res://CombatSystem/UserInterface/UIActionMenu/UISelectBattlerArrow.gd" id="1_scmwh"]
 [ext_resource type="Texture2D" uid="uid://v42ubvlr4env" path="res://images/rpgUI/20240713dragonMapFrame.png" id="2_1qhn8"]
 
 [sub_resource type="Animation" id="Animation_x8ipo"]
@@ -22,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rxep4"]
 _data = {
-"wiggle": SubResource("Animation_x8ipo")
+&"wiggle": SubResource("Animation_x8ipo")
 }
 
 [node name="UISelectBattlerArrow" type="Marker2D"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bnqhe2fqprb54"]
 
-[ext_resource type="Script" path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.gd" id="1_1ptqr"]
-[ext_resource type="Shader" path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.gdshader" id="2_ffbc2"]
+[ext_resource type="Script" uid="uid://swcfkkgfriw1" path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.gd" id="1_1ptqr"]
+[ext_resource type="Shader" uid="uid://d4itumpxwqo8t" path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.gdshader" id="2_ffbc2"]
 
 [sub_resource type="Animation" id="Animation_hvq5q"]
 resource_name = "fade_in"
@@ -50,9 +50,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xltnk"]
 _data = {
-"fade_in": SubResource("Animation_hvq5q"),
-"fade_out": SubResource("Animation_hxxgf"),
-"setup": SubResource("Animation_ljjh1")
+&"fade_in": SubResource("Animation_hvq5q"),
+&"fade_out": SubResource("Animation_hxxgf"),
+&"setup": SubResource("Animation_ljjh1")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j6hdj"]

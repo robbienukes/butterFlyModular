@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AttackActionData" load_steps=3 format=3 uid="uid://bh7w5onhm0ndn"]
 
 [ext_resource type="AudioStream" uid="uid://vdecqcuwec0v" path="res://CombatSystem/Sounds/Actions/elemental-magic-spell-impact-outgoing-228342.mp3" id="1_rhwa5"]
-[ext_resource type="Script" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="2_u6j35"]
+[ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="2_u6j35"]
 
 [resource]
 script = ExtResource("2_u6j35")
@@ -15,7 +15,6 @@ is_heal = false
 is_magical = true
 animation = "lightning"
 play_attacker_animation = false
-category = "Spells"
 action_type = 1
 energy_cost = 0
 element = 0

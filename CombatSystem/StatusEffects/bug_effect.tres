@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StatusEffectData" load_steps=3 format=3 uid="uid://cm4d50kpalnta"]
 
 [ext_resource type="Texture2D" uid="uid://dm0b00iitpk1h" path="res://images/effectIcons/sizedIcons/poison-bottle.png" id="1_6nidm"]
-[ext_resource type="Script" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="1_r23rr"]
+[ext_resource type="Script" uid="uid://2xkyjr61uk04" path="res://CombatSystem/StatusEffects/StatusEffectData.gd" id="1_r23rr"]
 
 [resource]
 script = ExtResource("1_r23rr")

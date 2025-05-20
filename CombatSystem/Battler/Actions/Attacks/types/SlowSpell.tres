@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AttackActionData" load_steps=3 format=3 uid="uid://bmfvivxcyk5k2"]
 
-[ext_resource type="Script" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_wcpeu"]
+[ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_wcpeu"]
 [ext_resource type="Resource" uid="uid://d2tsx1yusx561" path="res://CombatSystem/StatusEffects/slow_effect.tres" id="2_vdk6o"]
 
 [resource]

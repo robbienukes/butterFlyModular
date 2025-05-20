@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://mntm67qd20gx" path="res://CombatSystem/Sounds/Actions/revolverHit.wav" id="1_hhwsa"]
 [ext_resource type="AudioStream" uid="uid://cr04ob0mwr7kp" path="res://CombatSystem/Sounds/Actions/revolverShot.wav" id="2_pqsm0"]
-[ext_resource type="Script" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="3_j5jda"]
+[ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="3_j5jda"]
 
 [resource]
 script = ExtResource("3_j5jda")
@@ -16,7 +16,6 @@ is_heal = false
 is_magical = false
 animation = ""
 play_attacker_animation = true
-category = "Attack"
 action_type = 0
 energy_cost = 2
 element = 0
