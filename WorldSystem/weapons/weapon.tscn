@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://pfqhjenqwd12"]
+
+[ext_resource type="Script" uid="uid://d16h6ls6kw8d4" path="res://WorldSystem/weapons/weapon.gd" id="1_x5yif"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_x5yif")

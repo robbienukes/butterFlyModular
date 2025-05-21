@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://n7gh7rm2lsic"]
+
+[ext_resource type="Script" uid="uid://3riupduy7ujh" path="res://WorldSystem/player/player.gd" id="1_d526f"]
+[ext_resource type="Texture2D" uid="uid://bw03btxpkxde4" path="res://WorldSystem/player/godot_bottom.png" id="2_0m7gf"]
+[ext_resource type="Script" uid="uid://dmve605oro3qm" path="res://WorldSystem/player/playerSprite.gd" id="3_8hraa"]
+[ext_resource type="Script" uid="uid://byh6cs52ox13s" path="res://WorldSystem/player/weapon_pivot.gd" id="4_may6p"]
+[ext_resource type="PackedScene" uid="uid://pfqhjenqwd12" path="res://WorldSystem/weapons/weapon.tscn" id="5_j0hi7"]
+[ext_resource type="Texture2D" uid="uid://cmr5sxt0nxlum" path="res://WorldSystem/weapons/images/wand.png" id="6_m6rmp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxq58"]
+size = Vector2(5.07692, 13.8182)
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_d526f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.21667, 1.21667)
+texture = ExtResource("2_0m7gf")
+script = ExtResource("3_8hraa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.38419e-07, 2.38419e-07)
+scale = Vector2(10.4, -7.4265)
+shape = SubResource("RectangleShape2D_dxq58")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="WeaponPivot" type="Node2D" parent="."]
+script = ExtResource("4_may6p")
+
+[node name="WeaponAnchor" type="Marker2D" parent="WeaponPivot"]
+position = Vector2(80, 0)
+
+[node name="Weapon" parent="WeaponPivot/WeaponAnchor" instance=ExtResource("5_j0hi7")]
+
+[node name="Sprite2D" type="Sprite2D" parent="WeaponPivot/WeaponAnchor"]
+rotation = 0.785398
+texture = ExtResource("6_m6rmp")
