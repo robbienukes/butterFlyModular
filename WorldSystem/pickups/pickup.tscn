@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbd3rrlyf67lj"]
+
+[ext_resource type="Script" uid="uid://dykkbhvjnbaye" path="res://Pickup.gd" id="1_ovfgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovfgy"]
+
+[sub_resource type="Animation" id="Animation_ovfgy"]
+resource_name = "destroy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 3.73213),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0gc8i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j5j2w"]
+_data = {
+&"RESET": SubResource("Animation_0gc8i"),
+&"destroy": SubResource("Animation_ovfgy")
+}
+
+[node name="Pickup" type="Area2D"]
+script = ExtResource("1_ovfgy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ovfgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_j5j2w")
+}
+autoplay = "RESET"

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cm851u85rlc1l"
-path="res://.godot/imported/reflectGong.wav-95b98fa1fb148993b9aeb90bf73fea7c.sample"
+path="res://.godot/imported/reflectGong.wav-682ef1621f9023303f9ba3dfe4552e12.sample"
 
 [deps]
 
-source_file="res://CombatSystem/Sounds/Actions/reflectGong.wav"
-dest_files=["res://.godot/imported/reflectGong.wav-95b98fa1fb148993b9aeb90bf73fea7c.sample"]
+source_file="res://Sounds/Actions/reflectGong.wav"
+dest_files=["res://.godot/imported/reflectGong.wav-682ef1621f9023303f9ba3dfe4552e12.sample"]
 
 [params]
 

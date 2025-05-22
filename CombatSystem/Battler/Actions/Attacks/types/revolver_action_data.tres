@@ -1,8 +1,9 @@
 [gd_resource type="Resource" script_class="AttackActionData" load_steps=4 format=3 uid="uid://c5xxsv1t4sthi"]
 
-[ext_resource type="AudioStream" uid="uid://mntm67qd20gx" path="res://CombatSystem/Sounds/Actions/revolverHit.wav" id="1_hhwsa"]
-[ext_resource type="AudioStream" uid="uid://cr04ob0mwr7kp" path="res://CombatSystem/Sounds/Actions/revolverShot.wav" id="2_pqsm0"]
+[ext_resource type="AudioStream" uid="uid://mntm67qd20gx" path="res://Sounds/Actions/revolverHit.wav" id="1_hhwsa"]
+[ext_resource type="AudioStream" uid="uid://cr04ob0mwr7kp" path="res://Sounds/Actions/revolverShot.wav" id="2_pqsm0"]
 [ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="3_j5jda"]
+
 
 [resource]
 script = ExtResource("3_j5jda")

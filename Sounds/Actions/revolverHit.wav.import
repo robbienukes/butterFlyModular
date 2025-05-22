@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://mntm67qd20gx"
-path="res://.godot/imported/revolverHit.wav-6f28f68a59c853796b1f1e01218e098d.sample"
+path="res://.godot/imported/revolverHit.wav-349c70b645b2ee2b4d7904474bb847f9.sample"
 
 [deps]
 
-source_file="res://CombatSystem/Sounds/Actions/revolverHit.wav"
-dest_files=["res://.godot/imported/revolverHit.wav-6f28f68a59c853796b1f1e01218e098d.sample"]
+source_file="res://Sounds/Actions/revolverHit.wav"
+dest_files=["res://.godot/imported/revolverHit.wav-349c70b645b2ee2b4d7904474bb847f9.sample"]
 
 [params]
 

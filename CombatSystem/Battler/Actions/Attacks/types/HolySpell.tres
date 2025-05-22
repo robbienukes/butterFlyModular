@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_hocpw"]
 [ext_resource type="Script" uid="uid://chnqhn4vhdh6p" path="res://CombatSystem/Battler/Actions/Attacks/types/HolySpell.gd" id="1_xskfr"]
-[ext_resource type="AudioStream" uid="uid://bnleavdur4f6v" path="res://CombatSystem/Sounds/Actions/short-choir-6116.mp3" id="2_g4j5c"]
+[ext_resource type="AudioStream" uid="uid://bnleavdur4f6v" path="res://Sounds/Actions/short-choir-6116.mp3" id="2_g4j5c"]
+
 
 [resource]
 script = ExtResource("1_hocpw")

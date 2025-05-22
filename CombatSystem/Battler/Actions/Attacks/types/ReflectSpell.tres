@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="AttackActionData" load_steps=5 format=3 uid="uid://b777wj35tu3tr"]
 
 [ext_resource type="Texture2D" uid="uid://c5ayengnbwej8" path="res://images/effectIcons/sizedIcons/shield-reflect.png" id="1_57ohu"]
-[ext_resource type="AudioStream" uid="uid://cm851u85rlc1l" path="res://CombatSystem/Sounds/Actions/reflectGong.wav" id="1_l0hs5"]
+[ext_resource type="AudioStream" uid="uid://cm851u85rlc1l" path="res://Sounds/Actions/reflectGong.wav" id="1_l0hs5"]
 [ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_w07sp"]
 [ext_resource type="Resource" uid="uid://cw3gk64ro3xy0" path="res://CombatSystem/StatusEffects/reflect_effect.tres" id="2_77pbx"]
+
 
 [resource]
 script = ExtResource("1_w07sp")

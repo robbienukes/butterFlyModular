@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://j2ue7vs7ib0m"
-path="res://.godot/imported/hitFlesh.wav-1be25e29048aef65db7def65bcae9002.sample"
+path="res://.godot/imported/hitFlesh.wav-98db5e0d7f2af4f5cf887a945cbd97b9.sample"
 
 [deps]
 
-source_file="res://CombatSystem/Sounds/Actions/hitFlesh.wav"
-dest_files=["res://.godot/imported/hitFlesh.wav-1be25e29048aef65db7def65bcae9002.sample"]
+source_file="res://Sounds/Actions/hitFlesh.wav"
+dest_files=["res://.godot/imported/hitFlesh.wav-98db5e0d7f2af4f5cf887a945cbd97b9.sample"]
 
 [params]
 
