@@ -24,6 +24,7 @@ func _ready() -> void:
 	_hit_box.body_entered.connect(func (body: Node) -> void:
 		if body is Player:
 			body.health -= damage
+
 	)
 
 

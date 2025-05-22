@@ -52,7 +52,7 @@ func create_pickup() -> void:
 	var tween := create_tween()
 	tween.set_parallel()
 	pickup.scale = Vector2(0.25, 0.25)
-	tween.tween_property(pickup, "scale", Vector2(1.0, 1.0), HALF_FLIGHT_TIME)
+	tween.tween_property(pickup, "scale", Vector2(.75, .75), HALF_FLIGHT_TIME)
 	tween.tween_property(pickup, "position:x", land_position.x, FLIGHT_TIME)
 
 	tween = create_tween()
