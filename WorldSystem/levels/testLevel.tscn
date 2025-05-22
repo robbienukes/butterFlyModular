@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjs25mcokm6p5"]
+[gd_scene load_steps=7 format=3 uid="uid://bjs25mcokm6p5"]
 
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://WorldSystem/levels/rooms/room_a.tscn" id="1_ddk8g"]
 [ext_resource type="PackedScene" uid="uid://n7gh7rm2lsic" path="res://WorldSystem/player/player.tscn" id="2_jmwqr"]
 [ext_resource type="PackedScene" uid="uid://cja8yhvlfeqe5" path="res://WorldSystem/mobs/mob.tscn" id="3_jmwqr"]
-[ext_resource type="PackedScene" uid="uid://cbd3rrlyf67lj" path="res://WorldSystem/pickups/pickup.tscn" id="4_khf2s"]
+[ext_resource type="PackedScene" uid="uid://cgcqeuvi0ycdy" path="res://WorldSystem/pickups/chest/chest.tscn" id="4_khf2s"]
+[ext_resource type="Script" uid="uid://3rmhwfd252x1" path="res://WorldSystem/pickups/WorldItem.gd" id="5_63rl3"]
 [ext_resource type="Resource" uid="uid://cvvud1la6gykw" path="res://WorldSystem/pickups/world_heal.tres" id="5_b8x78"]
 
 [node name="Node2D" type="Node2D"]
@@ -11,12 +12,13 @@
 [node name="RoomA" parent="." instance=ExtResource("1_ddk8g")]
 position = Vector2(2.92819, 21.6194)
 
-[node name="Player" parent="." instance=ExtResource("2_jmwqr")]
-position = Vector2(481, 335)
+[node name="Chest" parent="." instance=ExtResource("4_khf2s")]
+position = Vector2(638, 327)
+scale = Vector2(5.78208, 5.78208)
+possible_items = Array[ExtResource("5_63rl3")]([ExtResource("5_b8x78")])
 
 [node name="Mob" parent="." instance=ExtResource("3_jmwqr")]
-position = Vector2(954, 602)
+position = Vector2(1021, 791)
 
-[node name="Pickup" parent="." instance=ExtResource("4_khf2s")]
-position = Vector2(642, 197)
-item = ExtResource("5_b8x78")
+[node name="Player" parent="." instance=ExtResource("2_jmwqr")]
+position = Vector2(356, 327)

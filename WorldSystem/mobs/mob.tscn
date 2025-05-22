@@ -22,7 +22,7 @@ shape = SubResource("CircleShape2D_458eh")
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-scale = Vector2(30.1117, 30.1117)
+scale = Vector2(12.5601, 12.5601)
 shape = SubResource("CircleShape2D_rm5cg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
