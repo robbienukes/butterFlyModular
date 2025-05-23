@@ -1,0 +1,145 @@
+[gd_scene load_steps=29 format=3 uid="uid://dkw6mehqpc23r"]
+
+[ext_resource type="Script" uid="uid://0btyn1yj2r6c" path="res://animPlayer.gd" id="1_o37do"]
+[ext_resource type="Texture2D" uid="uid://dyig1xgky7cil" path="res://images/PLUS/5. Character Animations/blue/swordless/idle/Left/Character1_blue_idleLeft_v1.0_frames/1.png" id="2_d188m"]
+[ext_resource type="Texture2D" uid="uid://c3hy5nchjvgsw" path="res://images/PLUS/5. Character Animations/blue/swordless/idle/Left/Character1_blue_idleLeft_v1.0_frames/2.png" id="3_yatud"]
+[ext_resource type="Texture2D" uid="uid://dlnr5sm6jsmuv" path="res://images/PLUS/5. Character Animations/blue/swordless/idle/Left/Character1_blue_idleLeft_v1.0_frames/3.png" id="4_5pe2v"]
+[ext_resource type="Texture2D" uid="uid://duuivg1pe6cgi" path="res://images/PLUS/5. Character Animations/blue/swordless/idle/Left/Character1_blue_idleLeft_v1.0_frames/4.png" id="5_sbjfy"]
+[ext_resource type="Texture2D" uid="uid://c6gpmss310y1j" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Down/Character1_blue_runDown_v1.0_frames/1.png" id="6_4hcnm"]
+[ext_resource type="Texture2D" uid="uid://byex3hkyg0htt" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Down/Character1_blue_runDown_v1.0_frames/2.png" id="7_vt3xq"]
+[ext_resource type="Texture2D" uid="uid://cfkbyrgug3jy" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Down/Character1_blue_runDown_v1.0_frames/3.png" id="8_6i31u"]
+[ext_resource type="Texture2D" uid="uid://d0n4pgeujge42" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Down/Character1_blue_runDown_v1.0_frames/4.png" id="9_6hq4f"]
+[ext_resource type="Texture2D" uid="uid://cou55sxv0h3jk" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Left/Character1_blue_runLeft_v1.0_frames/1.png" id="10_extr5"]
+[ext_resource type="Texture2D" uid="uid://brkaf4tgfijwi" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Left/Character1_blue_runLeft_v1.0_frames/2.png" id="11_1w178"]
+[ext_resource type="Texture2D" uid="uid://b3w2sj3v3foh8" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Left/Character1_blue_runLeft_v1.0_frames/3.png" id="12_unlgf"]
+[ext_resource type="Texture2D" uid="uid://bh36l1xtjioyw" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Left/Character1_blue_runLeft_v1.0_frames/4.png" id="13_d62y5"]
+[ext_resource type="Texture2D" uid="uid://ct3ll1ccn5kx2" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Up/Character1_blue_runUp_v1.0_frames/1.png" id="14_7lxwi"]
+[ext_resource type="Texture2D" uid="uid://d4h0e63th75hu" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Up/Character1_blue_runUp_v1.0_frames/2.png" id="15_8qooi"]
+[ext_resource type="Texture2D" uid="uid://c6m1kjkybogvn" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Up/Character1_blue_runUp_v1.0_frames/3.png" id="16_bricq"]
+[ext_resource type="Texture2D" uid="uid://blo72wkoueanl" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Up/Character1_blue_runUp_v1.0_frames/4.png" id="17_kxsm7"]
+[ext_resource type="Script" uid="uid://dmhh1tvysav5v" path="res://animPlayerSprite.gd" id="18_psdyr"]
+[ext_resource type="Script" uid="uid://byh6cs52ox13s" path="res://WorldSystem/player/weapon_pivot.gd" id="19_jw6pa"]
+[ext_resource type="PackedScene" uid="uid://pfqhjenqwd12" path="res://WorldSystem/weapons/weapon.tscn" id="20_g67jt"]
+[ext_resource type="PackedScene" uid="uid://1niarahjmbxb" path="res://WorldSystem/weapons/bullets/bullet.tscn" id="21_g13b7"]
+[ext_resource type="Texture2D" uid="uid://bgn8fvhkjniwn" path="res://WorldSystem/weapons/bullets/fire.png" id="22_hrnud"]
+[ext_resource type="Texture2D" uid="uid://dxe2pniv6kdn4" path="res://WorldSystem/weapons/bullets/fire_trail.png" id="23_ugrs4"]
+[ext_resource type="AudioStream" uid="uid://8k3b4dtgtm7h" path="res://WorldSystem/weapons/shoot_fire.wav" id="24_7eek0"]
+[ext_resource type="AudioStream" uid="uid://j2ue7vs7ib0m" path="res://Sounds/Actions/hitFlesh.wav" id="25_nl7ln"]
+[ext_resource type="Texture2D" uid="uid://cmr5sxt0nxlum" path="res://WorldSystem/weapons/images/wand.png" id="26_i0kct"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pccmb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d188m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yatud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5pe2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sbjfy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_4hcnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vt3xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6i31u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6hq4f")
+}],
+"loop": true,
+"name": &"runDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_extr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1w178")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_unlgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_d62y5")
+}],
+"loop": true,
+"name": &"runLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_7lxwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8qooi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_bricq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kxsm7")
+}],
+"loop": true,
+"name": &"runUp",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u52yv"]
+size = Vector2(6, 12)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_o37do")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pccmb")
+centered = false
+script = ExtResource("18_psdyr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_u52yv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -44.0
+offset_top = -92.0
+offset_right = 44.0
+offset_bottom = -65.0
+
+[node name="WeaponPivot" type="Node2D" parent="."]
+script = ExtResource("19_jw6pa")
+
+[node name="WeaponAnchor" type="Marker2D" parent="WeaponPivot"]
+position = Vector2(80, 0)
+
+[node name="Weapon" parent="WeaponPivot/WeaponAnchor" instance=ExtResource("20_g67jt")]
+bullet_scene = ExtResource("21_g13b7")
+bullet_main_texture = ExtResource("22_hrnud")
+bullet_effect_texture = ExtResource("23_ugrs4")
+bullet_fire_sound = ExtResource("24_7eek0")
+bullet_hit_sound = ExtResource("25_nl7ln")
+
+[node name="Sprite2D" type="Sprite2D" parent="WeaponPivot/WeaponAnchor"]
+rotation = 0.785398
+texture = ExtResource("26_i0kct")

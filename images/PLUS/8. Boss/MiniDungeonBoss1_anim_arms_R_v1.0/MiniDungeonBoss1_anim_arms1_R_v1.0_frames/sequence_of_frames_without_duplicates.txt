@@ -1,0 +1,17 @@
+The frames in this folder contain some duplicate frames.
+If you want to save space and not import duplicates, you can import only unique frames which are:
+Frame-1
+Frame-2
+Frame-4
+Frame-8
+Frame-10
+Frame-11
+Frame-12
+Frame-13
+Frame-18
+Frame-19
+Frame-22
+
+To use the animation without duplicates use the sequence below in your game engine:
+
+1-2-1-4-1-4-4-8-4-10-11-12-13-12-12-12-12-18-19-8-4-22-4-22
