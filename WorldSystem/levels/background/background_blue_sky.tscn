@@ -1,16 +1,18 @@
 [gd_scene load_steps=12 format=3 uid="uid://wdey00p3syru"]
 
-[ext_resource type="Texture2D" uid="uid://dbwguhyctscrg" path="res://levels/background/far_island_1.png" id="1"]
-[ext_resource type="Shader" uid="uid://de72xdcds3c10" path="res://levels/background/background_blue_sky.gdshader" id="1_e0ril"]
-[ext_resource type="Texture2D" uid="uid://m6jil4hanvyn" path="res://levels/background/island_3.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://bv1grb303mt6o" path="res://levels/background/cloud_c.png" id="4"]
-[ext_resource type="PackedScene" path="res://levels/background/loop_clouds.tscn" id="5"]
-[ext_resource type="Texture2D" uid="uid://blk27d6smpxqx" path="res://levels/background/island_2.png" id="6"]
-[ext_resource type="Texture2D" uid="uid://ck4a00lm1krmo" path="res://levels/background/far_island_2.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://dbwguhyctscrg" path="res://WorldSystem/levels/background/far_island_1.png" id="1"]
+[ext_resource type="Shader" uid="uid://de72xdcds3c10" path="res://WorldSystem/levels/background/background_blue_sky.gdshader" id="1_e0ril"]
+[ext_resource type="Texture2D" uid="uid://m6jil4hanvyn" path="res://WorldSystem/levels/background/island_3.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bv1grb303mt6o" path="res://WorldSystem/levels/background/cloud_c.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://blk27d6smpxqx" path="res://WorldSystem/levels/background/island_2.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://ck4a00lm1krmo" path="res://WorldSystem/levels/background/far_island_2.png" id="9"]
 
 [sub_resource type="ShaderMaterial" id="31"]
 shader = ExtResource("1_e0ril")
 shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_xqua3"]
+metadata/__load_path__ = "res://levels/background/loop_clouds.tscn"
 
 [sub_resource type="Animation" id="36"]
 length = 0.001
@@ -72,7 +74,7 @@ texture = ExtResource("9")
 position = Vector2(750, 146)
 texture = ExtResource("1")
 
-[node name="LoopClouds" parent="LayerMiddle" instance=ExtResource("5")]
+[node name="LoopClouds" parent="LayerMiddle"]
 
 [node name="Fade2" type="ColorRect" parent="."]
 visible = false

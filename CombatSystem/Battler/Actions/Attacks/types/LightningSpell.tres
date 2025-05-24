@@ -3,7 +3,6 @@
 [ext_resource type="AudioStream" uid="uid://vdecqcuwec0v" path="res://Sounds/Actions/elemental-magic-spell-impact-outgoing-228342.mp3" id="1_rhwa5"]
 [ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="2_u6j35"]
 
-
 [resource]
 script = ExtResource("2_u6j35")
 damage_multiplier = 1.0

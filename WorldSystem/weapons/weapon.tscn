@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://pfqhjenqwd12"]
+[gd_scene load_steps=5 format=3 uid="uid://pfqhjenqwd12"]
 
 [ext_resource type="Script" uid="uid://d16h6ls6kw8d4" path="res://WorldSystem/weapons/weapon.gd" id="1_x5yif"]
+[ext_resource type="Resource" uid="uid://81ip7ypcyasa" path="res://WorldSystem/weapons/basicWand.tres" id="2_quicw"]
+[ext_resource type="Resource" uid="uid://biewpc8v2p0ge" path="res://WorldSystem/weapons/bullets/basic_bullet.tres" id="3_qdyld"]
+[ext_resource type="Texture2D" uid="uid://cmr5sxt0nxlum" path="res://WorldSystem/weapons/images/wand.png" id="3_sfdf2"]
 
 [node name="Weapon" type="Node2D"]
 script = ExtResource("1_x5yif")
+weapon = ExtResource("2_quicw")
+bullet_data = ExtResource("3_qdyld")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_sfdf2")
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(4, -4)

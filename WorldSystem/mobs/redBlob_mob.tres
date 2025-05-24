@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MobData" load_steps=4 format=3 uid="uid://cixaavm6ltgjv"]
+
+[ext_resource type="Script" uid="uid://buikaltu0mnt8" path="res://WorldSystem/mobs/MobData.gd" id="1_1ac1l"]
+[ext_resource type="AudioStream" uid="uid://cte8ddxd7o4de" path="res://WorldSystem/mobs/kill.wav" id="1_o3gay"]
+[ext_resource type="SpriteFrames" uid="uid://c0psb4w65vxtx" path="res://WorldSystem/mobs/spriteframes/redBlob_spriteframes.tres" id="2_dpiet"]
+
+[resource]
+script = ExtResource("1_1ac1l")
+mob_name = "Red Blob"
+max_speed = 250.0
+acceleration = 700.0
+max_health = 3
+damage = 1
+sprite_frames = ExtResource("2_dpiet")
+death_sound = ExtResource("1_o3gay")
+flip_sprite = true
+default_animation = "default"
+metadata/_custom_type_script = "uid://buikaltu0mnt8"

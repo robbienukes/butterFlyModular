@@ -3,7 +3,6 @@
 [ext_resource type="AudioStream" uid="uid://d303o3likq7xo" path="res://Sounds/Actions/healRPG.wav" id="1_viryv"]
 [ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_vmy5c"]
 
-
 [resource]
 script = ExtResource("1_vmy5c")
 damage_multiplier = 1.0

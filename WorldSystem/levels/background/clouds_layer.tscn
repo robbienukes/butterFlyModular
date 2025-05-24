@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://dpjlt6i1by6v0"]
 
-[ext_resource type="Script" uid="uid://b640243tnx5t2" path="res://levels/background/loop_clouds.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://n6dy1h4sq7m7" path="res://levels/background/cloud_a.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://bhwvqpni0snut" path="res://levels/background/cloud_b.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://01oau3vfpr7a" path="res://levels/background/cloud_d.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://bv1grb303mt6o" path="res://levels/background/cloud_c.png" id="5"]
+[ext_resource type="Script" uid="uid://b640243tnx5t2" path="res://WorldSystem/levels/background/loop_clouds.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://n6dy1h4sq7m7" path="res://WorldSystem/levels/background/cloud_a.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bhwvqpni0snut" path="res://WorldSystem/levels/background/cloud_b.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://01oau3vfpr7a" path="res://WorldSystem/levels/background/cloud_d.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bv1grb303mt6o" path="res://WorldSystem/levels/background/cloud_c.png" id="5"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Idle"

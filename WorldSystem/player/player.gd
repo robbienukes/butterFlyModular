@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 
-@export var speed := 460.0
+@export var speed := 230.0
 @export var drag_factor := 10.0
 @export var max_health := 10
 
@@ -21,7 +21,8 @@ func _physics_process(delta: float) -> void:
 	var desired_velocity := speed * move_direction
 	var steering := desired_velocity - velocity
 	velocity += steering * drag_factor * delta
-	move_and_slide()
+	move_and_slide()  # No arguments here
+
 	
 	
 func set_health(new_health: int) -> void:

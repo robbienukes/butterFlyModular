@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WorldItem_Heal" load_steps=4 format=3 uid="uid://cvvud1la6gykw"]
+[gd_resource type="Resource" script_class="Item_Heal" load_steps=4 format=3 uid="uid://cvvud1la6gykw"]
 
 [ext_resource type="Script" uid="uid://dbslhq5f8xumd" path="res://WorldSystem/pickups/WorldHealingItem.gd" id="1_12t50"]
 [ext_resource type="Texture2D" uid="uid://bmxcojfothkaq" path="res://WorldSystem/pickups/pickup_heart_teal.png" id="1_g27or"]

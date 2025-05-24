@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://chnqhn4vhdh6p" path="res://CombatSystem/Battler/Actions/Attacks/types/HolySpell.gd" id="1_xskfr"]
 [ext_resource type="AudioStream" uid="uid://bnleavdur4f6v" path="res://Sounds/Actions/short-choir-6116.mp3" id="2_g4j5c"]
 
-
 [resource]
 script = ExtResource("1_hocpw")
 damage_multiplier = 1.0

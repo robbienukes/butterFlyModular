@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=4 uid="uid://diw0kp1e3livt"]
 
-[ext_resource type="Script" uid="uid://conr2jb5bxfit" path="res://levels/rooms/room.gd" id="1_2c4qj"]
-[ext_resource type="TileSet" uid="uid://bq65uwha45com" path="res://levels/rooms/tilesets/floating_dungeon_tileset.tres" id="2_0mfii"]
-[ext_resource type="PackedScene" uid="uid://ke0kmcp0efiv" path="res://levels/rooms/tilemap_layer_walls.tscn" id="3_5hsqq"]
-[ext_resource type="TileSet" uid="uid://cqb2wtrubw0n6" path="res://levels/rooms/tilesets/tileset_invisible_walls.tres" id="4_c2lc3"]
+[ext_resource type="Script" uid="uid://conr2jb5bxfit" path="res://WorldSystem/levels/rooms/room.gd" id="1_2c4qj"]
+[ext_resource type="TileSet" uid="uid://bq65uwha45com" path="res://WorldSystem/levels/rooms/tilesets/floating_dungeon_tileset.tres" id="2_0mfii"]
+[ext_resource type="PackedScene" uid="uid://ke0kmcp0efiv" path="res://WorldSystem/levels/rooms/tilemap_layer_walls.tscn" id="3_5hsqq"]
+[ext_resource type="TileSet" uid="uid://cqb2wtrubw0n6" path="res://WorldSystem/levels/rooms/tilesets/tileset_invisible_walls.tres" id="4_c2lc3"]
 
 [node name="RoomD" type="Node2D"]
 y_sort_enabled = true

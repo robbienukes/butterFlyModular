@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxwd7vbgexgi1"]
 
 [ext_resource type="Script" uid="uid://b470tih1vtxn7" path="res://CombatSystem/UserInterface/UIDamageLabel.gd" id="1_ciexp"]
-[ext_resource type="FontFile" path="res://CombatSystem/UserInterface/theme/fonts/text_extralarge.tres" id="1_drgan"]
+
+[sub_resource type="Resource" id="Resource_qjvl6"]
+metadata/__load_path__ = "res://shaders/CombatSystem/UserInterface/theme/fonts/text_extralarge.tres"
 
 [node name="UIDamageLabel" type="Marker2D"]
 script = ExtResource("1_ciexp")
@@ -11,5 +13,5 @@ offset_left = -15.0
 offset_top = -19.2315
 offset_right = 25.0
 offset_bottom = 3.76852
-theme_override_fonts/font = ExtResource("1_drgan")
+theme_override_fonts/font = SubResource("Resource_qjvl6")
 text = "999"

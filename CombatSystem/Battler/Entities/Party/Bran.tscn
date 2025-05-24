@@ -22,6 +22,9 @@ ui_data = ExtResource("6_g43ps")
 
 [node name="BattlerAnim" parent="." instance=ExtResource("2_r3mf8")]
 
+[node name="Pivot" parent="BattlerAnim" index="0"]
+modulate = Color(0.282353, 1, 1, 1)
+
 [node name="Sprite" parent="BattlerAnim/Pivot" index="0"]
 position = Vector2(8, -2.86102e-06)
 scale = Vector2(0.204249, 0.204249)

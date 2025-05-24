@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dkw6mehqpc23r"]
+[gd_scene load_steps=23 format=3 uid="uid://dkw6mehqpc23r"]
 
 [ext_resource type="Script" uid="uid://0btyn1yj2r6c" path="res://animPlayer.gd" id="1_o37do"]
 [ext_resource type="Texture2D" uid="uid://dyig1xgky7cil" path="res://images/PLUS/5. Character Animations/blue/swordless/idle/Left/Character1_blue_idleLeft_v1.0_frames/1.png" id="2_d188m"]
@@ -20,12 +20,6 @@
 [ext_resource type="Script" uid="uid://dmhh1tvysav5v" path="res://animPlayerSprite.gd" id="18_psdyr"]
 [ext_resource type="Script" uid="uid://byh6cs52ox13s" path="res://WorldSystem/player/weapon_pivot.gd" id="19_jw6pa"]
 [ext_resource type="PackedScene" uid="uid://pfqhjenqwd12" path="res://WorldSystem/weapons/weapon.tscn" id="20_g67jt"]
-[ext_resource type="PackedScene" uid="uid://1niarahjmbxb" path="res://WorldSystem/weapons/bullets/bullet.tscn" id="21_g13b7"]
-[ext_resource type="Texture2D" uid="uid://bgn8fvhkjniwn" path="res://WorldSystem/weapons/bullets/fire.png" id="22_hrnud"]
-[ext_resource type="Texture2D" uid="uid://dxe2pniv6kdn4" path="res://WorldSystem/weapons/bullets/fire_trail.png" id="23_ugrs4"]
-[ext_resource type="AudioStream" uid="uid://8k3b4dtgtm7h" path="res://WorldSystem/weapons/shoot_fire.wav" id="24_7eek0"]
-[ext_resource type="AudioStream" uid="uid://j2ue7vs7ib0m" path="res://Sounds/Actions/hitFlesh.wav" id="25_nl7ln"]
-[ext_resource type="Texture2D" uid="uid://cmr5sxt0nxlum" path="res://WorldSystem/weapons/images/wand.png" id="26_i0kct"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pccmb"]
 animations = [{
@@ -104,9 +98,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u52yv"]
-size = Vector2(6, 12)
+size = Vector2(6, 10)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_o37do")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -115,10 +111,12 @@ centered = false
 script = ExtResource("18_psdyr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_u52yv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
@@ -128,18 +126,10 @@ offset_right = 44.0
 offset_bottom = -65.0
 
 [node name="WeaponPivot" type="Node2D" parent="."]
+position = Vector2(6, 6)
 script = ExtResource("19_jw6pa")
 
 [node name="WeaponAnchor" type="Marker2D" parent="WeaponPivot"]
-position = Vector2(80, 0)
+position = Vector2(10, 0)
 
 [node name="Weapon" parent="WeaponPivot/WeaponAnchor" instance=ExtResource("20_g67jt")]
-bullet_scene = ExtResource("21_g13b7")
-bullet_main_texture = ExtResource("22_hrnud")
-bullet_effect_texture = ExtResource("23_ugrs4")
-bullet_fire_sound = ExtResource("24_7eek0")
-bullet_hit_sound = ExtResource("25_nl7ln")
-
-[node name="Sprite2D" type="Sprite2D" parent="WeaponPivot/WeaponAnchor"]
-rotation = 0.785398
-texture = ExtResource("26_i0kct")

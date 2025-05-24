@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://c0psb4w65vxtx"]
+
+[ext_resource type="Texture2D" uid="uid://cp308a2fayr2c" path="res://images/PLUS/7. Enemies/Blob1_Red_Anim_v1.0/idle1_angry/Blob1_Red_Anim_Idle1_Angry_v1.0_frame/1.png" id="1_jn271"]
+[ext_resource type="Texture2D" uid="uid://7oioafchk61i" path="res://images/PLUS/7. Enemies/Blob1_Red_Anim_v1.0/idle1_angry/Blob1_Red_Anim_Idle1_Angry_v1.0_frame/2.png" id="2_8c38e"]
+[ext_resource type="Texture2D" uid="uid://bkj1nnkdh2t65" path="res://images/PLUS/7. Enemies/Blob1_Red_Anim_v1.0/idle1_angry/Blob1_Red_Anim_Idle1_Angry_v1.0_frame/3.png" id="3_twgrs"]
+[ext_resource type="Texture2D" uid="uid://bf7ywjrsmlmud" path="res://images/PLUS/7. Enemies/Blob1_Red_Anim_v1.0/idle1_angry/Blob1_Red_Anim_Idle1_Angry_v1.0_frame/4.png" id="4_01820"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jn271")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8c38e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_twgrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_01820")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

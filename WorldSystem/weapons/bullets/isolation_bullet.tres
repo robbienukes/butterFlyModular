@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BulletData" load_steps=5 format=3 uid="uid://cifn7nulv5jlu"]
+
+[ext_resource type="Texture2D" uid="uid://cyjc4r0v38ttj" path="res://WorldSystem/weapons/bullets/ice_trail.png" id="1_06ctg"]
+[ext_resource type="AudioStream" uid="uid://byur8a6v8a7y" path="res://WorldSystem/weapons/bullets/hit_ice.wav" id="2_isssx"]
+[ext_resource type="Texture2D" uid="uid://ckoa50clntt4t" path="res://WorldSystem/weapons/bullets/ice.png" id="3_u810r"]
+[ext_resource type="Script" uid="uid://c1jq311jl8nvi" path="res://WorldSystem/weapons/bullets/BulletData.gd" id="4_xuhn1"]
+
+[resource]
+script = ExtResource("4_xuhn1")
+bullet_name = "Isolation Bullet"
+element_type = 3
+main_texture = ExtResource("3_u810r")
+effect_texture = ExtResource("1_06ctg")
+speed = 750.0
+base_damage = 1.0
+max_range = 1000.0
+fire_sound = ExtResource("2_isssx")
+metadata/_custom_type_script = "uid://c1jq311jl8nvi"

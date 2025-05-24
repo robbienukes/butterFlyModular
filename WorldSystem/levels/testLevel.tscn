@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjs25mcokm6p5"]
+[gd_scene load_steps=8 format=4 uid="uid://bjs25mcokm6p5"]
 
-[ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://WorldSystem/levels/rooms/room_a.tscn" id="1_ddk8g"]
-[ext_resource type="PackedScene" uid="uid://n7gh7rm2lsic" path="res://WorldSystem/player/player.tscn" id="2_jmwqr"]
+[ext_resource type="PackedScene" uid="uid://dkw6mehqpc23r" path="res://WorldSystem/player/animPlayer.tscn" id="1_63rl3"]
+[ext_resource type="TileSet" uid="uid://bvmaq48oerqic" path="res://WorldSystem/tilemaps/dungeon1.tres" id="2_0gm83"]
+[ext_resource type="PackedScene" uid="uid://co0nupelvaivp" path="res://WorldSystem/levels/rooms/dungeon_room_a.tscn" id="2_5okd7"]
 [ext_resource type="PackedScene" uid="uid://cja8yhvlfeqe5" path="res://WorldSystem/mobs/mob.tscn" id="3_jmwqr"]
 [ext_resource type="PackedScene" uid="uid://cgcqeuvi0ycdy" path="res://WorldSystem/pickups/chest/chest.tscn" id="4_khf2s"]
 [ext_resource type="Script" uid="uid://3rmhwfd252x1" path="res://WorldSystem/pickups/WorldItem.gd" id="5_63rl3"]
@@ -9,16 +10,24 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="RoomA" parent="." instance=ExtResource("1_ddk8g")]
-position = Vector2(2.92819, 21.6194)
+[node name="Room_A" parent="." instance=ExtResource("2_5okd7")]
+
+[node name="Bridges" type="TileMapLayer" parent="Room_A"]
+tile_map_data = PackedByteArray("AAAOAAUAAAABAAEAAAAOAAYAAAABAAMAAAAPAAUAAAABAAEAAAAPAAYAAAABAAMAAAAQAAUAAAABAAEAAAAQAAYAAAABAAMAAAARAAUAAAABAAEAAAARAAYAAAABAAMAAAASAAUAAAABAAEAAAASAAYAAAABAAMAAAATAAUAAAABAAEAAAATAAYAAAABAAMAAAAUAAUAAAABAAEAAAAUAAYAAAABAAMAAAAVAAUAAAABAAEAAAAVAAYAAAABAAMAAAAWAAUAAAABAAEAAAAWAAYAAAABAAMAAAAXAAUAAAABAAEAAAAXAAYAAAABAAMAAAAYAAUAAAABAAEAAAAYAAYAAAABAAMAAAAZAAUAAAABAAEAAAAZAAYAAAABAAMAAAAaAAUAAAABAAEAAAAaAAYAAAABAAMAAAAbAAUAAAABAAEAAAAbAAYAAAABAAMAAAAcAAUAAAABAAEAAAAcAAYAAAABAAMAAAAdAAUAAAABAAEAAAAdAAYAAAABAAMAAAAeAAUAAAABAAEAAAAeAAYAAAABAAMAAAAfAAUAAAABAAEAAAAfAAYAAAABAAMAAAAgAAUAAAABAAEAAAAgAAYAAAABAAMAAAAhAAUAAAABAAEAAAAhAAYAAAABAAMAAAAiAAUAAAABAAEAAAAiAAYAAAABAAMAAAAjAAUAAAABAAEAAAAjAAYAAAABAAMAAAAkAAUAAAABAAEAAAAkAAYAAAABAAMAAAAlAAUAAAABAAEAAAAlAAYAAAABAAMAAAAmAAUAAAABAAEAAAAmAAYAAAABAAMAAAAnAAUAAAABAAEAAAAnAAYAAAABAAMAAAAoAAUAAAABAAEAAAAoAAYAAAABAAMAAAApAAUAAAABAAEAAAApAAYAAAABAAMAAAAqAAUAAAABAAEAAAAqAAYAAAABAAMAAAArAAUAAAABAAEAAAArAAYAAAABAAMAAAAsAAUAAAABAAEAAAAsAAYAAAABAAMAAAAtAAUAAAABAAEAAAAtAAYAAAABAAMAAAAuAAUAAAABAAEAAAAuAAYAAAABAAMAAAAvAAUAAAABAAEAAAAvAAYAAAABAAMAAAAwAAUAAAABAAEAAAAwAAYAAAABAAMAAAAxAAUAAAABAAEAAAAxAAYAAAABAAMAAAAyAAUAAAABAAEAAAAyAAYAAAABAAMAAAAzAAUAAAABAAEAAAAzAAYAAAABAAMAAAA0AAUAAAABAAEAAAA0AAYAAAABAAMAAAA1AAUAAAABAAEAAAA1AAYAAAABAAMAAAA=")
+tile_set = ExtResource("2_0gm83")
+
+[node name="Room_A" parent="Room_A" instance=ExtResource("2_5okd7")]
+position = Vector2(1088, 184)
+rotation = 3.14159
+
+[node name="Player" parent="." instance=ExtResource("1_63rl3")]
+position = Vector2(56, 40)
 
 [node name="Chest" parent="." instance=ExtResource("4_khf2s")]
-position = Vector2(638, 327)
+position = Vector2(941, 111)
 scale = Vector2(5.78208, 5.78208)
 possible_items = Array[ExtResource("5_63rl3")]([ExtResource("5_b8x78")])
 
 [node name="Mob" parent="." instance=ExtResource("3_jmwqr")]
-position = Vector2(1021, 791)
-
-[node name="Player" parent="." instance=ExtResource("2_jmwqr")]
-position = Vector2(356, 327)
+position = Vector2(189, 158)
+collision_layer = 2

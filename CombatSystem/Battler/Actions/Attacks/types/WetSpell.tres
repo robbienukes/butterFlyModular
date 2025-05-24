@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="2_538cw"]
 [ext_resource type="Resource" uid="uid://id16hf1rlkit" path="res://CombatSystem/StatusEffects/wet_effect.tres" id="3_7gjk1"]
 
-
 [resource]
 script = ExtResource("2_538cw")
 damage_multiplier = 0.0

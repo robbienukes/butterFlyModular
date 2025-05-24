@@ -1,6 +1,6 @@
 [gd_resource type="FontFile" load_steps=2 format=3 uid="uid://cag1ti0g7tmco"]
 
-[ext_resource type="FontFile" uid="uid://dimoog71mvqkf" path="res://CombatSystem/UserInterface/theme/fonts/fira_mono_medium.ttf" id="1"]
+[ext_resource type="FontFile" uid="uid://dimoog71mvqkf" path="res://shaders/CombatSystem/UserInterface/theme/fonts/fira_mono_medium.ttf" id="1"]
 
 [resource]
 fallbacks = Array[Font]([ExtResource("1")])

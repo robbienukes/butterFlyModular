@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3fl3stluv0gn"]
 
-[ext_resource type="Texture2D" uid="uid://51k2u7iwra8e" path="res://levels/rooms/tilesets/tileset_bridges.png" id="1_m4n6f"]
+[ext_resource type="Texture2D" uid="uid://51k2u7iwra8e" path="res://WorldSystem/levels/rooms/tilesets/tileset_bridges.png" id="1_m4n6f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_po4yl"]
 texture = ExtResource("1_m4n6f")

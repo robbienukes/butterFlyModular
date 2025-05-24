@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BulletData" load_steps=5 format=3 uid="uid://biewpc8v2p0ge"]
+
+[ext_resource type="Script" uid="uid://c1jq311jl8nvi" path="res://WorldSystem/weapons/bullets/BulletData.gd" id="1_i7an8"]
+[ext_resource type="Texture2D" uid="uid://dxe2pniv6kdn4" path="res://WorldSystem/weapons/bullets/fire_trail.png" id="1_pxl74"]
+[ext_resource type="AudioStream" uid="uid://baatxna4415hc" path="res://WorldSystem/weapons/bullets/hit_fire.wav" id="2_4h05p"]
+[ext_resource type="Texture2D" uid="uid://bgn8fvhkjniwn" path="res://WorldSystem/weapons/bullets/fire.png" id="3_7b6ij"]
+
+[resource]
+script = ExtResource("1_i7an8")
+bullet_name = "Standard Bullet"
+element_type = 0
+main_texture = ExtResource("3_7b6ij")
+effect_texture = ExtResource("1_pxl74")
+speed = 750.0
+base_damage = 1.0
+max_range = 1000.0
+fire_sound = ExtResource("2_4h05p")
+metadata/_custom_type_script = "uid://c1jq311jl8nvi"

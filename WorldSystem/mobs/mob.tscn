@@ -1,40 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://cja8yhvlfeqe5"]
+[gd_scene load_steps=7 format=3 uid="uid://cja8yhvlfeqe5"]
 
 [ext_resource type="Script" uid="uid://b0fkho7qpkf0k" path="res://WorldSystem/mobs/mob.gd" id="1_iwf45"]
-[ext_resource type="Texture2D" uid="uid://ddbc55b2n67wj" path="res://images/battlers/enemies/fireDog.png" id="2_b0yxn"]
+[ext_resource type="Resource" uid="uid://cixaavm6ltgjv" path="res://WorldSystem/mobs/redBlob_mob.tres" id="2_mj2st"]
+[ext_resource type="SpriteFrames" uid="uid://c0psb4w65vxtx" path="res://WorldSystem/mobs/spriteframes/redBlob_spriteframes.tres" id="3_b0yxn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_458eh"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_utfh3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rm5cg"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iwf45"]
-radius = 18.6779
-height = 190.584
+[sub_resource type="CircleShape2D" id="CircleShape2D_1okm4"]
 
 [node name="Mob" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 3
+scale = Vector2(0.321581, 0.321581)
+collision_layer = 5
+collision_mask = 7
 script = ExtResource("1_iwf45")
+mob_data = ExtResource("2_mj2st")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(5.7427, 2.67287)
-shape = SubResource("CircleShape2D_458eh")
+position = Vector2(0, 3.10964)
+scale = Vector2(0.666428, 0.666428)
+shape = SubResource("CircleShape2D_utfh3")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 unique_name_in_owner = true
+scale = Vector2(1.96434, 1.96434)
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(7.62939e-06, 0)
 scale = Vector2(12.5601, 12.5601)
 shape = SubResource("CircleShape2D_rm5cg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_b0yxn")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(2.0205, 2.0205)
+sprite_frames = ExtResource("3_b0yxn")
 
 [node name="HitBox" type="Area2D" parent="."]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-1.90735e-06, 0)
-rotation = -1.8326
-scale = Vector2(0.821008, 0.431556)
-shape = SubResource("CapsuleShape2D_iwf45")
+position = Vector2(0, 3.10964)
+scale = Vector2(1.24136, 1.24136)
+shape = SubResource("CircleShape2D_1okm4")

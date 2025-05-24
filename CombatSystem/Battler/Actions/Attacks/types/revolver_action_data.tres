@@ -4,7 +4,6 @@
 [ext_resource type="AudioStream" uid="uid://cr04ob0mwr7kp" path="res://Sounds/Actions/revolverShot.wav" id="2_pqsm0"]
 [ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="3_j5jda"]
 
-
 [resource]
 script = ExtResource("3_j5jda")
 damage_multiplier = 1.0

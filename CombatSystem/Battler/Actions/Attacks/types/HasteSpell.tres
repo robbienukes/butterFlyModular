@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://c6vgdcngc7o5k" path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" id="1_k21jp"]
 [ext_resource type="Resource" uid="uid://e0g7fomskngg" path="res://CombatSystem/StatusEffects/haste_effect.tres" id="2_uhm3g"]
 
-
 [resource]
 script = ExtResource("1_k21jp")
 damage_multiplier = 0.0

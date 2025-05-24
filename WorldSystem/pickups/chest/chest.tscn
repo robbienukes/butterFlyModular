@@ -37,10 +37,12 @@ script = ExtResource("1_ve0v0")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+scale = Vector2(0.166185, 0.166185)
 sprite_frames = SubResource("SpriteFrames_m065y")
 animation = &"open"
 
 [node name="DetectionArea" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(4.76837e-07, 0)
+scale = Vector2(0.123393, 0.123393)
 shape = SubResource("CircleShape2D_8cmxw")
