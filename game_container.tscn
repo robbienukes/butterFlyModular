@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://o0uuuyuokrba"]
+
+[ext_resource type="Script" uid="uid://b3grpj1a0xmpk" path="res://level_container.gd" id="1_likpg"]
+[ext_resource type="PackedScene" uid="uid://bjs25mcokm6p5" path="res://WorldSystem/levels/testLevel.tscn" id="2_ge4kj"]
+
+[node name="GameContainer" type="Node2D"]
+script = ExtResource("1_likpg")
+levels = Array[PackedScene]([ExtResource("2_ge4kj"), null])
+
+[node name="LevelRoot" type="Node2D" parent="."]
+
+[node name="UICanvas" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UICanvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

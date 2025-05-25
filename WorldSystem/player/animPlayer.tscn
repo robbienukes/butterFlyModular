@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://dkw6mehqpc23r"]
+[gd_scene load_steps=27 format=3 uid="uid://dkw6mehqpc23r"]
 
-[ext_resource type="Script" uid="uid://0btyn1yj2r6c" path="res://animPlayer.gd" id="1_o37do"]
+[ext_resource type="Script" uid="uid://0btyn1yj2r6c" path="res://WorldSystem/player/animPlayer.gd" id="1_o37do"]
 [ext_resource type="Texture2D" uid="uid://dyig1xgky7cil" path="res://images/PLUS/5. Character Animations/blue/swordless/idle/Left/Character1_blue_idleLeft_v1.0_frames/1.png" id="2_d188m"]
 [ext_resource type="Texture2D" uid="uid://c3hy5nchjvgsw" path="res://images/PLUS/5. Character Animations/blue/swordless/idle/Left/Character1_blue_idleLeft_v1.0_frames/2.png" id="3_yatud"]
 [ext_resource type="Texture2D" uid="uid://dlnr5sm6jsmuv" path="res://images/PLUS/5. Character Animations/blue/swordless/idle/Left/Character1_blue_idleLeft_v1.0_frames/3.png" id="4_5pe2v"]
@@ -17,9 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://d4h0e63th75hu" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Up/Character1_blue_runUp_v1.0_frames/2.png" id="15_8qooi"]
 [ext_resource type="Texture2D" uid="uid://c6m1kjkybogvn" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Up/Character1_blue_runUp_v1.0_frames/3.png" id="16_bricq"]
 [ext_resource type="Texture2D" uid="uid://blo72wkoueanl" path="res://images/PLUS/5. Character Animations/blue/swordless/run/Up/Character1_blue_runUp_v1.0_frames/4.png" id="17_kxsm7"]
-[ext_resource type="Script" uid="uid://dmhh1tvysav5v" path="res://animPlayerSprite.gd" id="18_psdyr"]
+[ext_resource type="Script" uid="uid://dmhh1tvysav5v" path="res://WorldSystem/player/animPlayerSprite.gd" id="18_psdyr"]
 [ext_resource type="Script" uid="uid://byh6cs52ox13s" path="res://WorldSystem/player/weapon_pivot.gd" id="19_jw6pa"]
+[ext_resource type="Texture2D" uid="uid://x87qxh2xpddw" path="res://images/rpgUI/20240707dragon9SlicesA.png" id="19_v5ud5"]
+[ext_resource type="Texture2D" uid="uid://bhh3ksb502752" path="res://images/rpgUI/20240707dragon9SlicesATexture.png" id="20_7x5vv"]
 [ext_resource type="PackedScene" uid="uid://pfqhjenqwd12" path="res://WorldSystem/weapons/weapon.tscn" id="20_g67jt"]
+[ext_resource type="Texture2D" uid="uid://cfignmiwwpuoq" path="res://images/rpgUI/20240707dragon9SlicesC.png" id="21_rrqgl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pccmb"]
 animations = [{
@@ -100,6 +103,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u52yv"]
 size = Vector2(6, 10)
 
+[sub_resource type="Theme" id="Theme_o37do"]
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
@@ -118,12 +123,18 @@ shape = SubResource("RectangleShape2D_u52yv")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
-offset_left = -44.0
-offset_top = -92.0
-offset_right = 44.0
-offset_bottom = -65.0
+offset_left = -3.99999
+offset_top = -12.0
+offset_right = 51.0
+offset_bottom = 5.00002
+scale = Vector2(0.356192, 0.356192)
+theme = SubResource("Theme_o37do")
+nine_patch_stretch = true
+texture_under = ExtResource("19_v5ud5")
+texture_over = ExtResource("20_7x5vv")
+texture_progress = ExtResource("21_rrqgl")
 
 [node name="WeaponPivot" type="Node2D" parent="."]
 position = Vector2(6, 6)
